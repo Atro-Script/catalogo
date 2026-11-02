@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Televisor</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <p class="para" id="para"></p>
+  <div class="tele">
+    <div class="antenas" aria-hidden="true"><i></i><i></i></div>
+    <div class="carcasa">
+      <div class="marco"><div id="pantalla" class="pantalla apagada">
+        <canvas id="ruido" class="ruido" width="96" height="72" aria-hidden="true"></canvas>
+        <div id="canal" class="canal" hidden>
+          <div id="foto" class="foto"></div>
+          <div class="info"><p id="fecha" class="fecha"></p><h2 id="titulo"></h2><p id="texto"></p></div>
+        </div>
+        <p id="osd" class="osd" aria-live="polite"></p>
+        <p id="apagado" class="apagado">Enciende la tele</p>
+        <div class="scan" aria-hidden="true"></div><div class="brillo" aria-hidden="true"></div>
+      </div></div>
+      <div class="mandos">
+        <button id="enc" class="perilla" aria-label="Encender o apagar la televisión"><span></span></button>
+        <div class="canales"><button id="menos" class="tecla" aria-label="Canal anterior">CH −</button><button id="mas" class="tecla" aria-label="Canal siguiente">CH +</button></div>
+        <div class="rejilla" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="patas" aria-hidden="true"><i></i><i></i></div>
+  </div>
+  <div class="extra"><button id="zap" class="boton sec">Cambiar de canal sola</button><button id="sonido" class="boton sec" aria-pressed="true">Sonido: sí</button></div>
+</main>
+<script src="datos.js"></script>
+<script src="tele.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

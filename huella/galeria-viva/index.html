@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><p class="curador" id="curador"></p><h1 id="titulo"></h1></header>
+<nav id="salas" class="salas" aria-label="Salas"></nav>
+<section class="sala"><p id="intro" class="intro"></p><button id="recorrido" class="boton">Recorrido guiado</button></section>
+<main id="pared" class="pared"></main>
+<div class="piso" aria-hidden="true"></div>
+<div id="visor" class="visor" hidden role="dialog" aria-modal="true" aria-label="Obra">
+  <button id="cerrar" class="x" aria-label="Cerrar">&times;</button>
+  <div class="marco-g"><img id="vImg" alt=""></div>
+  <div class="placa"><h2 id="vTit"></h2><p id="vMeta" class="meta"></p><p id="vHist"></p><audio id="vAudio" controls hidden></audio></div>
+  <div class="nav"><button id="ant" class="boton sec" aria-label="Obra anterior">‹</button><span id="vPos"></span><button id="sig" class="boton sec" aria-label="Obra siguiente">›</button></div>
+</div>
+<script src="datos.js"></script>
+<script src="galeria.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

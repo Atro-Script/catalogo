@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nivel desbloqueado</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="inicio" class="centro">
+    <p class="kicker">Jugador</p>
+    <h1 id="jugador"></h1>
+    <p class="tit">Presiona START para continuar</p>
+    <button id="start" class="boton">START</button>
+  </section>
+  <section id="juego" hidden>
+    <p class="kicker">Nivel</p>
+    <div id="nivel" class="nivel" aria-live="polite"></div>
+    <div class="xp" aria-hidden="true"><div id="barra"></div></div>
+    <h2 id="titulo" class="up"></h2>
+    <ul id="logros" class="logros"></ul>
+    <section id="mision" class="mision" hidden>
+      <h3 id="mNombre"></h3><p id="mDesc"></p>
+      <p class="dato">📅 <span id="mFecha"></span></p><p class="dato">📍 <span id="mLugar"></span></p>
+      <a id="aceptar" class="boton" target="_blank" rel="noopener">ACEPTAR MISIÓN</a>
+    </section>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="nivel.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

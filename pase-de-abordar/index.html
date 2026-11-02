@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pase de abordar</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="nubes" aria-hidden="true"></div>
+<main>
+  <article class="pase">
+    <header class="cab"><span id="aerolinea"></span><span class="tipo">PASE DE ABORDAR</span></header>
+    <div class="cuerpo">
+      <p class="eti">Pasajero</p><p id="pasajero" class="valor"></p>
+      <div class="ruta">
+        <div><p class="eti">Origen</p><p id="codO" class="cod"></p><p id="ciuO" class="ciu"></p></div>
+        <div class="avion" aria-hidden="true">✈</div>
+        <div><p class="eti">Destino</p><div id="tablero" class="tablero" aria-live="polite" aria-label="Destino oculto"></div><p id="ciuD" class="ciu"></p></div>
+      </div>
+      <div class="datos">
+        <div><p class="eti">Fecha</p><p id="fecha" class="valor"></p></div>
+        <div><p class="eti">Hora</p><p id="hora" class="valor"></p></div>
+        <div><p class="eti">Vuelo</p><p id="vuelo" class="valor"></p></div>
+        <div><p class="eti">Puerta</p><p id="puerta" class="valor"></p></div>
+        <div><p class="eti">Asiento</p><p id="asiento" class="valor"></p></div>
+      </div>
+    </div>
+    <div class="corte" aria-hidden="true"></div>
+    <footer class="talon"><p id="mensaje" class="mensaje"></p><div class="barras" aria-hidden="true"></div><button id="revelar" class="boton"></button></footer>
+  </article>
+</main>
+<script src="datos.js"></script>
+<script src="pase.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

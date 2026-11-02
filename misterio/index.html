@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misterio</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="portada" class="exp portada">
+    <span class="sello-conf" aria-hidden="true">Confidencial</span>
+    <p class="exp-n">Expediente Nº 0045</p>
+    <h1 id="titulo"></h1>
+    <p id="intro" class="intro"></p>
+    <button id="empezar" class="boton">Abrir el expediente</button>
+  </section>
+  <section id="juego" hidden>
+    <nav class="tabs" role="tablist"><button id="tSosp" class="on" role="tab">Sospechosos</button><button id="tPrue" role="tab">Pruebas <span id="nPistas" class="num">0</span></button><button id="tAcus" role="tab">Acusar</button></nav>
+    <div id="vSosp" class="exp">
+      <div id="lista" class="sosp-lista"></div>
+      <div id="interrogatorio" class="interr" hidden>
+        <h2 id="iNombre"></h2><p id="iRol" class="rol"></p>
+        <div id="preguntas" class="preguntas"></div>
+        <div id="respuestas" class="respuestas" aria-live="polite"></div>
+      </div>
+    </div>
+    <div id="vPrue" class="exp" hidden>
+      <h2>Pistas reunidas</h2><ul id="pistas" class="pistas"><li class="vacia">Aún no tienes pistas. Interroga a los sospechosos.</li></ul>
+      <h2 id="docTitulo"></h2>
+      <p class="rol" id="docAyuda"></p>
+      <div id="cifrado" class="cifrado"></div>
+      <label class="desp">Corrimiento: <b id="despN">0</b><input id="desp" type="range" min="0" max="25" value="0" aria-label="Corrimiento del cifrado"></label>
+      <p id="docOk" class="doc-ok" role="status" hidden></p>
+    </div>
+    <div id="vAcus" class="exp" hidden>
+      <h2>¿Quién se llevó el pastel?</h2>
+      <p id="intentos" class="rol"></p>
+      <div id="opciones" class="opciones"></div>
+      <p id="mensaje" class="mensaje" role="status"></p>
+    </div>
+  </section>
+  <section id="final" class="exp portada" hidden>
+    <span class="sello-conf cerrado" aria-hidden="true">Caso cerrado</span>
+    <h2 id="fTitulo"></h2><p id="fTexto" class="intro"></p><p id="fResumen" class="rol"></p>
+    <button id="otra" class="boton">Jugar de nuevo</button>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="misterio.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>
