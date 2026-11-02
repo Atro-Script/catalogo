@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lector de huella</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="lector" class="lector">
+    <p class="estado" id="estado" role="status"></p>
+    <h1 id="titulo"></h1>
+    <p class="para" id="para"></p>
+    <div id="pad" class="pad" role="button" tabindex="0" aria-label="Lector de huella: mantén presionado">
+      <i class="esq a"></i><i class="esq b"></i><i class="esq c"></i><i class="esq d"></i>
+      <svg id="huella" viewBox="0 0 120 150" aria-hidden="true"></svg>
+      <div class="rayo" aria-hidden="true"></div>
+    </div>
+    <div class="medidor"><span id="barra"></span></div>
+    <p id="pct" class="pct">0 %</p>
+    <p id="ayuda" class="ayuda"></p>
+  </section>
+  <section id="abierto" class="abierto" hidden>
+    <p class="ok">✔ ACCESO CONCEDIDO</p>
+    <h2 id="oTit"></h2><p id="oMsg" class="msg"></p>
+    <ul id="archivos" class="archivos"></ul>
+  </section>
+</main>
+<div id="flash" class="flash" aria-hidden="true"></div>
+<script src="datos.js"></script>
+<script src="huella.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

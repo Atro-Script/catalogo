@@ -1,0 +1,38 @@
+:root{--fondo:#0E5A5A;--sello:#FF7F6B;--crema:#FFF6E6;--tinta:#1E2B2B}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;background:var(--fondo);color:var(--crema);font-family:"Trebuchet MS","Segoe UI",sans-serif;line-height:1.5}
+main{max-width:480px;margin:0 auto;padding:5vh 6vw 8vh;display:grid;gap:1.6rem}
+header{text-align:center}
+.neg{margin:0;font-weight:700;letter-spacing:.02em}
+h1{margin:.2rem 0 0;font-size:clamp(1.8rem,8vw,2.6rem);line-height:1.1}
+.tarjeta{background:var(--crema);color:var(--tinta);border-radius:18px;padding:1.4rem;box-shadow:0 12px 0 rgba(0,0,0,.18)}
+.prem{margin:0 0 1rem;text-align:center}
+.rejilla{display:grid;grid-template-columns:repeat(var(--cols,5),1fr);gap:.6rem}
+.sello{aspect-ratio:1;border:2px dashed #b9ad98;border-radius:50%;display:grid;place-items:center;color:#9b917f;font-weight:700}
+.sello.puesto{border:2px solid var(--sello);background:var(--sello);color:var(--crema);font-size:1.5rem;transform:rotate(var(--giro))}
+.estado{margin:1rem 0 .2rem;text-align:center;font-weight:700}
+.canj{margin:0;text-align:center;font-size:.9rem;opacity:.75}
+.negocio h2{margin:0 0 .6rem;font-size:1.1rem}
+label{display:grid;gap:.3rem;font-weight:600}
+input{font:inherit;padding:.7rem;border:0;border-radius:10px;background:var(--crema);color:var(--tinta)}
+.acciones{display:flex;gap:.7rem;margin-top:.8rem}
+button{font:inherit;font-weight:700;background:var(--sello);color:var(--tinta);border:0;border-radius:99px;padding:.75rem 1.4rem;cursor:pointer}
+button.sec{background:var(--crema)}
+input:focus-visible,button:focus-visible{outline:3px solid var(--crema);outline-offset:2px}
+.error{min-height:1.5em;margin:.6rem 0 0;font-weight:700;color:#FFD3CC}
+
+/* ===== Mejora visual ===== */
+body{background:radial-gradient(120% 80% at 50% 0,#1A8A8A 0,#0E5A5A 55%,#093C3C 100%) fixed;background-color:#0E5A5A}
+main{padding-top:calc(env(safe-area-inset-top,0px) + 4.4rem)}
+header h1{font-size:1.9rem;text-shadow:0 3px 14px #0007}
+.neg{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:#FFD9A8}
+.tarjeta{background:linear-gradient(160deg,#FFFDF5,#FFF1DA);border-radius:24px;box-shadow:0 20px 40px #0008,inset 0 0 0 6px #fff,inset 0 0 0 7px #E6C07A;padding:1.4rem 1.1rem}
+.prem b{color:#B5532E}
+.rejilla{gap:.7rem}
+.sello{background:#F7EBD2;border:2px dashed #C9B27A;color:#B09A66;font-weight:800}
+.sello.puesto{background:radial-gradient(circle at 35% 30%,#FFB3A3,#FF7F6B 60%,#D9533F);border:0;color:#fff;box-shadow:0 4px 8px #0004,inset 0 -3px 0 #0002;transform:rotate(-8deg)}
+.estado{color:#7A4B2A;font-weight:700}
+.negocio{background:#ffffff14;border-radius:20px;padding:1.2rem;border:1px solid #ffffff22;margin-top:1.4rem}
+.negocio input{background:#FFF8E8;border-radius:12px}
+#sellar,.boton{background:linear-gradient(135deg,#FFB08F,#FF7F6B);color:#3B1200;border:0;border-radius:99px;font-weight:800;box-shadow:0 6px 0 #B9503F}

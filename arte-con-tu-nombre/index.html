@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arte con tu Nombre</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><p class="mini">Póster generativo</p><h1>Arte con tu Nombre</h1><p>Cada nombre y cada fecha dibujan un diseño único: nadie más tendrá el mismo.</p></header>
+<main>
+  <div class="marco"><canvas id="lienzo" width="900" height="1200" aria-label="Vista previa del póster"></canvas></div>
+  <form class="panel" onsubmit="return false">
+    <label>Nombre<input id="nombre" maxlength="24" autocomplete="off"></label>
+    <div class="dos"><label>Fecha<input id="fecha" maxlength="24" autocomplete="off"></label><label>Frase corta<input id="frase" maxlength="34" autocomplete="off"></label></div>
+    <fieldset><legend>Estilo</legend><div id="estilos" class="estilos"></div></fieldset>
+    <fieldset><legend>Paleta de colores <span id="nPal"></span></legend><div id="paletas" class="paletas"></div></fieldset>
+    <div class="acc"><button id="azar" class="boton sec">Sorpréndeme</button><button id="bajar" class="boton" hidden>Descargar imagen</button><button id="pedir" class="boton">Pedir este póster</button></div>
+    <p id="notaVista" class="nota">Es una vista previa. Si te gusta, lo preparamos en alta calidad, listo para imprimir o compartir.</p>
+  </form>
+</main>
+<script src="../assets/config.js"></script>
+<script src="datos.js"></script>
+<script src="arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

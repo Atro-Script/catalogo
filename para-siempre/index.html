@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boda</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="hero">
+  <div class="marco">
+    <p class="kicker">Nos casamos</p>
+    <h1 id="nombre"></h1>
+    <p id="mensaje" class="msj"></p>
+    <p id="fechaTexto" class="fecha"></p>
+    <div id="cuenta" class="cuenta"></div>
+  </div>
+</header>
+<main>
+  <section><h2>Programa</h2><ul id="programa" class="programa"></ul></section>
+  <section>
+    <h2>Lugar</h2>
+    <p class="lugar"><strong id="lugarNombre"></strong><br><span id="lugarDir"></span></p>
+    <a id="mapa" class="boton sec" target="_blank" rel="noopener">Abrir en el mapa</a>
+  </section>
+  <section id="seccionFotos"><h2>Nuestra historia</h2><div id="galeria" class="galeria"></div></section>
+  <section><h2>Confirma tu asistencia</h2>
+    <a id="confirmar" class="boton" target="_blank" rel="noopener">Confirmar por WhatsApp</a></section>
+</main>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

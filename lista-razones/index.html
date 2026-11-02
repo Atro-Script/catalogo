@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Razones</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <header><p id="para" class="para"></p><h1 id="titulo"></h1></header>
+  <section id="mesa" class="mesa">
+    <div id="pila" class="pila" aria-live="polite"></div>
+    <p id="cuenta" class="cuenta"></p>
+    <div class="acciones"><button id="atras" class="boton sec">‹ Anterior</button><button id="sig" class="boton">Siguiente razón ›</button></div>
+    <p class="tip">También puedes deslizar la tarjeta hacia los lados.</p>
+  </section>
+  <section id="cielo" class="cielo" hidden>
+    <p id="finalTxt" class="finalTxt"></p>
+    <div id="estrellas" class="estrellas"></div>
+    <p id="verRazon" class="ver-razon" role="status">Toca una estrella para releer una razón.</p>
+    <button id="otra" class="boton sec">Volver a empezar</button>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="razones.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

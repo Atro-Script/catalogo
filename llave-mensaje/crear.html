@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear mensaje cifrado</title>
+<style>
+body{margin:0;padding:6vw;max-width:560px;margin-inline:auto;font-family:"Segoe UI",system-ui,sans-serif;background:#0D1B1E;color:#F4E9DC;line-height:1.5}
+label{display:block;margin:1rem 0 .3rem;font-weight:600}
+textarea,input{width:100%;font:inherit;padding:.7rem;border-radius:8px;border:1px solid #D98E5F;background:#0A1517;color:#F4E9DC}
+button{margin-top:1rem;font:inherit;font-weight:700;background:#D98E5F;color:#0D1B1E;border:0;border-radius:99px;padding:.7rem 1.6rem;cursor:pointer}
+.nota{opacity:.8;font-size:.95rem}
+textarea:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid #F4E9DC;outline-offset:2px}
+</style>
+</head>
+<body>
+<h1>Crear mensaje cifrado</h1>
+<p class="nota">Escribe el mensaje y la clave. Copia la línea resultante en <b>datos.js</b>, en el campo <b>cifrado</b>. Anota la clave aparte: no se puede recuperar.</p>
+<label for="m">Mensaje</label><textarea id="m" rows="6"></textarea>
+<label for="k">Clave (no distingue mayúsculas ni acentos)</label><input id="k">
+<button id="go">Cifrar</button>
+<label for="o">Resultado</label><textarea id="o" rows="5" readonly></textarea>
+<button id="copiar">Copiar</button>
+<script src="cripto.js"></script>
+<script>
+document.getElementById("go").onclick = async () => {
+  const m = document.getElementById("m").value, k = document.getElementById("k").value;
+  if (!m.trim() || !k.trim()) { document.getElementById("o").value = "Escribe el mensaje y la clave."; return; }
+  if (!window.crypto || !crypto.subtle) { document.getElementById("o").value = "Abre esta página desde https o localhost."; return; }
+  document.getElementById("o").value = 'cifrado: "' + await CRIPTO.cifrar(m, k) + '"';
+};
+document.getElementById("copiar").onclick = () => { const o = document.getElementById("o"); o.select(); if (navigator.clipboard) navigator.clipboard.writeText(o.value); };
+</script>
+</body>
+</html>

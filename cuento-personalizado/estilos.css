@@ -1,0 +1,65 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:#3B2A1A;font-family:Georgia,serif;background:#2A1B4D}
+main{max-width:520px;margin:0 auto;min-height:100svh;background:#FBF3E2;box-shadow:0 0 40px rgba(0,0,0,.5)}
+.portada{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 8vw;background:radial-gradient(circle at 50% 22%,#FFE8A6,transparent 55%),linear-gradient(#FBF3E2,#F2DFB8);border:10px double #B88A3A}
+.icono{font-size:6rem;animation:late 2.4s ease-in-out infinite;filter:drop-shadow(0 6px 10px rgba(184,138,58,.6))}
+h1{margin:.6rem 0;font-size:clamp(2rem,9vw,2.8rem);line-height:1.1;color:#5B2F8A}
+.dedica{font-style:italic;margin:0 0 1.6rem}
+.boton{font:inherit;font-weight:700;color:#fff;background:#5B2F8A;border:0;border-radius:99px;padding:.9rem 2rem;cursor:pointer;box-shadow:0 5px 0 #34175A}
+.escena{position:relative;height:38svh;min-height:230px;overflow:hidden}
+.escena::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14%;background:linear-gradient(transparent,rgba(0,0,0,.28))}
+.obj{position:absolute;transform:translate(-50%,-50%);line-height:1;animation:flota 5s ease-in-out infinite alternate;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+.pagina{padding:1.4rem 1.3rem .6rem}
+.pagina.pasa{animation:pasa .5s ease-out}
+.texto{margin:0 0 1.2rem;font-size:1.2rem;line-height:1.7;white-space:pre-line}
+.opciones{display:grid;gap:.6rem}
+.opcion{font:inherit;font-weight:700;text-align:left;color:#3B2A1A;background:#FFF;border:3px solid #5B2F8A;border-radius:14px;padding:.8rem 1rem;cursor:pointer;box-shadow:0 4px 0 #5B2F8A}
+.opcion:hover{background:#F1E6FF}
+.fin{text-align:center;padding:1rem;border:3px dashed #B88A3A;border-radius:14px;background:#FFF6D8}
+.fin h2{margin:0 0 .3rem;color:#5B2F8A}.fin p{margin:.2rem 0 .8rem}
+.herr{display:flex;justify-content:space-between;gap:.5rem;padding:.6rem 1.3rem 1.6rem}
+.chico{font:inherit;color:#5B2F8A;background:transparent;border:2px solid #5B2F8A;border-radius:99px;padding:.4rem 1rem;cursor:pointer}
+.chico:disabled{opacity:.35}
+button:focus-visible{outline:3px solid #FF9A3C;outline-offset:3px}
+@keyframes late{50%{transform:scale(1.1) rotate(6deg)}}@keyframes flota{from{transform:translate(-50%,-50%) translateY(-7px)}to{transform:translate(-50%,-50%) translateY(7px)}}@keyframes pasa{from{opacity:0;transform:translateX(26px)}}
+@media (prefers-reduced-motion:reduce){.icono,.obj,.pagina.pasa{animation:none}}
+
+/* ===== Mejora visual ===== */
+body{background:radial-gradient(120% 80% at 50% -10%,#FFF8E1 0,#F6E3B4 60%,#E9CF8E 100%) fixed;background-color:#F6E3B4}
+main{padding-top:calc(env(safe-area-inset-top,0px) + 4.4rem)}
+.portada{background:linear-gradient(170deg,#3B2A7A,#6D4BB8);border-radius:24px;padding:2.2rem 1.4rem;box-shadow:0 18px 40px #3B2A7A55,inset 0 0 0 2px #F5D27655;margin:0 .4rem}
+.portada h1,.portada .dedica{color:#FFF6DA}
+.icono{filter:drop-shadow(0 8px 14px #0005);animation:flota 3.6s ease-in-out infinite}
+@keyframes flota{50%{transform:translateY(-8px)}}
+.boton{background:linear-gradient(135deg,#F5C86A,#E0A030);color:#3A2300;box-shadow:0 6px 0 #9A6410,0 10px 18px #0004;border:0;font-weight:800}
+.boton:active{transform:translateY(3px)}
+#libro{background:#FFFBEF;border-radius:20px;padding:1rem;box-shadow:0 14px 34px #5A3E0F40,inset 0 0 0 2px #E7CB8A}
+.escena{border-radius:14px;overflow:hidden;box-shadow:inset 0 -30px 40px #0002}
+.pagina{background:transparent}
+.texto{font-size:1.08rem;line-height:1.6;color:#3A2A1A}
+.opcion{background:#fff;border:2px solid #E0A030;border-radius:14px;color:#5A3A0F;box-shadow:0 4px 0 #E0A030}
+.opcion:hover{background:#FFF1CC}
+.herr{margin-top:.6rem}
+.chico{border-radius:99px}
+
+/* ===== Animaciones fluidas ===== */
+.escena{position:relative;overflow:hidden;height:250px;border-radius:14px;isolation:isolate}
+.capa{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.capa.visible{opacity:1}
+.obj{animation:flotaSuave 4.5s ease-in-out infinite;will-change:transform;transform:translate(-50%,-50%);filter:drop-shadow(0 6px 8px #0004)}
+@keyframes flotaSuave{0%,100%{transform:translate(-50%,-50%) translateY(0) rotate(-3deg)}50%{transform:translate(-50%,-50%) translateY(-10px) rotate(3deg)}}
+.polvo{position:absolute;bottom:-8px;width:4px;height:4px;border-radius:50%;background:#FFF6D6;opacity:0;box-shadow:0 0 6px #FFF6D6;animation:subePolvo 6s linear infinite}
+@keyframes subePolvo{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-260px) translateX(12px);opacity:0}}
+.linea{margin:0 0 .6rem;opacity:0;transform:translateY(10px);animation:aparecePar .7s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes aparecePar{to{opacity:1;transform:none}}
+.opcion{opacity:0;transform:translateY(12px) scale(.97);animation:entraOpcion .55s cubic-bezier(.2,.8,.3,1.2) forwards;transition:transform .15s,box-shadow .15s,background .2s}
+@keyframes entraOpcion{to{opacity:1;transform:none}}
+.opcion:hover{transform:translateY(-2px)}
+.opcion:active{transform:translateY(2px);box-shadow:0 1px 0 #E0A030}
+#pagina.pasa{animation:pagina .6s cubic-bezier(.2,.7,.3,1)}
+@keyframes pagina{from{opacity:0;transform:translateX(18px) rotate(.4deg)}to{opacity:1;transform:none}}
+.boton{transition:transform .15s,box-shadow .15s}
+.boton:hover{transform:translateY(-1px)}
+.icono{transition:transform .4s}
+@media (prefers-reduced-motion:reduce){.linea,.opcion,.obj,.polvo,#pagina.pasa,.capa{animation:none!important;transition:none!important;opacity:1;transform:none}.obj{transform:translate(-50%,-50%)}}

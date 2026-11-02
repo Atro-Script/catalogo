@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarjeta de lealtad</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <header>
+    <p id="negocio" class="neg"></p>
+    <h1>Tarjeta de lealtad</h1>
+  </header>
+  <section class="tarjeta">
+    <p class="prem">Premio: <b id="premio"></b></p>
+    <div id="rejilla" class="rejilla"></div>
+    <p id="estado" class="estado" role="status"></p>
+    <p class="canj">Premios canjeados: <b id="premios">0</b></p>
+  </section>
+  <section class="negocio">
+    <h2>Solo para el negocio</h2>
+    <label>Código del negocio <input id="pin" type="password" inputmode="numeric" autocomplete="off"></label>
+    <div class="acciones">
+      <button id="sellar">Agregar sello</button>
+      <button id="canjear" class="sec">Canjear premio</button>
+    </div>
+    <p id="error" class="error" role="alert"></p>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="tarjeta.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una pregunta</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div id="lluvia" class="lluvia" aria-hidden="true"></div>
+<main id="pantalla">
+  <p id="de" class="de"></p>
+  <h1 id="pregunta"></h1>
+  <p id="sub"></p>
+  <div class="botones">
+    <button id="si" class="si"></button>
+    <button id="no" class="no"></button>
+  </div>
+  <p id="pista" class="pista" role="status"></p>
+</main>
+<main id="final" hidden>
+  <h1 id="finalTitulo"></h1>
+  <p id="finalMensaje"></p>
+  <a id="avisar" class="si enlace" target="_blank" rel="noopener">Avisar por WhatsApp</a>
+</main>
+<script src="datos.js"></script>
+<script src="pregunta.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

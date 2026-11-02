@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un mensaje para ti</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="bloqueo">
+    <div class="llave" aria-hidden="true">🗝️</div>
+    <p class="para">Un mensaje para <b id="para"></b></p>
+    <h1>Solo se abre con la clave</h1>
+    <form id="form" class="caja" autocomplete="off">
+      <label for="clave">Escribe la clave</label>
+      <input id="clave" type="password" autocomplete="off">
+      <button id="abrir" class="boton">Abrir mensaje</button>
+      <p id="error" class="error" role="alert"></p>
+    </form>
+    <p id="pista" class="pista"></p>
+  </section>
+  <section id="mensaje" class="mensaje" hidden>
+    <p class="para">De parte de <b id="de"></b></p>
+    <div id="texto" class="texto"></div>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="cripto.js"></script>
+<script src="llave.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

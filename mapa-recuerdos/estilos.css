@@ -1,0 +1,19 @@
+:root{--perg:#EBD9B4;--tinta:#4B3620;--rojo:#B3412B}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;color:var(--tinta);font-family:Georgia,serif;text-align:center;background:#6B5236}
+main{max-width:480px;margin:0 auto;padding:4vh 5vw 8vh;background:radial-gradient(ellipse at center,#F3E5C3,var(--perg) 70%,#CDB583);min-height:100svh;box-shadow:0 0 40px rgba(0,0,0,.4)}
+h1{margin:0;font-style:italic;font-weight:400;font-size:clamp(1.8rem,8vw,2.6rem)}
+.sub{margin:.3rem 0 1.2rem;opacity:.8}
+.mapa{position:relative;aspect-ratio:5/6;border:3px double var(--tinta);border-radius:6px;background:rgba(255,255,255,.18)}
+svg{position:absolute;inset:0;width:100%;height:100%}
+.ruta{fill:none;stroke:var(--rojo);stroke-width:2.5;stroke-dasharray:2 3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.marca{position:absolute;transform:translate(-50%,-50%);width:2.2rem;height:2.2rem;border-radius:50%;border:2px solid var(--tinta);background:#F8EED5;color:var(--tinta);font:700 1rem Georgia,serif;cursor:pointer;padding:0}
+.marca.visto{background:var(--rojo);color:#fff;border-color:#6d2314}
+.marca.on{transform:translate(-50%,-50%) scale(1.3);box-shadow:0 0 0 4px rgba(179,65,43,.3)}
+.marca.final{border-radius:6px}
+.marca:focus-visible,.boton:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.detalle{margin:1.2rem 0;padding:1rem 1.2rem;background:rgba(255,255,255,.4);border:1px solid rgba(75,54,32,.4);border-radius:6px;min-height:8.5rem}
+h2{margin:0;font-size:1.4rem;font-weight:700}
+.fecha{margin:.2rem 0 .6rem;font-style:italic;color:var(--rojo)}
+.detalle p:last-child{margin:0}
+.boton{font:inherit;font-weight:700;background:var(--tinta);color:#F8EED5;border:0;border-radius:99px;padding:.8rem 1.8rem;cursor:pointer}

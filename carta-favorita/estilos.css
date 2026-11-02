@@ -1,0 +1,22 @@
+:root{--fondo:#E7DCCB;--papel:#FBF6EC;--tinta:#4A3426;--sello:#8E2F3B}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;background:var(--fondo);color:var(--tinta);font-family:Georgia,serif}
+main{max-width:560px;margin:0 auto;padding:6vh 6vw}
+#envoltura{text-align:center;display:grid;justify-items:center;gap:1.4rem;min-height:80svh;align-content:center}
+.para{margin:0;font-size:1.2rem}
+.sobre{position:relative;width:min(80vw,320px);aspect-ratio:4/3;background:#D8C3A5;border:0;border-radius:6px;cursor:pointer;box-shadow:0 10px 24px rgba(74,52,38,.25)}
+.solapa{position:absolute;inset:0 0 auto 0;height:58%;background:#C9AE8A;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s}
+.abierto .solapa{transform:rotateX(180deg)}
+.sello{position:absolute;left:50%;top:50%;width:3rem;height:3rem;margin:-1.5rem 0 0 -1.5rem;border-radius:50%;background:var(--sello);color:#F5E6D3;display:grid;place-items:center;font-size:1.4rem;transition:opacity .4s}
+.abierto .sello{opacity:0}
+.sobre:focus-visible{outline:3px solid var(--sello);outline-offset:4px}
+.pista{margin:0;opacity:.8}
+.carta{background:var(--papel);padding:2rem 1.6rem;border-radius:4px;box-shadow:0 10px 30px rgba(74,52,38,.2);font-family:"Segoe Print","Bradley Hand","Segoe Script","Brush Script MT",cursive;font-size:1.3rem;line-height:1.85}
+.carta p{margin:0 0 1.1rem;animation:aparece .9s both}
+.fecha{opacity:.7;text-align:right;font-size:1rem}
+.firma{text-align:right}
+.mas{font:inherit;background:var(--sello);color:#F5E6D3;border:0;padding:.6rem 1.2rem;border-radius:99px;cursor:pointer;animation:aparece .9s both}
+.mas:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+@keyframes aparece{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.carta p,.mas{animation:none}.solapa,.sello{transition:none}}

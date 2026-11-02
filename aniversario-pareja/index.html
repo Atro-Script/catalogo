@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AtroScript</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f3faf6;
+      color: #1a3c2e;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .hearts-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.18;
+      animation: floatUp linear infinite;
+      color: #2e8b6a;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      10% { opacity: 0.22; }
+      90% { opacity: 0.15; }
+      100% {
+        transform: translateY(-10vh) rotate(360deg) scale(1);
+        opacity: 0;
+      }
+    }
+
+    #confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .screen.active {
+      display: flex;
+      animation: fadeIn 1.1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #welcome h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3rem, 11vw, 4.8rem);
+      color: #1a5c45;
+      margin-bottom: 0.4rem;
+      line-height: 1.15;
+    }
+
+    #welcome .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #2e6b52;
+      margin-bottom: 2.6rem;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      background: #1a5c45;
+      color: white;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1.05rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      box-shadow: 0 8px 22px rgba(26, 92, 69, 0.28);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #144836;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(26, 92, 69, 0.38);
+    }
+
+    #counter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      color: #1a5c45;
+      margin-bottom: 1.6rem;
+    }
+
+    .time-box {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .time-unit {
+      background: white;
+      border: 1.5px solid #c8e6d5;
+      border-radius: 16px;
+      padding: 1.15rem 1.3rem;
+      min-width: 88px;
+      box-shadow: 0 6px 18px rgba(26, 92, 69, 0.08);
+    }
+
+    .time-unit span {
+      display: block;
+      font-size: 2.15rem;
+      font-weight: 600;
+      color: #1a5c45;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .time-unit small {
+      font-size: 0.82rem;
+      color: #2e6b52;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #letter h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.9rem;
+      color: #1a5c45;
+      margin-bottom: 1.3rem;
+    }
+
+    /* ===== FOTO CON DECORACIÓN ===== */
+    .photo-frame {
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(26, 92, 69, 0.18);
+      border: 2px solid #c8e6d5;
+      margin-bottom: 1.8rem;
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .letter-container {
+      background: white;
+      border: 1.5px solid #c8e6d5;
+      border-radius: 20px;
+      padding: 1.7rem 1.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: left;
+      line-height: 1.75;
+      font-size: 0.97rem;
+      color: #1a3c2e;
+      box-shadow: 0 10px 30px rgba(26, 92, 69, 0.09);
+      position: relative;
+      overflow-y: auto;
+      max-height: 48vh;
+    }
+
+    .letter-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: #1a5c45;
+      border-radius: 20px 0 0 20px;
+    }
+
+    .letter-text {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.8s ease;
+      padding-left: 10px;
+    }
+
+    .letter-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter-text p {
+      margin-bottom: 1.05rem;
+    }
+
+    #secret h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      color: #1a5c45;
+      margin-bottom: 1.5rem;
+    }
+
+    .secret-box {
+      background: white;
+      border: 1.5px solid #c8e6d5;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 420px;
+      width: 100%;
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: #1a3c2e;
+      box-shadow: 0 10px 30px rgba(26, 92, 69, 0.09);
+    }
+
+    #final h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.2rem, 13vw, 5.2rem);
+      color: #1a5c45;
+      margin-bottom: 0.4rem;
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    #final .nicknames {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.22rem;
+      color: #2e6b52;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.4px;
+      max-width: 380px;
+      line-height: 1.55;
+    }
+
+    .final-hearts {
+      font-size: 2.4rem;
+      margin-top: 0.4rem;
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-11px); }
+    }
+
+    .nav-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1.5px solid #a8d5c4;
+      color: #2e6b52;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #eaf6f0;
+      border-color: #1a5c45;
+      color: #1a5c45;
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: white;
+      border: 1.5px solid #a8d5c4;
+      color: #1a5c45;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(26, 92, 69, 0.12);
+      transition: all 0.3s ease;
+    }
+
+    .music-btn:hover {
+      background: #eaf6f0;
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 480px) {
+      .time-unit {
+        min-width: 74px;
+        padding: 0.95rem;
+      }
+      .time-unit span {
+        font-size: 1.75rem;
+      }
+      .letter-container {
+        max-height: 45vh;
+        padding: 1.35rem 1.15rem;
+      }
+      .photo-frame {
+        max-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg" id="heartsBg"></div>
+  <canvas id="confetti"></canvas>
+  <button class="music-btn" id="musicBtn" title="Música">♪</button>
+  <audio id="bgMusic" loop></audio>
+  <section class="screen active" id="welcome">
+    <h1 data-t="titulo"></h1>
+    <p class="subtitle" data-t="subtitulo"></p>
+    <button class="btn" onclick="goTo('counter')" data-t="botonInicio"></button>
+  </section>
+  <section class="screen" id="counter">
+    <h2 data-t="cuentaTitulo"></h2>
+    <div class="time-box">
+      <div class="time-unit"><span id="days">0</span><small>días</small></div>
+      <div class="time-unit"><span id="hours">0</span><small>horas</small></div>
+      <div class="time-unit"><span id="minutes">0</span><small>min</small></div>
+      <div class="time-unit"><span id="seconds">0</span><small>seg</small></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-secondary" onclick="goTo('welcome')">← Atrás</button>
+      <button class="btn" onclick="goTo('letter')">Siguiente →</button>
+    </div>
+  </section>
+  <section class="screen" id="letter">
+    <h2 data-t="cartaTitulo"></h2>
+    <div class="photo-frame" id="marcoFoto"><img id="fotoImg" alt="Foto de nosotros"></div>
+    <div class="letter-container"><div class="letter-text" id="letterText"></div></div>
+    <div class="nav-btns">
+      <button class="btn-secondary" onclick="goTo('counter')">← Atrás</button>
+      <button class="btn" onclick="goTo('secret')" data-t="botonSecreto"></button>
+    </div>
+  </section>
+  <section class="screen" id="secret">
+    <h2 data-t="secretoTitulo"></h2>
+    <div class="secret-box" data-t="secreto"></div>
+    <div class="nav-btns" style="margin-top: 2.5rem;"><button class="btn" onclick="goTo('final')">Continuar →</button></div>
+  </section>
+  <section class="screen" id="final">
+    <h1 data-t="finalTitulo"></h1>
+    <p class="nicknames" data-t="apodos"></p>
+    <div class="final-hearts" data-t="emojis"></div>
+    <div class="nav-btns" style="margin-top: 2.5rem;"><button class="btn-secondary" onclick="goTo('welcome')">Volver al inicio</button></div>
+  </section>
+  <script src="datos.js"></script>
+  <script src="aniversario.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

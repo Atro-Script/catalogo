@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una carta para ti</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="envoltura">
+    <p class="para">Para <b id="para"></b></p>
+    <button id="sobre" class="sobre" aria-label="Abrir la carta">
+      <span class="solapa"></span><span class="sello">♥</span>
+    </button>
+    <p id="pista" class="pista">Toca el sobre para abrirlo</p>
+  </section>
+  <article id="carta" class="carta" hidden>
+    <p id="fecha" class="fecha"></p>
+    <div id="texto"></div>
+    <p id="firma" class="firma"></p>
+    <button id="secretoBtn" class="mas">Hay una cosa más</button>
+    <p id="secreto" hidden></p>
+  </article>
+</main>
+<script src="datos.js"></script>
+<script src="carta.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuento</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="portada" class="portada">
+    <div id="icono" class="icono" aria-hidden="true"></div>
+    <h1 id="titulo"></h1>
+    <p id="dedica" class="dedica"></p>
+    <button id="empezar" class="boton">Empezar a leer</button>
+  </section>
+  <section id="libro" hidden>
+    <div id="escena" class="escena" aria-hidden="true"></div>
+    <article id="pagina" class="pagina" aria-live="polite">
+      <p id="texto" class="texto"></p>
+      <div id="opciones" class="opciones"></div>
+      <div id="finBloque" class="fin" hidden><h2 id="finTitulo"></h2><p id="finCuenta"></p><button id="otra" class="boton">Leer otra vez</button></div>
+    </article>
+    <div class="herr"><button id="atras" class="chico">‹ Volver</button><button id="voz" class="chico" aria-pressed="false">🔊 Leer en voz alta</button></div>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="cuento.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

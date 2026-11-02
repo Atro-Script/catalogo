@@ -1,0 +1,20 @@
+:root{--acento:#FF4F8B;--tinta:#4A1942}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:var(--tinta);font-family:"Trebuchet MS","Segoe UI",sans-serif;display:grid;place-items:center;text-align:center;overflow-x:hidden;
+  background:linear-gradient(160deg,#FFD6E0 0%,#FFE9D6 45%,#D9C8FF 100%)}
+main{position:relative;z-index:1;padding:6vh 7vw;max-width:520px}
+.de{margin:0 0 1rem;font-weight:700;letter-spacing:.04em}
+h1{margin:0 0 .8rem;font-size:clamp(2.2rem,10vw,3.6rem);line-height:1.1}
+.botones{display:flex;gap:1.4rem;justify-content:center;align-items:center;margin-top:2.6rem;min-height:5rem}
+button,.enlace{font:inherit;font-weight:800;font-size:1.2rem;border:0;border-radius:99px;padding:.9rem 2.4rem;cursor:pointer;text-decoration:none;display:inline-block}
+.si{background:var(--acento);color:#fff;box-shadow:0 8px 0 rgba(74,25,66,.25);transition:transform .25s}
+.no{background:#fff;color:var(--tinta);box-shadow:0 6px 0 rgba(74,25,66,.2)}
+.no.huye{position:fixed;z-index:5;transition:left .25s,top .25s}
+button:focus-visible,.enlace:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.pista{min-height:1.6em;margin-top:2.4rem;font-weight:700}
+.lluvia{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.corazon{position:absolute;top:-3rem;color:var(--acento);animation:cae linear infinite}
+#final p{font-size:1.3rem;margin:0 0 2rem}
+@keyframes cae{to{transform:translateY(115vh) rotate(40deg)}}
+@media (prefers-reduced-motion:reduce){.corazon{animation:none;top:auto;bottom:0}.si,.no.huye{transition:none}}

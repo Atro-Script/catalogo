@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Razones</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <p id="para" class="para"></p>
+  <h1 id="titulo"></h1>
+  <div id="frasco" class="frasco" aria-hidden="true"><div class="tapa"></div><div id="notas" class="notas"></div></div>
+  <div id="papel" class="papel" role="status" aria-live="polite">Toca el botón para sacar tu primera razón.</div>
+  <button id="sacar" class="boton">Sacar una razón</button>
+  <p id="cuenta" class="cuenta"></p>
+  <details id="lista" class="lista" hidden><summary>Ver las que ya salieron</summary><ol id="vistas"></ol></details>
+  <p id="final" class="final" hidden></p>
+  <p id="de" class="de"></p>
+</main>
+<script src="datos.js"></script>
+<script src="razones.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>
