@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><h1 id="negocio"></h1><p id="eslogan"></p><input id="buscar" type="search" placeholder="Buscar producto" aria-label="Buscar producto"></header>
+<nav id="cats" class="cats" aria-label="Categorías"></nav>
+<main id="lista" class="lista"></main>
+<button id="verCarrito" class="carrito" hidden>Ver pedido (<span id="n">0</span>) · <b id="total"></b></button>
+<aside id="panel" class="panel" hidden role="dialog" aria-modal="true" aria-label="Tu pedido">
+  <div class="caja">
+    <button id="cerrar" class="x" aria-label="Cerrar">&times;</button>
+    <h2>Tu pedido</h2>
+    <ul id="items" class="items"></ul>
+    <p class="suma">Total: <b id="suma"></b></p>
+    <label>Tu nombre<input id="cliente"></label>
+    <label>Notas (entrega, dedicatoria...)<textarea id="notas" rows="2"></textarea></label>
+    <button id="enviar" class="boton">Enviar pedido por WhatsApp</button>
+  </div>
+</aside>
+<script src="datos.js"></script>
+<script src="catalogo.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

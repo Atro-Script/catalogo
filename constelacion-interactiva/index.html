@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constelación</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+  <h1 id="titulo"></h1>
+  <p id="sub" class="sub"></p>
+</header>
+<div id="cielo" class="cielo"></div>
+<p id="contador" class="contador" role="status"></p>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="texto">
+  <div class="tarjeta">
+    <button id="cerrar" class="cerrar" aria-label="Cerrar">&times;</button>
+    <span id="icono" class="icono" aria-hidden="true">⭐</span>
+    <p id="texto"></p>
+  </div>
+</div>
+<script src="datos.js"></script>
+<script src="estrellas.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudio de Invitaciones</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="cab"><h1>Estudio de Invitaciones</h1><p>Diseña tu invitación y descárgala como imagen</p></header>
+<main>
+  <div class="vista"><canvas id="lienzo" aria-label="Vista previa de la invitación"></canvas></div>
+  <form class="panel" onsubmit="return false">
+    <fieldset><legend>Estilo</legend><div id="temas" class="temas"></div></fieldset>
+    <label>Formato<select id="formato"><option value="1350">Publicación (4:5)</option><option value="1920">Historia (9:16)</option></select></label>
+    <label>Tipo de letra<select id="fuente"><option value="serif">Elegante</option><option value="script">Cursiva</option><option value="sans">Moderna</option><option value="fuerte">Fuerte</option></select></label>
+    <label>Encabezado<input id="kicker" value="Estás invitado a"></label>
+    <label>Título<input id="titulo" value="Mis XV Años"></label>
+    <label>Nombre<input id="nombre" value="Ana Sofía"></label>
+    <label>Mensaje<textarea id="mensaje" rows="3">Acompáñame a celebrar una noche inolvidable.</textarea></label>
+    <label>Fecha y hora<input id="fecha" value="Sábado 12 de diciembre · 7:00 pm"></label>
+    <label>Lugar<input id="lugar" value="Salón Las Palmas, Ciudad"></label>
+    <label>Contacto (opcional)<input id="contacto" value="Confirma al 55 1234 5678"></label>
+    <div class="colores"><label>Color de fondo<input type="color" id="c1"></label><label>Color de detalles<input type="color" id="c2"></label></div>
+    <div class="acc"><button id="bajar" class="boton" hidden>Descargar PNG</button><button id="compartir" class="boton sec" hidden>Compartir</button><button id="pedir" class="boton">Pedir esta invitación por WhatsApp</button></div>
+    <p class="nota" id="notaVista">Esta es una vista previa. Si te gusta, la preparamos para ti lista para compartir.</p>
+    <p id="aviso" class="aviso" role="status"></p>
+  </form>
+</main>
+<script src="../assets/config.js"></script>
+<script src="datos.js"></script>
+<script src="estudio.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

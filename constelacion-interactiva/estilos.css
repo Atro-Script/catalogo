@@ -1,0 +1,50 @@
+*{box-sizing:border-box}
+body{margin:0;height:100svh;overflow:hidden;color:#E8EBFF;font-family:"Segoe UI",system-ui,sans-serif;background:radial-gradient(ellipse at 50% 100%,#1A2040,#0B0D1C 62%)}
+header{position:absolute;top:0;left:0;right:0;z-index:3;text-align:center;padding-top:5vh;pointer-events:none}
+h1{margin:0;font-weight:300;letter-spacing:.14em;font-size:clamp(1.8rem,8vw,2.7rem)}
+.sub{margin:.4rem 0 0;color:#8F9BFF}
+.cielo{position:absolute;inset:0}
+.punto{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.5;animation:titila 4s ease-in-out infinite}
+.estrella{position:absolute;transform:translate(-50%,-50%);background:none;border:0;padding:.4rem;font-size:2.6rem;line-height:1;cursor:pointer;filter:drop-shadow(0 0 10px rgba(255,214,64,.75));animation:flota 6s ease-in-out infinite alternate}
+.estrella.grande{font-size:3.4rem;filter:drop-shadow(0 0 18px rgba(255,214,64,.95))}
+.estrella.vista{opacity:.55;filter:drop-shadow(0 0 4px rgba(255,214,64,.4))}
+.estrella:focus-visible{outline:3px solid #8F9BFF;border-radius:50%}
+.contador{position:absolute;bottom:3vh;left:0;right:0;z-index:3;margin:0;text-align:center;color:#8F9BFF;font-size:.95rem}
+.modal{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:6vw;background:rgba(5,6,18,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.abierto{opacity:1;pointer-events:auto}
+.tarjeta{position:relative;width:100%;max-width:420px;padding:2.4rem 1.6rem 2rem;border:1px solid #3B3F7A;border-radius:28px;background:linear-gradient(160deg,#171A3D,#12122C);text-align:center;font-size:1.25rem;line-height:1.6;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.tarjeta p{margin:0;white-space:pre-line}
+.cerrar{position:absolute;top:.6rem;right:1rem;background:none;border:0;color:#8F9BFF;font-size:1.8rem;cursor:pointer}
+.cerrar:focus-visible{outline:3px solid #8F9BFF;border-radius:6px}
+.icono{display:block;margin-bottom:.8rem;font-size:3.2rem}
+@keyframes titila{50%{opacity:.15}}
+@keyframes flota{from{transform:translate(-50%,-50%) translateY(-6px)}to{transform:translate(-50%,-50%) translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.punto,.estrella{animation:none}.modal{transition:none}}
+
+/* ===== Mejora visual ===== */
+header{padding-top:calc(env(safe-area-inset-top,0px) + 4.6rem)!important}
+body{background:radial-gradient(120% 70% at 50% 0,#2A0F4D 0,#0B0424 60%,#05010F 100%) fixed!important}
+h1{letter-spacing:.14em;font-weight:300;text-shadow:0 0 22px #B99CFF88}
+.sub{color:#B9A6FF;letter-spacing:.04em}
+.estrella{filter:drop-shadow(0 0 10px #FFD23Faa)}
+.punto{background:#fff;box-shadow:0 0 6px #fff}
+.contador{color:#CFC2FF;letter-spacing:.06em;font-weight:600}
+.tarjeta{background:linear-gradient(160deg,#3B1C6E,#1B0A3A);border:1.5px solid #B99CFF88;box-shadow:0 0 50px #8B5CF688}
+.boton{background:linear-gradient(135deg,#FFD97A,#FF8BC2);color:#2A0D2E}
+
+/* ===== Órbitas ===== */
+.cielo{overflow:hidden}
+.estrella{left:0;top:0;transform:none;animation:none;font-size:1.35rem;padding:.2rem;will-change:transform;transition:filter .3s}
+.estrella.grande{font-size:1.8rem}
+.estrella.vista{opacity:.5}
+.estrella:hover{filter:drop-shadow(0 0 14px #FFD23F)}
+.orbita{position:absolute;border:1px dashed rgba(185,156,255,.18);border-radius:50%;pointer-events:none}
+.destello{position:absolute;left:0;top:0;color:#E9DDFF;opacity:.7;pointer-events:none;will-change:transform;line-height:1;text-shadow:0 0 6px #B99CFF}
+.punto{animation:titila 5s ease-in-out infinite}
+.contador{transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){.punto{animation:none}}
+
+/* ===== Capas: solo el modal queda encima ===== */
+.cielo{z-index:1;isolation:isolate;position:absolute;inset:0}
+.modal{z-index:50}
+.modal .tarjeta{z-index:51}

@@ -1,0 +1,34 @@
+:root{--fondo:#BFE3F7;--acento:#C9A24D;--tinta:#2F4B66;--guion:"Segoe Script","Brush Script MT","Lucida Handwriting",cursive;--serif:Georgia,serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;color:var(--tinta);font-family:var(--serif);line-height:1.7;text-align:center;
+  background:linear-gradient(180deg,var(--fondo) 0%,#EAF6FD 45%,#FFF9EC 100%)}
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8vh 6vw}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.8;
+  background:repeating-conic-gradient(from 160deg at 50% -8%,rgba(255,255,255,.7) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask-image:linear-gradient(#000,transparent 75%);mask-image:linear-gradient(#000,transparent 75%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;pointer-events:none;
+  background:radial-gradient(ellipse 60% 70% at 15% 100%,#fff 60%,transparent 62%),radial-gradient(ellipse 55% 60% at 60% 105%,#fff 60%,transparent 62%),radial-gradient(ellipse 50% 65% at 100% 100%,#fff 60%,transparent 62%)}
+.hero>*{position:relative;z-index:1}
+.kicker{margin:0;font-style:italic;color:#5A7A99}
+h1{margin:.3rem 0;font-family:var(--guion);font-weight:400;font-size:clamp(3rem,15vw,5.6rem);line-height:1.1;
+  background:linear-gradient(135deg,#8E6A2B,#E6C98B 50%,#8E6A2B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.encabezado{margin:0;font-size:1.4rem;letter-spacing:.08em;color:var(--tinta)}
+.msj{max-width:24em;margin:1.2rem 0 0}
+.fecha{margin:1.2rem 0 0;font-weight:700;text-transform:capitalize}
+.cuenta{display:flex;gap:.6rem;margin-top:1.4rem;justify-content:center}
+.cuenta div{min-width:4.3rem;padding:.6rem .4rem;background:rgba(255,255,255,.85);border:1px solid var(--acento);border-radius:16px;box-shadow:0 6px 16px rgba(47,75,102,.15)}
+.cuenta b{display:block;font-size:1.5rem;line-height:1.1;font-weight:400;font-variant-numeric:tabular-nums}
+.cuenta span{font-size:.7rem;color:#8E6A2B}
+main{max-width:620px;margin:0 auto;padding:2vh 5vw 10vh}
+section{margin:0 0 1.4rem;padding:2rem 1.2rem;background:rgba(255,255,255,.85);border:1px solid rgba(201,162,77,.45);border-radius:22px;box-shadow:0 8px 24px rgba(47,75,102,.08)}
+h2{margin:0 0 1.2rem;font-family:var(--guion);font-weight:400;font-size:1.9rem;color:#8E6A2B}
+.programa{list-style:none;margin:0;padding:0}
+.programa li{padding:.6rem 0;border-bottom:1px solid rgba(201,162,77,.35)}
+.programa strong{margin-right:.8rem;color:#8E6A2B}
+.lugar{font-size:1.2rem;margin:0 0 1.2rem}
+.boton{display:inline-block;background:var(--tinta);color:#fff;padding:.85rem 1.8rem;border-radius:99px;text-decoration:none;border:2px solid var(--tinta)}
+.boton.sec{background:transparent;color:var(--tinta);border-color:var(--acento)}
+.boton:focus-visible{outline:3px solid var(--acento);outline-offset:3px}
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.galeria img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 14px 14px;border:3px solid #fff;box-shadow:0 0 0 1px var(--acento)}

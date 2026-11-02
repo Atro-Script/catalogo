@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caja de música</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section class="caja">
+    <div id="escenario" class="escenario">
+      <div id="lid" class="lid">
+        <span class="remache izq" aria-hidden="true"></span><span class="remache der" aria-hidden="true"></span>
+        <div class="adorno" aria-hidden="true"></div>
+        <p class="marca">Caja de música</p>
+        <p class="grabado" id="grabado"></p>
+        <p class="dedica" id="dedica"></p>
+        <button id="abrir" class="boton">Abrir la caja</button>
+      </div>
+      <div class="interior">
+        <nav id="temas" class="temas" aria-label="Elegir melodía"></nav>
+        <div class="mecanismo"><canvas id="mec" aria-label="Mecanismo de la caja de música"></canvas></div>
+        <div id="sale" class="sale" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="base">
+      <button id="manivela" class="manivela" aria-label="Manivela. Arrástrala en círculos hacia la derecha, o presiona Espacio o la flecha derecha para dar cuerda"><span class="brazo"></span><span class="perilla"></span></button>
+      <div class="lado">
+        <p id="indica" class="indica">Gira la manivela hacia la derecha</p>
+        <div class="barra"><span id="prog"></span></div>
+        <div class="botones"><button id="auto" class="boton">Tocar sola</button><button id="reinicia" class="boton sec">Desde el inicio</button></div>
+      </div>
+    </div>
+    <p id="final" class="final" role="status" hidden></p>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="caja.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

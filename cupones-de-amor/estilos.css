@@ -1,0 +1,18 @@
+:root{--fondo:#FFE9D6;--tinta:#3B2A2A;--rosa:#E0526C;--papel:#FFFAF4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:"Trebuchet MS","Segoe UI",sans-serif;line-height:1.5}
+header{text-align:center;padding:8vh 6vw 4vh}
+.de{margin:0;font-size:1.1rem}
+h1{margin:.1em 0;font-size:clamp(3rem,15vw,5.5rem);line-height:1;color:var(--rosa);font-family:"Brush Script MT","Segoe Script",cursive;font-weight:400}
+.restan{margin-top:1.2rem;font-weight:700}
+main{max-width:520px;margin:0 auto;padding:0 6vw 10vh;display:grid;gap:1.2rem}
+.cupon{position:relative;background:var(--papel);border:2px dashed var(--rosa);border-radius:14px;padding:1.4rem 1.4rem 1.4rem 1.8rem;display:grid;gap:.4rem;justify-items:start}
+.cupon::before,.cupon::after{content:"";position:absolute;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--fondo);border:2px dashed var(--rosa)}
+.cupon::before{left:-12px}.cupon::after{right:-12px}
+.cupon h2{margin:0;font-size:1.25rem}
+.cupon p{margin:0}
+button,.aviso{margin-top:.5rem;font:inherit;font-weight:700;background:var(--rosa);color:#fff;border:0;border-radius:99px;padding:.6rem 1.3rem;cursor:pointer;text-decoration:none}
+button:focus-visible,.aviso:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.cupon.usado{opacity:.75}
+.cupon.usado h2{text-decoration:line-through}
+.cupon.usado .aviso{background:var(--tinta)}
