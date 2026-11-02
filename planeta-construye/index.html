@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planeta</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="estrellas" aria-hidden="true"></div>
+<main>
+  <header><p id="para" class="para"></p><h1 id="titulo"></h1><p id="ayuda" class="ayuda"></p></header>
+  <div id="universo" class="universo">
+    <div class="atmo" aria-hidden="true"></div>
+    <svg id="planeta" viewBox="0 0 320 320" aria-hidden="true">
+      <defs>
+        <radialGradient id="gMar" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#5BC0F8"/><stop offset="1" stop-color="#0B3A7A"/></radialGradient>
+        <radialGradient id="gSombra" cx="30%" cy="26%" r="85%"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".7"/></radialGradient>
+        <linearGradient id="gAnillo" x1="0" x2="1"><stop offset="0" stop-color="#F4D58A"/><stop offset=".5" stop-color="#C98F3A"/><stop offset="1" stop-color="#F4D58A"/></linearGradient>
+        <clipPath id="esfera"><circle cx="160" cy="160" r="104"/></clipPath>
+      </defs>
+      <g class="zona z4" transform="rotate(-18 160 160)"><path class="anillo" d="M36 160A124 32 0 0 1 284 160"/></g>
+      <circle class="base" cx="160" cy="160" r="104" fill="url(#gMar)"/>
+      <g clip-path="url(#esfera)">
+        <g class="zona z0"><path class="tierra" d="M92 128c18-26 52-30 74-16 10 7 7 22-6 28-16 7-18 22-33 27-22 7-52-3-35-39z"/><path class="tierra" d="M176 176c14-12 40-10 52 4 8 10 0 26-14 30-18 6-44 0-44-14 0-8 2-14 6-20z"/><ellipse class="hielo" cx="160" cy="62" rx="52" ry="14"/><ellipse class="hielo" cx="160" cy="262" rx="46" ry="12"/></g>
+        <g class="zona z1"><path class="bosque" d="M104 134c10-14 30-18 44-9 6 4 4 12-4 16-10 4-12 12-22 15-14 3-28-2-18-22z"/><circle class="bosque" cx="196" cy="188" r="10"/><circle class="bosque" cx="214" cy="196" r="7"/><circle class="bosque" cx="182" cy="198" r="6"/></g>
+        <g class="zona z2 nubes"><ellipse cx="130" cy="96" rx="38" ry="9"/><ellipse cx="190" cy="124" rx="44" ry="10"/><ellipse cx="116" cy="200" rx="34" ry="8"/><ellipse cx="206" cy="232" rx="32" ry="8"/></g>
+        <g class="zona z3 luces"><circle cx="118" cy="226" r="2.6"/><circle cx="132" cy="218" r="2"/><circle cx="144" cy="232" r="2.6"/><circle cx="156" cy="222" r="2"/><circle cx="126" cy="240" r="2"/><circle cx="168" cy="238" r="2.4"/><circle cx="104" cy="214" r="2"/></g>
+      </g>
+      <circle fill="url(#gSombra)" cx="160" cy="160" r="104"/>
+      <g class="zona z4" transform="rotate(-18 160 160)"><path class="anillo" d="M36 160A124 32 0 0 0 284 160"/></g>
+      <g class="zona z5 orbita"><circle class="luna" cx="262" cy="72" r="15"/><circle class="cra" cx="257" cy="68" r="3.4"/><circle class="cra" cx="267" cy="77" r="2.4"/></g>
+    </svg>
+    <div id="puntos" class="puntos"></div>
+  </div>
+  <p id="progreso" class="progreso" role="status"></p>
+  <p id="nombrePlaneta" class="nombre-planeta" hidden></p>
+  <p id="final" class="final" hidden></p>
+  <div id="tarjeta" class="tarjeta" hidden role="dialog" aria-live="polite"><h2 id="tTit"></h2><p id="tTxt"></p><button id="cerrar" class="boton">Seguir</button></div>
+</main>
+<script src="datos.js"></script>
+<script src="planeta.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

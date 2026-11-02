@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cápsula del tiempo</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <section id="bloqueo" class="centro">
+    <p class="kicker">Cápsula del tiempo</p>
+    <h1>Para <span id="para"></span></h1>
+    <div id="capsula" class="capsula" aria-hidden="true"><span class="mitad a"></span><span class="mitad b"></span></div>
+    <p>Sellada por <b id="de"></b> el <span id="fechaSello"></span></p>
+    <p id="cuenta" class="cuenta" role="timer"></p>
+    <p>Se puede abrir desde el <b id="fechaApertura"></b></p>
+    <button id="abrir" hidden>Abrir cápsula</button>
+  </section>
+  <article id="contenido" hidden>
+    <h2>Un mensaje desde el pasado</h2>
+    <div id="texto"></div>
+    <h3>Lo que guardamos</h3>
+    <ul id="recuerdos"></ul>
+    <p id="firma" class="firma"></p>
+  </article>
+</main>
+<script src="datos.js"></script>
+<script src="capsula.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

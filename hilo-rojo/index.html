@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El hilo rojo</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <header class="cab"><h1 id="titulo"></h1><p id="leyenda" class="leyenda"></p></header>
+  <div class="escena">
+    <svg id="svg" viewBox="0 0 360 640" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs><filter id="brilloRojo" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <path id="guia" class="guia" d=""/>
+      <path id="hilo" class="hilo" d="" filter="url(#brilloRojo)"/>
+      <g id="nudos"></g>
+      <g id="pa" class="persona"><circle r="22"/><text y="6" id="ia"></text></g><text id="na" class="nombre"></text>
+      <g id="pb" class="persona"><circle r="22"/><text y="6" id="ib"></text></g><text id="nb" class="nombre"></text>
+    </svg>
+  </div>
+  <div id="panel" class="panel" role="status" aria-live="polite"><p id="pFecha" class="pfecha"></p><h2 id="pTit"></h2><p id="pTxt"></p></div>
+  <button id="seguir" class="boton">Seguir el hilo</button>
+</main>
+<script src="datos.js"></script>
+<script src="hilo.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

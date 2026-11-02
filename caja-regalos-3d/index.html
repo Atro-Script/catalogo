@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caja de regalos</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <header><p id="para" class="para"></p><h1 id="titulo"></h1><p id="ayuda" class="ayuda"></p></header>
+  <div id="escena" class="escena">
+    <div id="globos" class="globos" aria-hidden="true"></div>
+    <div id="regalos" class="regalos"></div>
+    <div id="cubo" class="cubo">
+      <div class="cara f"></div><div class="cara b"></div><div class="cara l"></div><div class="cara r"></div><div class="cara fondo"></div>
+      <div class="tapa" id="tapa">
+        <div class="t-cara f"></div><div class="t-cara b"></div><div class="t-cara l"></div><div class="t-cara r"></div>
+        <div class="t-sup"><i class="cinta h"></i><i class="cinta v"></i><span class="mono"><b></b><b></b><u></u></span></div>
+      </div>
+    </div>
+  </div>
+  <button id="abrir" class="boton">Abrir la caja</button>
+  <div id="tarjeta" class="tarjeta" hidden role="dialog" aria-live="polite"><div id="tFoto" class="t-foto"></div><h2 id="tTit"></h2><p id="tTxt"></p><button id="cerrar" class="boton">Gracias</button></div>
+  <p id="final" class="final" hidden role="status"></p>
+</main>
+<script src="datos.js"></script>
+<script src="caja.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

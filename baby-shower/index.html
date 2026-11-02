@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baby Shower</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="hero">
+  <p id="kicker" class="kicker">Dulce espera</p>
+  <div id="grande" class="grande" hidden></div>
+  <h1 id="nombre"></h1>
+  <p id="encabezado" class="encabezado"></p>
+  <p id="mensaje" class="msj"></p>
+  <p id="fechaTexto" class="fecha"></p>
+  <div id="cuenta" class="cuenta"></div>
+</header>
+<main>
+  <section><h2>Programa</h2><ul id="programa" class="programa"></ul></section>
+  <section><h2>Lugar</h2>
+    <p class="lugar"><strong id="lugarNombre"></strong><br><span id="lugarDir"></span></p>
+    <a id="mapa" class="boton sec" target="_blank" rel="noopener">Abrir en el mapa</a></section>
+  <section id="extra"><h2 id="extraTitulo"></h2><p id="extraTexto"></p></section>
+  <section id="revelacion"><h2>La gran revelación</h2><p>¿Niña o niño? Toca el botón cuando todos estén listos.</p><button id="revelar" class="boton">Descubrir</button><p id="resultado" class="resultado" role="status"></p></section>
+  <section id="seccionFotos"><h2>Recuerdos</h2><div id="galeria" class="galeria"></div></section>
+  <section><h2>Confirma tu asistencia</h2>
+    <a id="confirmar" class="boton" target="_blank" rel="noopener">Confirmar por WhatsApp</a></section>
+</main>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script src="revelacion.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

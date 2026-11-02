@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rasca y descubre</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <article class="boleto">
+    <div class="luces" aria-hidden="true"></div>
+    <h1 id="titulo"></h1>
+    <p id="instruccion" class="ins"></p>
+    <div class="zona">
+      <div id="premio" class="premio" aria-live="polite"><span id="emoji" class="emoji"></span><h2 id="sTitulo"></h2><p id="sTexto"></p></div>
+      <canvas id="foil" aria-label="Superficie para rascar"></canvas>
+    </div>
+    <button id="revelar" class="boton">Mostrar sin rascar</button>
+  </article>
+</main>
+<script src="datos.js"></script>
+<script src="rasca.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

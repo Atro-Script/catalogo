@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="papel" aria-hidden="true"></div>
+<header class="hero">
+  <div class="estrella" aria-hidden="true"></div>
+  <p id="kicker" class="kicker"></p>
+  <div id="grande" class="grande" hidden></div>
+  <h1 id="nombre"></h1>
+  <p id="encabezado" class="encabezado"></p>
+  <p id="mensaje" class="msj"></p>
+  <p id="fechaTexto" class="fecha"></p>
+  <div id="cuenta" class="cuenta"></div>
+  <div class="musica"><button id="tocar" class="boton">Villancicos</button><span id="tema" class="tema"></span></div>
+  <p class="baja" aria-hidden="true">Sigue el camino de velas ↓</p>
+</header>
+<main>
+  <ol class="camino">
+    <li class="paso"><span class="vela" aria-hidden="true"><i></i></span><section><h2>El programa</h2><ul id="programa" class="programa"></ul></section></li>
+    <li class="paso"><span class="vela" aria-hidden="true"><i></i></span><section><h2>El lugar</h2><p class="lugar"><strong id="lugarNombre"></strong><br><span id="lugarDir"></span></p><a id="mapa" class="boton sec" target="_blank" rel="noopener">Abrir en el mapa</a></section></li>
+    <li class="paso"><span class="vela" aria-hidden="true"><i></i></span><section id="extra"><h2 id="extraTitulo"></h2><p id="extraTexto"></p></section></li>
+    <li class="paso"><span class="vela" aria-hidden="true"><i></i></span><section><h2>¿Qué me toca llevar?</h2><input id="buscar" type="search" placeholder="Escribe tu nombre" aria-label="Tu nombre"><ul id="llevar" class="llevar" aria-live="polite"></ul></section></li>
+    <li class="paso" id="seccionFotos"><span class="vela" aria-hidden="true"><i></i></span><section><h2>Recuerdos</h2><div id="galeria" class="galeria"></div></section></li>
+    <li class="paso"><span class="vela" aria-hidden="true"><i></i></span><section><h2>¿Nos acompañas?</h2><a id="confirmar" class="boton" target="_blank" rel="noopener">Confirmar por WhatsApp</a></section></li>
+  </ol>
+</main>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script src="posada.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

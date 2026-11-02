@@ -1,0 +1,35 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:#FBEFEF;font-family:Georgia,serif;text-align:center;background:radial-gradient(circle at 50% 30%,#2A1B3D,#0D0A18 75%);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(255,180,190,.5) 0 1.2px,transparent 2px);background-size:90px 110px,150px 130px;background-position:0 0,50px 40px;opacity:.5;animation:deriva 40s linear infinite}
+main{position:relative;max-width:460px;margin:0 auto;padding:3vh 4vw 20vh}
+.cab h1{margin:0;font-style:italic;font-weight:400;font-size:clamp(2rem,9vw,3rem);color:#FF5A6A;text-shadow:0 0 18px rgba(255,60,80,.6)}
+.leyenda{margin:.3rem auto 0;max-width:22em;font-size:.95rem;opacity:.85}
+.escena{margin-top:.6rem}svg{width:100%;height:auto;max-height:70svh;display:block;overflow:visible}
+.guia{fill:none;stroke:rgba(255,255,255,.1);stroke-width:1.5;stroke-dasharray:3 7;stroke-linecap:round}
+.hilo{fill:none;stroke:#FF2D45;stroke-width:3.4;stroke-linecap:round}
+.persona circle{fill:#1B1030;stroke:#FF5A6A;stroke-width:2.4;filter:drop-shadow(0 0 8px rgba(255,60,80,.7))}
+.persona text{fill:#FFD9DD;font:700 20px Georgia,serif;text-anchor:middle}
+.nombre{fill:#FBEFEF;font:italic 15px Georgia,serif;text-anchor:middle}
+.nudo{animation:pop .6s cubic-bezier(.3,1.6,.6,1) both;transform-box:fill-box}
+.n1{fill:#FF2D45;stroke:#FFB3BB;stroke-width:1.4;filter:drop-shadow(0 0 7px #FF2D45)}.n2{fill:#FFE0E3}
+.lazo{fill:#FF5A6A;stroke:#FFB3BB;stroke-width:1}.cola{fill:none;stroke:#FF2D45;stroke-width:2.2;stroke-linecap:round}
+.panel{position:fixed;left:50%;bottom:calc(5.6rem + env(safe-area-inset-bottom,0px));width:min(92vw,420px);transform:translateX(-50%);padding:1rem 1.2rem;border-radius:18px;background:rgba(20,12,36,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,90,106,.55);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.panel.ver{animation:sube .5s ease-out}
+.pfecha{margin:0;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#FF8A96}.panel h2{margin:.1rem 0 .2rem;font-style:italic;font-weight:400;font-size:1.4rem}.panel p:last-child{margin:0;font-size:.95rem;opacity:.9}
+.boton{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font:inherit;font-weight:700;color:#fff;background:linear-gradient(#FF5A6A,#D91E36);border:0;border-radius:99px;padding:.85rem 2rem;cursor:pointer;box-shadow:0 0 24px rgba(255,45,69,.6)}
+.boton:disabled{opacity:.6}.boton:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.unidos .persona circle{animation:late 1.6s ease-in-out infinite}.unidos .hilo{filter:drop-shadow(0 0 10px #FF2D45)}
+@keyframes pop{from{opacity:0;transform:translate(var(--x,0),var(--y,0)) scale(.2)}}@keyframes sube{from{opacity:0;transform:translate(-50%,16px)}}@keyframes deriva{to{background-position:90px 110px,200px 170px}}@keyframes late{50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){body::before,.nudo,.panel.ver,.unidos .persona circle{animation:none}}
+
+/* ===== Mejora visual ===== */
+body{background:radial-gradient(120% 70% at 50% 0,#3A1640 0,#1C0A22 60%,#0A040E 100%) fixed;background-color:#1C0A22}
+main{padding-top:calc(env(safe-area-inset-top,0px) + 4.2rem)}
+.cab h1{font-size:2.2rem;text-shadow:0 0 24px #FF5C6C66}
+.leyenda{color:#E9CFD8;font-style:italic}
+.escena{background:radial-gradient(60% 40% at 50% 40%,#FF5C6C22,transparent 70%)}
+.panel{background:linear-gradient(180deg,#2D1A3ECC,#1E0E2BEE);border:1px solid #FF5C6C88;border-radius:22px;box-shadow:0 14px 34px #0009}
+.boton{background:linear-gradient(135deg,#FF6B7A,#E0283F);border:0;border-radius:99px;box-shadow:0 6px 0 #8A1424,0 10px 24px #FF3B5566;color:#fff;font-weight:800}
+.boton:active{transform:translateY(3px)}
+.boton:disabled{opacity:.5}

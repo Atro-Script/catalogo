@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartas Coleccionables</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="estrellas" aria-hidden="true"></div>
+<main>
+  <header class="cab"><h1 id="titulo"></h1><p id="sub"></p></header>
+  <nav class="tabs" aria-label="Secciones">
+    <button data-v="inicio" class="on">Sobres</button><button data-v="coleccion">Colección</button><button data-v="duelo">Duelo</button>
+  </nav>
+
+  <section id="inicio" class="vista">
+    <div class="sobre-wrap"><button id="sobre" class="sobre" aria-label="Abrir un sobre"><span class="tapa"></span><span class="cuerpo"><b id="nombreSobre"></b><small>Toca para abrir</small><i class="brillo"></i></span></button></div>
+    <div class="prog"><div class="barra"><span id="barra"></span></div><p id="progreso"></p><p id="quedan" class="suave"></p><p id="vict" class="suave"></p></div>
+  </section>
+
+  <section id="apertura" class="vista" hidden>
+    <p id="cuenta" class="cuenta"></p>
+    <div id="mazo" class="mazo"></div>
+    <p id="aviso" class="aviso">Toca la carta para voltearla</p>
+    <div id="mano" class="mano"></div>
+    <div id="finales" class="finales" hidden><button id="otro" class="boton">Otro sobre</button><button id="aCol" class="boton sec">Ver colección</button></div>
+  </section>
+
+  <section id="coleccion" class="vista" hidden><div id="rejilla" class="rejilla"></div></section>
+
+  <section id="duelo" class="vista" hidden>
+    <div id="dInicio" class="d-inicio"><p class="d-txt" id="dTxt"></p><button id="dGo" class="boton">Empezar duelo</button></div>
+    <div id="dJuego" hidden>
+      <div class="marcador"><span>Tú <b id="pTu">0</b></span><span id="dRonda">Ronda 1 de 3</span><span><b id="pRi">0</b> Rival</span></div>
+      <div class="rival"><div id="rivalSlot" class="slot grande"></div></div>
+      <p id="dMsg" class="d-msg"></p>
+      <div id="atrib" class="atrib"></div>
+      <div id="dMano" class="d-mano"></div>
+    </div>
+    <div id="dFin" class="d-inicio" hidden><h2 id="dRes"></h2><p id="dRes2" class="d-txt"></p><button id="dOtra" class="boton">Otro duelo</button></div>
+  </section>
+</main>
+<div id="visor" class="visor" hidden><div id="visorSlot" class="slot enorme"></div><p class="suave">Mueve el dedo sobre la carta · toca fuera para cerrar</p></div>
+<script src="datos.js"></script>
+<script src="cartas.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

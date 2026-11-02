@@ -1,0 +1,19 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;display:grid;place-items:center;font-family:"Segoe UI",system-ui,sans-serif;text-align:center;color:#2B0F4D;background:radial-gradient(circle at 20% 15%,#FFB6E1 0 80px,transparent 81px),radial-gradient(circle at 85% 85%,#FFE27A 0 100px,transparent 101px),linear-gradient(160deg,#7A4DFF,#FF5C8A)}
+main{width:100%;max-width:440px;padding:4vh 5vw}
+.boleto{position:relative;padding:1.8rem 1.3rem 1.4rem;background:linear-gradient(#FFF7DD,#FFE9A8);border:4px solid #FFD23F;border-radius:20px;box-shadow:0 0 0 5px #7A1F63,0 20px 44px rgba(43,15,77,.45)}
+.luces{position:absolute;inset:-14px;border-radius:30px;pointer-events:none;background:radial-gradient(circle,#FFF3A8 0 4px,transparent 5px) 0 0/24px 24px;-webkit-mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);padding:14px;animation:luces 1.3s steps(2) infinite}
+h1{margin:0;font-family:Georgia,serif;font-size:clamp(1.6rem,7.5vw,2.2rem);line-height:1.15;color:#7A1F63}
+.ins{margin:.4rem 0 1rem}
+.zona{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:3px dashed #7A1F63;background:#fff}
+.premio{position:absolute;inset:0;display:grid;place-content:center;gap:.2rem;padding:1rem;background:radial-gradient(circle,#FFF,#FFF0F8)}
+.emoji{font-size:3.2rem}.premio h2{margin:0;font-size:1.5rem;color:#7A1F63}.premio p{margin:.2rem 0 0}
+.premio.ver{animation:salta .7s}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;transition:opacity .6s}
+canvas.fuera{opacity:0;pointer-events:none}
+.boton{margin-top:1rem;font:inherit;font-weight:700;color:#fff;background:#7A1F63;border:0;border-radius:99px;padding:.65rem 1.4rem;cursor:pointer}
+.boton:focus-visible{outline:3px solid #2B0F4D;outline-offset:3px}
+.confeti{position:fixed;top:-20px;width:10px;height:14px;border-radius:2px;pointer-events:none;z-index:9;animation:cae linear forwards}
+@keyframes luces{50%{opacity:.35}}@keyframes cae{to{transform:translateY(110vh) rotate(540deg)}}@keyframes salta{from{transform:scale(.6)}60%{transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.luces,.premio.ver,.confeti{animation:none}canvas{transition:none}}

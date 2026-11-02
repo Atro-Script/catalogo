@@ -1,0 +1,34 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:#2A2845;font-family:"Palatino Linotype","Book Antiqua",Georgia,serif;background:radial-gradient(circle at 50% 0,#5B4636,#2A1D14 70%)}
+main{max-width:520px;margin:0 auto;padding:4vh 4vw 6vh}
+.mesa{padding:1.4rem 0 .8rem}
+.hoja{position:relative;min-height:62svh;padding:2.2rem 1.8rem 3.6rem;border-radius:3px;transform:rotate(-.6deg);
+  background:radial-gradient(circle at 12% 8%,rgba(160,110,60,.12),transparent 22%),radial-gradient(circle at 90% 92%,rgba(160,110,60,.14),transparent 26%),repeating-linear-gradient(0deg,rgba(120,80,40,.05) 0 1px,transparent 1px 3px),#FBF4E2;
+  box-shadow:0 22px 40px rgba(0,0,0,.55),0 0 0 1px rgba(120,80,40,.25)}
+.hoja::before{content:"";position:absolute;top:0;right:0;width:46px;height:46px;background:linear-gradient(225deg,#2A1D14 50%,#E6D6B0 50%);box-shadow:-3px 3px 6px rgba(0,0,0,.25)}
+.fecha{margin:0 0 1.2rem;text-align:right;font-style:italic;opacity:.75;font-size:.95rem}
+.saludo{margin:0 0 1rem;font-size:1.35rem;font-style:italic}
+.cuerpo{font-size:1.2rem;line-height:1.85;font-style:italic;white-space:pre-wrap;color:#262548}
+.pluma{display:inline-block;width:2px;height:1.2em;margin-left:2px;vertical-align:text-bottom;background:#262548;animation:parpadea 1s steps(2) infinite}
+.cierre{margin-top:1.6rem;animation:aparece 1.2s both}.cierre p{margin:0;font-size:1.2rem;font-style:italic}
+.firma{margin-top:.2rem!important;font-family:"Segoe Script","Brush Script MT",cursive;font-style:normal!important;font-size:2rem!important;color:#1E2A5E;clip-path:inset(0 100% 0 0);animation:firma 2.2s .6s ease-out forwards}
+.sello{position:absolute;right:1.6rem;bottom:1.2rem;display:grid;place-items:center;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#E86A5C,#B3261E 55%,#6B120D);box-shadow:0 6px 10px rgba(0,0,0,.4),inset 0 0 0 4px rgba(255,255,255,.1),inset 0 -4px 8px rgba(0,0,0,.35);color:rgba(255,230,220,.85);font:700 2rem Georgia,serif;text-shadow:0 -1px 0 rgba(0,0,0,.4),0 1px 0 rgba(255,255,255,.2);animation:sello .7s cubic-bezier(.3,1.5,.6,1) both}
+.controles{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.boton{font:inherit;font-weight:700;color:#2A1D14;background:linear-gradient(#F4DFA8,#D9B25E);border:0;border-radius:99px;padding:.7rem 1.4rem;cursor:pointer;box-shadow:0 4px 0 #8C6C26}
+.boton.sec{color:#F4DFA8;background:transparent;border:1.5px solid #D9B25E;box-shadow:none}
+.boton:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes parpadea{50%{opacity:0}}@keyframes aparece{from{opacity:0;transform:translateY(8px)}}@keyframes firma{to{clip-path:inset(0 0 0 0)}}@keyframes sello{from{transform:scale(2.6) rotate(-25deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pluma,.cierre,.sello{animation:none}.firma{animation:none;clip-path:none}}
+
+/* ===== Mejora visual ===== */
+body{background:radial-gradient(120% 70% at 50% 0,#6B4A32 0,#3A2316 60%,#1E110A 100%) fixed;background-color:#3A2316}
+main{padding-top:calc(env(safe-area-inset-top,0px) + 4.4rem)}
+.hoja{background:linear-gradient(180deg,#FFFCF2,#F8EEDB);box-shadow:0 22px 40px #0009,inset 0 0 40px #C9A77033;border-radius:4px}
+.fecha{color:#8A6A44}
+.saludo{font-family:Georgia,serif;color:#3B2716}
+.boton{background:linear-gradient(135deg,#F5D27A,#D9A24A);color:#3A2310;border:0;box-shadow:0 6px 0 #8A6020,0 10px 20px #0007;font-weight:800;border-radius:99px}
+.boton.sec{background:transparent;color:#F5D27A;box-shadow:none;border:2px solid #D9A24A}
+.boton:active{transform:translateY(3px)}
+.controles{gap:.7rem}
+.sello{box-shadow:0 6px 14px #0006}

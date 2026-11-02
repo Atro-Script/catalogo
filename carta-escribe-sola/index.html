@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una carta para ti</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+  <div class="mesa">
+    <article id="hoja" class="hoja" aria-live="polite" aria-label="Carta">
+      <p id="fecha" class="fecha"></p>
+      <p id="saludo" class="saludo"></p>
+      <div class="cuerpo"><span id="escrito"></span><i class="pluma" id="pluma" aria-hidden="true"></i></div>
+      <div id="cierre" class="cierre" hidden><p id="despedida"></p><p id="firma" class="firma"></p></div>
+      <div id="sello" class="sello" hidden aria-hidden="true"><span id="inicial"></span></div>
+    </article>
+  </div>
+  <div class="controles">
+    <button id="escribir" class="boton">Escribir la carta</button>
+    <button id="terminar" class="boton sec" hidden>Ver completa</button>
+    <button id="sonido" class="boton sec" aria-pressed="true">Sonido: sí</button>
+  </div>
+</main>
+<script src="datos.js"></script>
+<script src="carta.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

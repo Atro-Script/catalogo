@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Despedida</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header class="hero">
+  <div class="disco" aria-hidden="true"><span class="cuerda"></span><span class="bola"></span></div>
+  <div class="haces" aria-hidden="true"></div>
+  <p id="kicker" class="kicker"></p>
+  <div id="grande" class="grande" hidden></div>
+  <h1 id="nombre" class="neon"></h1>
+  <p id="encabezado" class="encabezado"></p>
+  <p id="mensaje" class="msj"></p>
+  <p id="fechaTexto" class="fecha"></p>
+  <div id="cuenta" class="cuenta"></div>
+</header>
+<main>
+  <section><h2>El plan</h2><ul id="programa" class="programa"></ul></section>
+  <section class="mis"><h2>Misiones de la noche</h2><p class="rol">Completa misiones, suma puntos y gana el título de MVP.</p>
+    <ul id="misiones" class="misiones"></ul>
+    <div class="marcador"><span>Tus puntos: <b id="pts">0</b> / <b id="meta">0</b></span><div class="barra"><i id="barra"></i></div></div>
+    <p id="mvp" class="mvp" role="status" hidden></p></section>
+  <section><h2>El lugar</h2><p class="lugar"><strong id="lugarNombre"></strong><br><span id="lugarDir"></span></p><a id="mapa" class="boton sec" target="_blank" rel="noopener">Abrir en el mapa</a></section>
+  <section id="extra"><h2 id="extraTitulo"></h2><p id="extraTexto"></p></section>
+  <section id="seccionFotos"><h2>Recuerdos</h2><div id="galeria" class="galeria"></div></section>
+  <section><h2>¿Estás dentro?</h2><a id="confirmar" class="boton" target="_blank" rel="noopener">Confirmar por WhatsApp</a></section>
+</main>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script src="misiones.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador Pro para Repostería | AtroScript</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        },
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f7f3eb',
+                            200: '#efe6d5',
+                            300: '#e2d2b5',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f7f3eb;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-cream-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-400 to-brand-600 flex items-center justify-center text-white text-xl shadow-md">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 block leading-none">AtroScript</span>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">Cotizador Pro Repostería</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleConfigModal()" class="inline-flex items-center space-x-1 text-xs font-medium bg-cream-100 hover:bg-cream-200 text-slate-700 px-3 py-2 rounded-lg transition-all border border-cream-300">
+                    <i class="fa-solid fa-sliders text-brand-600"></i>
+                    <span class="hidden sm:inline">Configuración</span>
+                </button>
+                <button onclick="openBackupModal()" class="inline-flex items-center space-x-1 text-xs font-medium bg-brand-50 hover:bg-brand-100 text-brand-700 px-3 py-2 rounded-lg transition-all border border-brand-200">
+                    <i class="fa-solid fa-floppy-disk text-brand-600"></i>
+                    <span>Respaldos</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Column: Form Controls (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+            <!-- Card 1: Cliente & Evento -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-200">
+                <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-cream-100">
+                    <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">1</div>
+                    <h2 class="text-xl font-bold text-slate-900">Datos del Cliente y Evento</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Nombre del Cliente *</label>
+                        <input type="text" id="clientName" placeholder="Ej. Sofía Mendoza" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" oninput="calculateTotal()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Teléfono WhatsApp</label>
+                        <input type="tel" id="clientPhone" placeholder="Ej. 5512345678" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Fecha del Evento</label>
+                        <input type="date" id="eventDate" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" onchange="calculateTotal()">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Tipo de Evento</label>
+                        <select id="eventType" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" onchange="calculateTotal()">
+                            <option value="Boda">Boda</option>
+                            <option value="XV Años">XV Años</option>
+                            <option value="Cumpleaños">Cumpleaños</option>
+                            <option value="Bautizo / Baby Shower">Bautizo / Baby Shower</option>
+                            <option value="Corporativo">Corporativo</option>
+                            <option value="Otro">Otro Especial</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Estructura y Porciones -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-200">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-cream-100">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">2</div>
+                        <h2 class="text-xl font-bold text-slate-900">Estructura y Porciones</h2>
+                    </div>
+                    <span id="pricePerPortionBadge" class="text-xs bg-cream-100 text-slate-700 px-2.5 py-1 rounded-full font-semibold border border-cream-300">
+                        Base: $<span id="basePortionRateDisplay">35</span> / porción
+                    </span>
+                </div>
+
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-semibold text-slate-700">Número de Porciones / Personas:</label>
+                            <span class="text-lg font-bold text-brand-600 bg-brand-50 px-3 py-0.5 rounded-lg border border-brand-200" id="portionsCount">50 porciones</span>
+                        </div>
+                        <input type="range" id="portionsRange" min="10" max="250" step="5" value="50" class="w-full accent-brand-600 cursor-pointer" oninput="updatePortions(this.value)">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Niveles / Pisos</label>
+                            <select id="tiersCount" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" onchange="calculateTotal()">
+                                <option value="1">1 Piso</option>
+                                <option value="2">2 Pisos (+ $150 costo base)</option>
+                                <option value="3">3 Pisos (+ $300 costo base)</option>
+                                <option value="4">4 Pisos (+ $500 montaje)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Sabor de Pan</label>
+                            <select id="breadFlavor" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" onchange="calculateTotal()">
+                                <option value="Vainilla Tradicional" data-extra="0">Vainilla Tradicional (Estándar)</option>
+                                <option value="Chocolate Intenso" data-extra="0">Chocolate Intenso (Estándar)</option>
+                                <option value="Red Velvet" data-extra="5">Red Velvet (+ $5 por porción)</option>
+                                <option value="Zanahoria & Nueces" data-extra="8">Zanahoria & Nueces (+ $8 por porción)</option>
+                                <option value="Almendra & Maracuyá" data-extra="10">Almendra & Maracuyá Gourmet (+ $10/p)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Relleno Especial</label>
+                        <select id="fillingType" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" onchange="calculateTotal()">
+                            <option value="Crema de Mantequilla / Buttercream" data-extra="0">Crema de Mantequilla Básica (Gratis)</option>
+                            <option value="Ganache de Chocolate Real" data-extra="4">Ganache de Chocolate Real (+ $4 por porción)</option>
+                            <option value="Frutos Rojos Artesanales" data-extra="6">Frutos Rojos Artesanales (+ $6 por porción)</option>
+                            <option value="Dulce de Leche con Nueces" data-extra="5">Dulce de Leche con Nueces (+ $5 por porción)</option>
+                            <option value="Nutella & Mascarpone" data-extra="8">Nutella & Mascarpone (+ $8 por porción)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Diseño y Acabados Decorativos -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-200">
+                <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-cream-100">
+                    <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">3</div>
+                    <h2 class="text-xl font-bold text-slate-900">Diseño y Decoración</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Cobertura Principal</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label class="border border-slate-200 rounded-lg p-3 text-center cursor-pointer hover:border-brand-300 transition flex flex-col items-center justify-center space-y-1">
+                                <input type="radio" name="coverage" value="Buttercream" data-cost="0" checked class="accent-brand-600" onchange="calculateTotal()">
+                                <span class="text-xs font-bold">Buttercream</span>
+                                <span class="text-[10px] text-slate-500">Sin costo extra</span>
+                            </label>
+                            <label class="border border-slate-200 rounded-lg p-3 text-center cursor-pointer hover:border-brand-300 transition flex flex-col items-center justify-center space-y-1">
+                                <input type="radio" name="coverage" value="Naked / Semi-Naked" data-cost="-2" class="accent-brand-600" onchange="calculateTotal()">
+                                <span class="text-xs font-bold">Naked Cake</span>
+                                <span class="text-[10px] text-emerald-600">-$2 / porción</span>
+                            </label>
+                            <label class="border border-slate-200 rounded-lg p-3 text-center cursor-pointer hover:border-brand-300 transition flex flex-col items-center justify-center space-y-1">
+                                <input type="radio" name="coverage" value="Fondant Fino" data-cost="12" class="accent-brand-600" onchange="calculateTotal()">
+                                <span class="text-xs font-bold">Fondant Fino</span>
+                                <span class="text-[10px] text-brand-600">+$12 / porción</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Elementos Decorativos Extras (Opcionales)</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Flores Naturales Organizadas" data-cost="250" onchange="calculateTotal()">
+                                <span>Flores Naturales (+$250)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Detalles de Hoja de Oro / Plata" data-cost="180" onchange="calculateTotal()">
+                                <span>Hoja de Oro/Plata Comestible (+$180)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Topper Personalizado 3D / Acrílico" data-cost="200" onchange="calculateTotal()">
+                                <span>Topper Personalizado (+$200)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Modelado de Figuras 3D en Sugar Paste" data-cost="350" onchange="calculateTotal()">
+                                <span>Figura 3D Modelada a Mano (+$350)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Efecto Macarons / Chocolates Especiales" data-cost="220" onchange="calculateTotal()">
+                                <span>Decorado Macarons & Chocolates (+$220)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-2.5 rounded-lg border border-slate-200 hover:bg-cream-50 cursor-pointer">
+                                <input type="checkbox" class="deco-item accent-brand-600" value="Pintado a Mano / Isomalt Art" data-cost="300" onchange="calculateTotal()">
+                                <span>Pintado a mano / Detalles Isomalt (+$300)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Cargo Adicional / Envío -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Envío / Entrega Especial ($)</label>
+                            <input type="number" id="deliveryFee" value="0" min="0" placeholder="0" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" oninput="calculateTotal()">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Descuento Especial ($)</label>
+                            <input type="number" id="discountFee" value="0" min="0" placeholder="0" class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition" oninput="calculateTotal()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notas Generales -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-200">
+                <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Notas o Especificaciones Especiales</label>
+                <textarea id="orderNotes" rows="2" placeholder="Ej. Alergia a las nueces en la familia, entregar antes de las 3:00 PM..." class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-400 focus:outline-none transition text-sm"></textarea>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Live Summary Card & Actions (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-brand-100 sticky top-20">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                    <span class="text-xs uppercase font-bold tracking-widest text-brand-600">Resumen de Cotización</span>
+                    <span class="text-xs bg-emerald-100 text-emerald-800 font-medium px-2 py-0.5 rounded-full">Listo para Enviar</span>
+                </div>
+
+                <!-- Live Ticket Preview -->
+                <div class="my-4 p-4 bg-cream-50 rounded-xl border border-cream-200 font-mono text-xs space-y-2 text-slate-700 custom-scrollbar max-h-96 overflow-y-auto">
+                    <div class="text-center pb-2 border-b border-cream-300 font-sans">
+                        <h3 class="font-bold text-slate-900 text-base" id="ticketBakeryName">Repostería Artesanal</h3>
+                        <p class="text-[11px] text-slate-500" id="ticketDate">Fecha: Presupuesto</p>
+                    </div>
+
+                    <div class="pt-1">
+                        <p><strong class="font-sans">Cliente:</strong> <span id="summaryClient">Sofía Mendoza</span></p>
+                        <p><strong class="font-sans">Evento:</strong> <span id="summaryEvent">Boda</span> (<span id="summaryEventDate">Sin fecha</span>)</p>
+                        <p><strong class="font-sans">Porciones:</strong> <span id="summaryPortions">50 pax</span> (<span id="summaryTiers">1 Piso</span>)</p>
+                    </div>
+
+                    <div class="border-t border-dashed border-cream-300 pt-2 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Sabor Pan:</span>
+                            <span class="font-semibold text-right" id="summaryBread">Vainilla</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Relleno:</span>
+                            <span class="font-semibold text-right" id="summaryFilling">Buttercream</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Cobertura:</span>
+                            <span class="font-semibold text-right" id="summaryCoverage">Buttercream</span>
+                        </div>
+                    </div>
+
+                    <div id="summaryExtrasList" class="border-t border-dashed border-cream-300 pt-2 space-y-1 text-[11px]">
+                        <!-- Dynamic Extras inserted here -->
+                    </div>
+
+                    <div class="border-t border-slate-300 pt-3 space-y-1 text-slate-900 font-sans">
+                        <div class="flex justify-between text-xs">
+                            <span>Costo por Porción Promedio:</span>
+                            <span class="font-bold" id="summaryUnitCost">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500" id="deliveryRow">
+                            <span>Envío:</span>
+                            <span id="summaryDelivery">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-emerald-600 hidden" id="discountRow">
+                            <span>Descuento:</span>
+                            <span id="summaryDiscount">-$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-base font-extrabold text-brand-700 pt-2 border-t border-slate-200">
+                            <span>TOTAL ESTIMADO:</span>
+                            <span id="summaryTotal">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-3">
+                    <button onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2 text-sm">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Enviar Cotización por WhatsApp</span>
+                    </button>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="copyToClipboard()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 px-3 rounded-lg text-xs transition flex items-center justify-center space-x-1">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copiar Texto</span>
+                        </button>
+                        <button onclick="exportSingleQuoteJSON()" class="w-full bg-brand-50 hover:bg-brand-100 text-brand-700 font-semibold py-2.5 px-3 rounded-lg text-xs transition flex items-center justify-center space-x-1 border border-brand-200">
+                            <i class="fa-solid fa-file-export"></i>
+                            <span>Descargar JSON</span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-slate-400 text-center mt-3">
+                    <i class="fa-solid fa-shield-halved"></i> Tus cotizaciones se procesan de forma local. No almacenamos datos en servidores externos.
+                </p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-cream-200 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+            <p><strong>AtroScript - Cotizador Pro para Repostería</strong> &copy; 2026. Herramientas digitales independientes para emprendedores creativos.</p>
+            <p class="text-[11px] text-slate-400">Funciona 100% en tu navegador, sin mensualidades ni bases de datos de pago.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Configuración de Precios Base -->
+    <div id="configModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-cream-200 space-y-4">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+                <h3 class="font-bold text-lg text-slate-900">Configuración de Tu Negocio</h3>
+                <button onclick="toggleConfigModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Nombre de tu Repostería / Marca</label>
+                    <input type="text" id="bakeryNameInput" value="Repostería Artesanal" class="w-full p-2 border border-slate-200 rounded-lg">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Tu Teléfono WhatsApp para Recibir Pedidos</label>
+                    <input type="tel" id="bakeryPhoneInput" value="5210000000000" placeholder="Ej. 5215512345678" class="w-full p-2 border border-slate-200 rounded-lg">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Precio Base por Porción Sencilla ($)</label>
+                    <input type="number" id="basePortionRateInput" value="35" class="w-full p-2 border border-slate-200 rounded-lg">
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex justify-end space-x-2">
+                <button onclick="saveConfig()" class="bg-brand-600 text-white font-bold px-4 py-2 rounded-lg text-xs hover:bg-brand-700 transition">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Gestor de Respaldos JSON -->
+    <div id="backupModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-xl border border-cream-200 space-y-4">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-100">
+                <h3 class="font-bold text-lg text-slate-900">Respaldar y Restaurar Cotizaciones</h3>
+                <button onclick="closeBackupModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <p class="text-xs text-slate-600">Para garantizar que nunca pierdas los presupuestos de tus clientes, puedes guardar copias en un archivo JSON en tu dispositivo o restaurarlas cuando quieras.</p>
+
+            <div class="space-y-4 pt-2">
+                <!-- Restaurar / Cargar JSON -->
+                <div class="p-4 border border-dashed border-brand-300 bg-brand-50/50 rounded-xl text-center">
+                    <i class="fa-solid fa-cloud-arrow-up text-brand-600 text-2xl mb-2"></i>
+                    <p class="text-xs font-semibold text-slate-700 mb-2">Restaurar Cotización desde archivo JSON</p>
+                    <input type="file" id="importJsonInput" accept=".json" class="hidden" onchange="importQuoteJSON(event)">
+                    <button onclick="document.getElementById('importJsonInput').click()" class="bg-white border border-brand-300 text-brand-700 font-semibold px-3 py-1.5 rounded-lg text-xs hover:bg-brand-100 transition shadow-sm">
+                        Seleccionar Archivo JSON
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex justify-end">
+                <button onclick="closeBackupModal()" class="bg-slate-200 text-slate-700 font-semibold px-4 py-2 rounded-lg text-xs hover:bg-slate-300">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Default App Settings
+        let appConfig = {
+            bakeryName: "Repostería Artesanal",
+            bakeryPhone: "5210000000000",
+            basePortionRate: 35
+        };
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadConfig();
+            calculateTotal();
+        });
+
+        function loadConfig() {
+            const saved = localStorage.getItem('atro_cotizador_config');
+            if(saved) {
+                appConfig = JSON.parse(saved);
+            }
+            document.getElementById('bakeryNameInput').value = appConfig.bakeryName;
+            document.getElementById('bakeryPhoneInput').value = appConfig.bakeryPhone;
+            document.getElementById('basePortionRateInput').value = appConfig.basePortionRate;
+            document.getElementById('basePortionRateDisplay').innerText = appConfig.basePortionRate;
+            document.getElementById('ticketBakeryName').innerText = appConfig.bakeryName;
+        }
+
+        function saveConfig() {
+            appConfig.bakeryName = document.getElementById('bakeryNameInput').value.trim() || "Repostería Artesanal";
+            appConfig.bakeryPhone = document.getElementById('bakeryPhoneInput').value.trim() || "5210000000000";
+            appConfig.basePortionRate = parseFloat(document.getElementById('basePortionRateInput').value) || 35;
+
+            localStorage.setItem('atro_cotizador_config', JSON.stringify(appConfig));
+            document.getElementById('basePortionRateDisplay').innerText = appConfig.basePortionRate;
+            document.getElementById('ticketBakeryName').innerText = appConfig.bakeryName;
+            
+            toggleConfigModal();
+            calculateTotal();
+        }
+
+        function toggleConfigModal() {
+            document.getElementById('configModal').classList.toggle('hidden');
+        }
+
+        function openBackupModal() {
+            document.getElementById('backupModal').classList.remove('hidden');
+        }
+
+        function closeBackupModal() {
+            document.getElementById('backupModal').classList.add('hidden');
+        }
+
+        function updatePortions(val) {
+            document.getElementById('portionsCount').innerText = `${val} porciones`;
+            calculateTotal();
+        }
+
+        // Calculation Core Engine
+        function calculateTotal() {
+            const clientName = document.getElementById('clientName').value.trim() || 'Cliente Probable';
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value || 'Por definir';
+            
+            const portions = parseInt(document.getElementById('portionsRange').value);
+            const tiers = parseInt(document.getElementById('tiersCount').value);
+            
+            // Bread flavor extra per portion
+            const breadSelect = document.getElementById('breadFlavor');
+            const breadFlavorName = breadSelect.value;
+            const breadExtra = parseFloat(breadSelect.options[breadSelect.selectedIndex].getAttribute('data-extra')) || 0;
+
+            // Filling type extra per portion
+            const fillingSelect = document.getElementById('fillingType');
+            const fillingName = fillingSelect.value;
+            const fillingExtra = parseFloat(fillingSelect.options[fillingSelect.selectedIndex].getAttribute('data-extra')) || 0;
+
+            // Coverage extra per portion
+            const coverageSelected = document.querySelector('input[name="coverage"]:checked');
+            const coverageName = coverageSelected ? coverageSelected.value : 'Buttercream';
+            const coverageExtra = coverageSelected ? parseFloat(coverageSelected.getAttribute('data-cost')) : 0;
+
+            // Extra Tiers Base Fixed Cost
+            let tiersExtraCost = 0;
+            if(tiers === 2) tiersExtraCost = 150;
+            if(tiers === 3) tiersExtraCost = 300;
+            if(tiers === 4) tiersExtraCost = 500;
+
+            // Calculate Base Portion Total Cost
+            const totalRatePerPortion = appConfig.basePortionRate + breadExtra + fillingExtra + coverageExtra;
+            let subtotalPortions = portions * totalRatePerPortion;
+
+            // Collect Extra Decoration Costs
+            let extraDecoCosts = 0;
+            let selectedExtrasList = [];
+            const checkboxes = document.querySelectorAll('.deco-item:checked');
+            checkboxes.forEach(cb => {
+                const cost = parseFloat(cb.getAttribute('data-cost')) || 0;
+                extraDecoCosts += cost;
+                selectedExtrasList.push({ name: cb.value, cost: cost });
+            });
+
+            // Delivery & Discounts
+            const deliveryFee = parseFloat(document.getElementById('deliveryFee').value) || 0;
+            const discountFee = parseFloat(document.getElementById('discountFee').value) || 0;
+
+            // Final Sum
+            const grandTotal = subtotalPortions + tiersExtraCost + extraDecoCosts + deliveryFee - discountFee;
+            const effectiveUnitCost = portions > 0 ? (grandTotal / portions) : 0;
+
+            // Update UI Ticket Summary
+            document.getElementById('summaryClient').innerText = clientName;
+            document.getElementById('summaryEvent').innerText = eventType;
+            document.getElementById('summaryEventDate').innerText = eventDate;
+            document.getElementById('summaryPortions').innerText = `${portions} personas`;
+            document.getElementById('summaryTiers').innerText = `${tiers} ${tiers === 1 ? 'Piso' : 'Pisos'}`;
+            
+            document.getElementById('summaryBread').innerText = breadFlavorName;
+            document.getElementById('summaryFilling').innerText = fillingName;
+            document.getElementById('summaryCoverage').innerText = coverageName;
+
+            // Update Extras UI List
+            const extrasContainer = document.getElementById('summaryExtrasList');
+            extrasContainer.innerHTML = '';
+            
+            if (tiersExtraCost > 0) {
+                extrasContainer.innerHTML += `
+                    <div class="flex justify-between text-slate-600">
+                        <span>Estructura (${tiers} pisos):</span>
+                        <span>+$${tiersExtraCost.toFixed(2)}</span>
+                    </div>`;
+            }
+
+            selectedExtrasList.forEach(item => {
+                extrasContainer.innerHTML += `
+                    <div class="flex justify-between text-slate-600">
+                        <span>${item.name}:</span>
+                        <span>+$${item.cost.toFixed(2)}</span>
+                    </div>`;
+            });
+
+            // Update Costs
+            document.getElementById('summaryUnitCost').innerText = `$${effectiveUnitCost.toFixed(2)}`;
+            document.getElementById('summaryDelivery').innerText = `$${deliveryFee.toFixed(2)}`;
+            
+            const discountRow = document.getElementById('discountRow');
+            if (discountFee > 0) {
+                discountRow.classList.remove('hidden');
+                document.getElementById('summaryDiscount').innerText = `-$${discountFee.toFixed(2)}`;
+            } else {
+                discountRow.classList.add('hidden');
+            }
+
+            document.getElementById('summaryTotal').innerText = `$${grandTotal.toFixed(2)}`;
+
+            // Date stamp for ticket
+            const today = new Date().toLocaleDateString('es-MX', { day: '2-digit', month: 'short', year: 'numeric' });
+            document.getElementById('ticketDate').innerText = `Fecha: ${today}`;
+        }
+
+        // Build Plain Text Quote
+        function generatePlainTextQuote() {
+            const clientName = document.getElementById('clientName').value.trim() || 'Cliente';
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value || 'Por definir';
+            const portions = document.getElementById('portionsRange').value;
+            const tiers = document.getElementById('tiersCount').value;
+            const bread = document.getElementById('breadFlavor').value;
+            const filling = document.getElementById('fillingType').value;
+            const coverage = document.querySelector('input[name="coverage"]:checked').value;
+            const total = document.getElementById('summaryTotal').innerText;
+            const notes = document.getElementById('orderNotes').value.trim();
+
+            let extrasText = '';
+            const checkboxes = document.querySelectorAll('.deco-item:checked');
+            checkboxes.forEach(cb => {
+                extrasText += `  • ${cb.value}\n`;
+            });
+
+            return `🎂 *COTIZACIÓN DE REPOSTERÍA* 🎂\n` +
+                   `*${appConfig.bakeryName}*\n` +
+                   `-----------------------------------\n` +
+                   `👤 *Cliente:* ${clientName}\n` +
+                   `🎉 *Evento:* ${eventType} (${eventDate})\n` +
+                   `🍰 *Estructura:* ${portions} porciones | ${tiers} piso(s)\n\n` +
+                   `✨ *DETALLES DEL DISEÑO:*\n` +
+                   `• *Pan:* ${bread}\n` +
+                   `• *Relleno:* ${filling}\n` +
+                   `• *Cobertura:* ${coverage}\n` +
+                   (extrasText ? `• *Decorados extras:*\n${extrasText}` : '') +
+                   (notes ? `\n📝 *Notas:* ${notes}\n` : '') +
+                   `-----------------------------------\n` +
+                   `💰 *TOTAL ESTIMADO: ${total}*\n\n` +
+                   `_Presupuesto válido por 7 días. Requiere 50% de anticipo para agendar._`;
+        }
+
+        // Send to WhatsApp
+        function sendToWhatsApp() {
+            const text = generatePlainTextQuote();
+            const clientPhone = document.getElementById('clientPhone').value.trim();
+            const targetPhone = clientPhone ? clientPhone.replace(/\D/g, '') : appConfig.bakeryPhone.replace(/\D/g, '');
+            
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Copy Text
+        function copyToClipboard() {
+            const text = generatePlainTextQuote();
+            navigator.clipboard.writeText(text).then(() => {
+                alert('¡Cotización copiada al portapapeles con éxito!');
+            }).catch(err => {
+                alert('No se pudo copiar automáticamente. Intenta de nuevo.');
+            });
+        }
+
+        // Export Single JSON Backup
+        function exportSingleQuoteJSON() {
+            const quoteData = {
+                bakery: appConfig.bakeryName,
+                date: new Date().toISOString(),
+                client: {
+                    name: document.getElementById('clientName').value,
+                    phone: document.getElementById('clientPhone').value,
+                    eventType: document.getElementById('eventType').value,
+                    eventDate: document.getElementById('eventDate').value
+                },
+                specs: {
+                    portions: document.getElementById('portionsRange').value,
+                    tiers: document.getElementById('tiersCount').value,
+                    bread: document.getElementById('breadFlavor').value,
+                    filling: document.getElementById('fillingType').value,
+                    coverage: document.querySelector('input[name="coverage"]:checked').value,
+                    notes: document.getElementById('orderNotes').value
+                },
+                total: document.getElementById('summaryTotal').innerText
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(quoteData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            const filename = `Cotizacion_${(quoteData.client.name || 'Cliente').replace(/\s+/g, '_')}_AtroScript.json`;
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", filename);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        // Import JSON Backup
+        function importQuoteJSON(event) {
+            const fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if(data.client && data.specs) {
+                        document.getElementById('clientName').value = data.client.name || '';
+                        document.getElementById('clientPhone').value = data.client.phone || '';
+                        document.getElementById('eventType').value = data.client.eventType || 'Boda';
+                        document.getElementById('eventDate').value = data.client.eventDate || '';
+
+                        document.getElementById('portionsRange').value = data.specs.portions || 50;
+                        document.getElementById('portionsCount').innerText = `${data.specs.portions || 50} porciones`;
+                        document.getElementById('tiersCount').value = data.specs.tiers || 1;
+                        document.getElementById('breadFlavor').value = data.specs.bread || 'Vainilla Tradicional';
+                        document.getElementById('fillingType').value = data.specs.filling || 'Crema de Mantequilla / Buttercream';
+                        document.getElementById('orderNotes').value = data.specs.notes || '';
+
+                        calculateTotal();
+                        closeBackupModal();
+                        alert('¡Cotización cargada correctamente desde el respaldo JSON!');
+                    } else {
+                        alert('El archivo JSON no tiene un formato válido de Cotizador Pro.');
+                    }
+                } catch(err) {
+                    alert('Error al leer el archivo JSON.');
+                }
+            };
+            fileReader.readAsText(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
