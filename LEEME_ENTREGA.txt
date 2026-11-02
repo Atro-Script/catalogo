@@ -1,0 +1,35 @@
+CÓMO ENTREGAR UN PRODUCTO A UN CLIENTE
+======================================
+
+Qué logra
+- El cliente tiene su propio enlace, separado del catálogo y de otros clientes.
+- Sin los botones "Catálogo" y "Lo quiero".
+- Con noindex: Google y otros buscadores no lo muestran en resultados.
+
+Importante: noindex NO es una contraseña. Quien tenga el enlace puede abrirlo y reenviarlo.
+Si el contenido es muy íntimo, usa la Llave del mensaje (cifra el texto) o un hosting con acceso protegido
+(por ejemplo Cloudflare Pages con Cloudflare Access; revisa sus límites y precios actuales).
+GitHub Pages es público aunque el repositorio sea privado (ocultarlo requiere GitHub Enterprise Cloud).
+
+Paso a paso (con Python instalado)
+1. Abre una terminal dentro de la carpeta AtroScript.
+2. Ejecuta:   python entregar.py caja-de-musica regalo-x7k2m9
+   (primer nombre = carpeta del producto; segundo = nombre de la entrega, difícil de adivinar)
+3. Se crea  entregas/regalo-x7k2m9/  Edita ahí su datos.js (nombres, fechas, mensajes, fotos).
+4. Crea un repositorio nuevo en GitHub con ese nombre (público si usas la cuenta gratis).
+5. Sube el CONTENIDO de entregas/regalo-x7k2m9/ (el index.html debe quedar en la raíz).
+6. En Settings > Pages elige la rama main y la carpeta / (root). Copia el enlace y mándalo al cliente.
+
+Paso a paso (sin Python)
+1. Copia la carpeta del producto y renómbrala.
+2. En su index.html borra la línea  <script src="../assets/pedir.js"></script>
+3. Justo debajo de <head> agrega:  <meta name="robots" content="noindex, nofollow">
+4. Si el index.html tiene líneas con  ../assets/config.js , copia esa carpeta assets/ junto al producto y cambia ../assets/ por assets/
+5. Crea un archivo robots.txt con dos líneas:  User-agent: *   y   Disallow: /
+6. Sigue desde el paso 3 de arriba.
+
+Notas
+- Llave del mensaje: no entregues crear.html (es tu herramienta para cifrar). El script lo borra solo.
+- Arte con tu Nombre: en datos.js pon descargas: true si el cliente ya pagó, para que pueda bajar el póster sin marca de agua.
+- Galaxia Interactiva: necesita internet para cargar three.js.
+- No guardes datos sensibles (teléfonos, direcciones) en datos.js: es un archivo que cualquiera con el enlace puede leer.

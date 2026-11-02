@@ -1,0 +1,47 @@
+ATROSCRIPT - catálogo y demos
+
+CÓMO ABRIRLO
+1. Descomprime la carpeta completa (no abras los archivos desde dentro del ZIP).
+2. Abre index.html con doble clic. Para ver todo como lo verá un cliente, publícalo en GitHub Pages.
+
+CONTENIDO: 49 productos, todos con demo. Cada uno vive en su carpeta.
+Eventos (13): mis-xv, para-siempre, fiesta-estelar, bautizo-comunion, baby-shower, primer-anito, lo-logre, nuevo-hogar, noche-de-gala, nivel-desbloqueado, invitacion-halloween, invitacion-posada, despedida.
+Regalos digitales (23): pregunta-especial, aniversario-pareja, rosa-interactiva, carta-favorita, capsula-del-tiempo, cupones-de-amor, dias-de-sorpresas, nuestro-album, mapa-recuerdos, pequenas-razones, llave-mensaje, pase-de-abordar, rasca-descubre, cuento-personalizado, huella, caja-de-musica, televisor-recuerdos, carta-escribe-sola, flores-amarillas, hilo-rojo, lector-huella, lista-razones, caja-regalos-3d.
+Experiencias visuales (5): galaxia-interactiva (versión nueva con fotos y melodía propia), constelacion-interactiva, galeria-viva, planeta-construye, jardin-luciernagas.
+Diseño (2): estudio-invitaciones, arte-con-tu-nombre.
+Juegos (2): cartas-coleccionables (sobres, colección y duelo con atributos), misterio.
+Negocios (4): menu-digital, tarjeta-lealtad, catalogo-whatsapp, cotizador-reposteria.
+assets/: logo animado, íconos propios, configuración de WhatsApp y botones flotantes de las demos.
+
+CÓMO PERSONALIZAR UN PRODUCTO PARA UN CLIENTE
+1. Copia la carpeta del producto y ponle el nombre del cliente (ej. ana-sofia-xv).
+2. Abre datos.js y cambia los textos, fechas, colores y WhatsApp. Cada línea trae un comentario.
+3. Fotos: ponlas en la carpeta fotos (comprimidas, unos 200 KB) y escribe sus nombres en datos.js.
+4. Quita del index.html la línea <script src="../assets/pedir.js"> (son los botones «Lo quiero» y «Catálogo» de la demo).
+5. Abre index.html para probar y publica la carpeta en GitHub Pages.
+
+WHATSAPP
+- El número de AtroScript está en assets/config.js (una sola línea). El catálogo, el panel «Mi selección» y los botones «Lo quiero» de las demos escriben a ese número.
+- Las demos usan tu número en sus botones de confirmación. En el producto de un cliente, cambia el número en su datos.js.
+
+NOTAS DE CADA PRODUCTO
+- Capsula del Tiempo, 12 Días de Sorpresas y Huella se desbloquean por la fecha del dispositivo. Agrega #probar al final del enlace para verlas completas antes de entregar. El contenido está en el código fuente: son regalos emocionales, no secretos seguros.
+- La Llave del Mensaje SÍ cifra el mensaje (AES-GCM): abre crear.html, escribe mensaje y clave, y pega el resultado en datos.js. Clave de la demo: estrella. Necesita https o localhost (GitHub Pages sirve).
+- Tarjeta de Lealtad, Cupones de Amor, Cartas Coleccionables y 12 Días de Sorpresas guardan el avance solo en el navegador de cada persona. La tarjeta de lealtad muestra su código en el código fuente: sirve para negocios pequeños de confianza.
+- Caja de Música Digital: usa el audio del navegador (hay que tocar la pantalla primero). Las 5 melodías de ejemplo son de dominio público. Para un cliente, escribe sus notas en datos.js; si la canción tiene derechos de autor, confirma que puedas usarla. Los mensajes y fotos que salen de la caja van en datos.js (mensajes).
+- Televisor de los Recuerdos, La Carta que se Escribe Sola, Invitación Halloween e Invitación Posada usan sonidos generados por el navegador (sin archivos). Hay botón para silenciarlos.
+- Caja de Regalos 3D usa transformaciones 3D del navegador: se ve mejor en teléfonos recientes.
+- Galaxia Interactiva usa three.js desde internet (CDN). Sus fotos de ejemplo son ilustraciones guardadas en fotos/ (no incluye fotos personales). El sonido es una melodía generada por el navegador: sin archivos de audio. Para usarla sin conexión guarda three.min.js (r128) y OrbitControls.js en la carpeta y cambia las dos líneas <script> del index.html.
+- Televisor de los Recuerdos, Caja de Música y Caja de Regalos 3D muestran ilustraciones de fotos/ (archivos .svg). Para un cliente, pon sus fotos y escribe la ruta en datos.js.
+- Arte con tu Nombre genera un póster distinto según el nombre y la fecha, sin archivos de imagen.
+- Estudio de Invitaciones solo muestra una vista previa con marca de agua y un botón para pedirla por WhatsApp. Para activar la descarga al entregarlo a un cliente, pon descargas: true en su datos.js.
+- Cotizador Pro Repostería es el archivo original, sin cambios. Usa Tailwind, Font Awesome y Google Fonts desde internet: sin conexión se ve sin estilos. Los precios de sabores y extras están en el HTML; desde la configuración solo se edita el precio base por porción.
+- Misterio, Huella, Galería Viva, Cuento con Tu Nombre y Lista de Razones se personalizan con textos e imágenes en datos.js.
+- Aniversario de Pareja, Rosa Interactiva y Galaxia Interactiva se adaptaron de proyectos propios con textos de ejemplo. Constelación Interactiva se rehízo a partir de capturas de pantalla.
+
+DISEÑO DEL CATÁLOGO
+- Íconos propios (assets/iconos.js), uno por producto, con el color de su categoría. Para agregar un producto: su carpeta, su fila en js/productos.js, su texto en js/detalles.js y su ícono en assets/iconos.js.
+- Logo animado (assets/logo.css y assets/logo.js) dibujado directo en la página. En la esquina usa una versión ligera.
+
+
+ENTREGAR A UN CLIENTE: mira LEEME_ENTREGA.txt y el script entregar.py (quita los botones del catálogo, agrega noindex y arma la carpeta lista para subir).
