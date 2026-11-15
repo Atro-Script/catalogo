@@ -51,4 +51,5 @@ PERSONALIZA["lista-razones"] = "Las razones, el tema (pareja, amigos o familia) 
 PERSONALIZA["caja-regalos-3d"] = "El mensaje de cada regalo, los colores de la caja y la carta final";
 PERSONALIZA["planeta-construye"] = "Cada zona del planeta con su recuerdo, los colores y el mensaje final";
 PERSONALIZA["jardin-luciernagas"] = "Un mensaje o foto por luciérnaga y el mensaje final";
+PERSONALIZA["sorpresa-pastel"] = "Nombre, edad, carta completa, textos, colores pastel y la frase del gran final";
 const IDEAL_PARA = { A: "Fiestas y celebraciones", B: "Regalos y sorpresas", C: "Pantallas, fondos y regalos", D: "Quien quiere crear su propio diseño", F: "Fiestas y reuniones", G: "Pequeños negocios y emprendedores" };

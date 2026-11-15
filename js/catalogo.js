@@ -114,7 +114,7 @@ $("selEnviar").onclick = () => {
 $("total").textContent = PRODUCTOS.length + " productos"; $("nProd").textContent = PRODUCTOS.length;
 $("buscar").oninput = e => { texto = e.target.value; pintar(); };
 const wa = "https://wa.me/" + ATRO_WHATSAPP + "?text=" + encodeURIComponent("Hola, tengo una idea para un proyecto digital:");
-["cotizar3"].forEach(id => { $(id).href = wa; $(id).target = "_blank"; $(id).rel = "noopener"; });
+["cotizar2", "cotizar3"].forEach(id => { $(id).href = wa; $(id).target = "_blank"; $(id).rel = "noopener"; });
 filtros(); pintar();
 
 document.querySelectorAll(".sec .enc, .pasos li, .cierre").forEach(el => el.classList.add("rev"));

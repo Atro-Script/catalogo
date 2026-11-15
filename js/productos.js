@@ -36,6 +36,7 @@ const PRODUCTOS = [
   ["B","lector-huella","Lector de Huella","Un lector de huella que desbloquea tu mensaje con un efecto impactante.",["Mantén presionado para escanear","Acceso concedido con vibración"],1],
   ["B","lista-razones","Lista de Razones","Razones en tarjetas que se deslizan y terminan en un cielo de estrellas.",["Para pareja, amigos o familia","Cielo final con todas las razones"],1],
   ["B","caja-regalos-3d","Caja de Regalos 3D","Una caja que gira en 3D, suelta globos y guarda regalos que se abren.",["Gírala con el dedo","Pastel, carta, osito y polaroid"],1],
+  ["B","sorpresa-pastel","Sorpresa Pastel","Regalo de cumpleaños en tonos pastel: regalo que se abre, carta, jardín, pastel y gran final.",["Flores que brotan al tocar","Final con letras y globos"],1],
   ["C","galaxia-interactiva","Galaxia Interactiva","Una galaxia 3D de corazones y fotos con mensajes.",["Gira y toca los corazones","Contador del tiempo juntos"]],
   ["C","constelacion-interactiva","Constelación Interactiva","Toca cada estrella para descubrir un mensaje.",["Mensaje final al completar","Cielo animado"]],
   ["C","galeria-viva","Galería Viva","Una sala de exposición digital para tus obras.",["Fichas con la historia de cada obra","Recorrido guiado"]],
