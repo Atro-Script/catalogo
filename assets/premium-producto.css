@@ -1,0 +1,9 @@
+/* AtroScript v22 · acabado compartido de cada producto (viñeta, papel y brillo en botones). Quitar: borrar su <link> */
+html::after{content:"";position:fixed;inset:0;z-index:2147483000;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.28)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-blend-mode:normal;opacity:.55;mix-blend-mode:soft-light}
+button:not([disabled]),.boton,[role=button]{text-shadow:0 1px 0 rgba(0,0,0,.18)}
+img,svg,canvas{image-rendering:auto}
+@media (prefers-reduced-motion:reduce){html::after{opacity:.35}}
+@media print{html::after{display:none}}
+
+/* v26: nada decorativo debe crear desplazamiento horizontal */
+html,body{overflow-x:clip}

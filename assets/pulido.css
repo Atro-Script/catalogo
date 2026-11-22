@@ -1,0 +1,26 @@
+/* AtroScript v26 · pulido compartido de todos los productos.
+   Usa :where() (especificidad cero) para no pisar el diseño propio de cada producto.
+   Para quitarlo en un producto, borra su <link> a pulido.css. */
+:where(html){-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+:where(body){-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+/* títulos sin palabras huérfanas; párrafos sin última línea de una sola palabra */
+:where(h1,h2,h3){text-wrap:balance}
+:where(p,li,figcaption){text-wrap:pretty}
+/* toques inmediatos en el celular (sin retraso ni zoom por doble toque) */
+:where(button,a,summary,select,label,[role=button],[onclick]){touch-action:manipulation}
+:where(button,[role=button]){-webkit-user-select:none;user-select:none}
+/* foco visible para quien navega con teclado o lector; no se ve al tocar */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid currentColor;outline-offset:3px;border-radius:inherit}
+:where(a,button,input,select,textarea):focus:not(:focus-visible){outline:none}
+/* iPhone hace zoom al escribir si el texto mide menos de 16px */
+:where(input,select,textarea){font-size:max(16px,1em)}
+:where(img){max-width:100%;height:auto}
+/* barras fijas abajo: que no queden bajo la barra de gestos del teléfono */
+@supports (padding:max(0px)){:where(.barra,.pie-fijo,.carrito){padding-bottom:max(.6rem,env(safe-area-inset-bottom,0px))}}
+
+/* v27 · movimiento compartido (peso cero: los productos con estilo propio lo reemplazan) */
+@media (prefers-reduced-motion:no-preference){
+  :where(body){animation:atroAparece .6s ease-out backwards}
+  :where(button,[role=button],a):where(:active){transition:transform .12s}
+}
+@keyframes atroAparece{from{opacity:0}}

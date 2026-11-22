@@ -1,0 +1,44 @@
+/* AtroScript · TEXTURAS (v19). Dan sensación de papel, tela y bordado a cualquier producto.
+   Uso: <link rel="stylesheet" href="../assets/textura.css"> y <body data-tex="papel grano">. Se pueden combinar.
+   Fondos: cuadros · cuadros-noche · papel · vintage · acuarela · tela · lino · noche · bordado     Extra: grano (grano fino sobre todo) · viñeta
+   Piezas sueltas: .papel · .polaroid (con <i class="cinta"></i>) · .cinta · .rasgado · .manuscrito */
+:root{--g-fino:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.0 0 0 0 0 0.0 0 0 0 0 0.0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");--g-fibra:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.05 .07' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.471 0 0 0 0 0.333 0 0 0 0 0.196 0 0 0 .45 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");--g-mancha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.667 0 0 0 0 0.471 0 0 0 0 0.235 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");--g-hilo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.35 .02' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1.0 0 0 0 0 1.0 0 0 0 0 1.0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");--g-cal:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='150'%3E%3Ctext x='6' y='34' font-family='Georgia,serif' font-style='italic' font-size='23' fill='%238a5a3a'%3Eamor mío, siempre contigo · cada día a tu lado · para ti%3C/text%3E%3Ctext x='-40' y='84' font-family='Georgia,serif' font-style='italic' font-size='21' fill='%238a5a3a'%3Enuestra historia · te quiero · hoy y mañana · recuerdos%3C/text%3E%3Ctext x='-90' y='134' font-family='Georgia,serif' font-style='italic' font-size='25' fill='%238a5a3a'%3Equerida · con cariño · por siempre · mi vida entera%3C/text%3E%3C/svg%3E");--g-estr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg fill='white'%3E%3Ccircle cx='20' cy='30' r='1.2'/%3E%3Ccircle cx='120' cy='80' r='.9'/%3E%3Ccircle cx='70' cy='150' r='1.4'/%3E%3Ccircle cx='170' cy='20' r='.8'/%3E%3Ccircle cx='180' cy='160' r='1.1'/%3E%3Ccircle cx='40' cy='100' r='.7'/%3E%3C/g%3E%3C/svg%3E");--g-punt:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg stroke='%23e6c26a' stroke-width='1.6' stroke-linecap='round' opacity='.55'%3E%3Cpath d='M6 6l7 3M26 14l7 3M10 26l7 3M30 34l7 3'/%3E%3C/g%3E%3C/svg%3E")}
+body[data-tex]::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none}
+body[data-tex]::after{content:"";position:fixed;inset:0;z-index:7;pointer-events:none}
+/* grano fino por encima de todo (se siente en el vidrio y en las letras) */
+body[data-tex~="grano"]::after{background-image:var(--g-fino);background-size:180px;opacity:.1;mix-blend-mode:overlay}
+body[data-tex~="viñeta"]::after,body[data-tex~="vintage"]::after{background-image:var(--g-fino),radial-gradient(120% 100% at 50% 40%,transparent 55%,rgba(60,20,10,.35));background-size:180px,100% 100%;opacity:1;mix-blend-mode:normal}
+body[data-tex~="vintage"]::after{background-image:var(--g-fino),radial-gradient(120% 100% at 50% 40%,transparent 50%,rgba(90,50,20,.45));opacity:.9}
+/* papel cuadriculado (cuaderno) */
+body[data-tex~="cuadros"]{background:#fdfaf3!important;color:#3b2430}
+body[data-tex~="cuadros"]::before{background-image:linear-gradient(rgba(70,110,160,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(70,110,160,.22) 1px,transparent 1px),linear-gradient(rgba(70,110,160,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(70,110,160,.16) 1px,transparent 1px),var(--g-fibra);background-size:120px 120px,120px 120px,24px 24px,24px 24px,300px}
+body[data-tex~="cuadros-noche"]::before{background-image:linear-gradient(rgba(150,190,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(150,190,255,.12) 1px,transparent 1px),linear-gradient(rgba(150,190,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(150,190,255,.07) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+/* papel liso con fibras y manchas */
+body[data-tex~="papel"]::before{background-image:var(--g-mancha),var(--g-fibra);background-size:500px,300px;mix-blend-mode:multiply;opacity:.55}
+/* papel viejo con caligrafía tenue */
+body[data-tex~="vintage"]{background:radial-gradient(100% 70% at 50% 0%,#f6e7c9,#e7cf9f 90%) fixed!important;color:#4a2c1a}
+body[data-tex~="vintage"]::before{background-image:var(--g-cal),var(--g-mancha),var(--g-fibra);background-size:420px 150px,500px,300px;opacity:.5;mix-blend-mode:multiply}
+/* acuarela: manchas suaves de color */
+body[data-tex~="acuarela"]::before{background-image:var(--g-mancha),radial-gradient(60% 40% at 20% 15%,rgba(255,255,255,.55),transparent),radial-gradient(50% 40% at 85% 75%,rgba(255,255,255,.35),transparent),var(--g-fibra);background-size:500px,100% 100%,100% 100%,300px;mix-blend-mode:soft-light;opacity:.9}
+/* tela / terciopelo */
+body[data-tex~="tela"]::before{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(-45deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px),linear-gradient(160deg,rgba(255,255,255,.10),transparent 40%,rgba(0,0,0,.25))}
+/* lino */
+body[data-tex~="lino"]::before{background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px)}
+/* cielo de noche con estrellas */
+body[data-tex~="noche"]::before{background-image:var(--g-estr),var(--g-estr);background-size:200px,130px;background-position:0 0,60px 40px;opacity:.7}
+/* bordado dorado */
+body[data-tex~="bordado"]::before{background-image:var(--g-punt);background-size:40px;opacity:.8}
+
+/* ---------- piezas de álbum / cuaderno ---------- */
+.papel{position:relative;background-color:#fffaf0;box-shadow:0 1px 1px rgba(80,50,20,.2),0 14px 30px rgba(80,40,20,.22);border-radius:3px}
+.papel::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:var(--g-mancha),var(--g-fibra),var(--g-fino);background-size:500px,300px,160px;opacity:.3;mix-blend-mode:multiply}
+.rasgado{clip-path:polygon(0 0,100% 0,100% 96%,97% 98%,93% 96%,88% 99%,82% 97%,76% 99%,70% 96%,63% 98%,56% 96%,49% 99%,42% 97%,35% 99%,28% 96%,21% 98%,14% 96%,8% 99%,3% 97%,0 99%)}
+.cinta{position:absolute;left:50%;top:-.7rem;width:5.2rem;height:1.5rem;translate:-50% 0;rotate:-4deg;background:repeating-linear-gradient(90deg,rgba(255,214,222,.85) 0 .5rem,rgba(255,255,255,.7) .5rem 1rem);box-shadow:0 2px 4px rgba(0,0,0,.18);opacity:.95;clip-path:polygon(0 0,4% 20%,0 40%,4% 60%,0 80%,3% 100%,100% 100%,96% 80%,100% 60%,96% 40%,100% 20%,97% 0)}
+.polaroid{position:relative;background:#fffdf8;padding:.6rem .6rem .45rem;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 18px 38px rgba(60,20,30,.3)}
+.polaroid::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--g-fino);background-size:160px;opacity:.18;mix-blend-mode:multiply;border-radius:inherit}
+.manuscrito{font-family:var(--serif,Georgia,serif);font-style:italic;font-weight:700}
+@media (prefers-reduced-motion:no-preference){body[data-tex~="grano"]::after{animation:grano 1.2s steps(6) infinite}}
+@keyframes grano{0%{background-position:0 0}20%{background-position:-40px 30px}40%{background-position:50px -20px}60%{background-position:-30px -50px}80%{background-position:20px 40px}100%{background-position:0 0}}
+.carta.vintage{background-color:#fff8ea;background-image:none;color:#4a2a2a;border:0;border-radius:4px;box-shadow:0 1px 2px rgba(80,50,20,.3),0 20px 44px rgba(80,20,40,.35);-webkit-backdrop-filter:none;backdrop-filter:none;transform:rotate(-.7deg)}
+.carta.vintage::before{inset:0;left:0;right:0;top:0;height:auto;background:var(--g-mancha),var(--g-fibra),var(--g-fino);background-size:500px,300px,160px;opacity:.3;mix-blend-mode:multiply;z-index:0}
+.carta.vintage>*{position:relative;z-index:1}.carta.vintage .firma{color:#a3234f}

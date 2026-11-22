@@ -1,0 +1,23 @@
+/* AtroScript · estilo compartido de los productos de fechas especiales (v19): cristal, serif cursiva, brillo suave. */
+@font-face{font-family:Fraunces;font-style:italic;font-weight:700;font-display:swap;src:url(fonts/fraunces-latin-700-italic.woff2) format("woff2")}
+@font-face{font-family:Quicksand;font-weight:500;font-display:swap;src:url(fonts/quicksand-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Quicksand;font-weight:700;font-display:swap;src:url(fonts/quicksand-latin-700-normal.woff2) format("woff2")}
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--f1:#2b0a3d;--f2:#000;--a:#ffc857;--t:#fff;--serif:Fraunces,Georgia,serif;--sans:Quicksand,system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;min-height:100svh;color:var(--t);font-family:var(--sans);font-weight:500;text-align:center;background:radial-gradient(120% 70% at 50% 0%,var(--f1),var(--f2) 78%) fixed}
+main{position:relative;z-index:1;min-height:100svh;display:grid;align-content:center;justify-items:center;gap:1.1rem;padding:5.6rem 1.2rem 2.5rem}
+h1{margin:0;font-family:var(--serif);font-style:italic;font-weight:700;line-height:1.08;letter-spacing:-.01em;font-size:clamp(2.1rem,9.5vw,3.4rem);text-shadow:0 0 34px color-mix(in srgb,var(--a) 55%,transparent),0 2px 0 rgba(0,0,0,.25);text-wrap:balance}
+.peq{margin:0;display:flex;align-items:center;gap:.7rem;font-size:.95rem;font-weight:700;letter-spacing:.04em;color:var(--a)}
+.peq::before,.peq::after{content:"";width:2rem;height:1px;background:linear-gradient(90deg,transparent,var(--a));opacity:.7}.peq::after{transform:scaleX(-1)}
+.carta{position:relative;width:min(100%,31rem);padding:1.7rem 1.5rem 1.5rem;border-radius:24px;text-align:left;line-height:1.72;font-size:1.04rem;
+ background:linear-gradient(165deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 60%);border:1px solid rgba(255,255,255,.18);
+ box-shadow:0 24px 70px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.28),0 0 60px -20px color-mix(in srgb,var(--a) 60%,transparent);
+ -webkit-backdrop-filter:blur(14px) saturate(1.25);backdrop-filter:blur(14px) saturate(1.25)}
+.carta::before{content:"";position:absolute;left:1.5rem;right:1.5rem;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent);opacity:.8}
+.carta p{margin:.55rem 0}.firma{text-align:right;font-family:var(--serif);font-style:italic;font-weight:700;color:var(--a);font-size:1.12rem}
+.bt{font:inherit;font-weight:700;font-size:1.05rem;color:#1b1203;background:linear-gradient(180deg,color-mix(in srgb,var(--a) 70%,#fff),var(--a));border:0;border-radius:99px;padding:.9rem 1.7rem;cursor:pointer;box-shadow:0 8px 26px color-mix(in srgb,var(--a) 45%,transparent),inset 0 1px 0 rgba(255,255,255,.5)}
+.ayuda{margin:0;opacity:.8;font-size:.95rem;max-width:22rem}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+@keyframes subir{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}.ent{animation:subir .8s cubic-bezier(.2,.8,.2,1) both}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.ent{animation:none}}

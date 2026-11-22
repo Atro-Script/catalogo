@@ -1,0 +1,30 @@
+.atm-cap{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:6}
+.atm-p{--c:var(--atm,var(--acento,#FFE9B0));position:absolute;left:var(--x);top:-8%;width:calc(14px*var(--s));height:calc(14px*var(--s));opacity:0;animation:atm-cae var(--d) linear var(--t) infinite;filter:drop-shadow(0 0 3px rgba(0,0,0,.25))}
+.atm-petalos .atm-p,.atm-hojas .atm-p{background:var(--c);border-radius:100% 0 100% 0;width:calc(12px*var(--s));height:calc(16px*var(--s))}
+.atm-hojas .atm-p{--c:var(--atm,#86C46F);border-radius:0 100% 0 100%}
+.atm-corazones .atm-p{background:var(--c);width:calc(18px*var(--s));height:calc(18px*var(--s));-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z'/%3E%3C/svg%3E") center/contain no-repeat}
+.atm-nieve .atm-p{background:#fff;border-radius:50%;width:calc(7px*var(--s));height:calc(7px*var(--s));filter:blur(.6px)}
+.atm-confeti .atm-p{background:hsl(var(--h) 90% 60%);width:calc(8px*var(--s));height:calc(14px*var(--s));border-radius:2px}
+.atm-burbujas .atm-p{border:2px solid var(--c);border-radius:50%;top:auto;bottom:-8%;width:calc(22px*var(--s));height:calc(22px*var(--s));animation-name:atm-sube}
+.atm-polvo .atm-p,.atm-estrellas .atm-p,.atm-destellos .atm-p{top:var(--y);background:var(--c);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:atm-brilla calc(var(--d)/3) ease-in-out var(--t) infinite}
+.atm-luciernagas .atm-p{top:var(--y);background:var(--c);border-radius:50%;width:calc(6px*var(--s));height:calc(6px*var(--s));box-shadow:0 0 12px 4px var(--c);animation:atm-flota var(--d) ease-in-out var(--t) infinite}
+.atm-nubes .atm-p{top:calc(var(--y)*.6);left:0;background:rgba(255,255,255,.6);border-radius:99px;width:calc(150px*var(--s));height:calc(46px*var(--s));filter:blur(7px);animation:atm-nube calc(var(--d)*3) linear var(--t) infinite}
+.atm-vig{position:fixed;inset:0;pointer-events:none;z-index:5;background:radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.32) 100%)}
+.atm-sp{position:fixed;width:9px;height:9px;margin:-4px;pointer-events:none;z-index:9;background:var(--atm,var(--acento,#FFE9B0));clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:atm-sp .75s ease-out forwards}
+body[data-atm]{animation:atm-in 1.1s ease both}
+@keyframes atm-in{from{opacity:0}}
+@keyframes atm-cae{0%{opacity:0;transform:translate(0,0) rotate(0)}10%,90%{opacity:.85}100%{opacity:0;transform:translate(var(--w),112vh) rotate(360deg)}}
+@keyframes atm-sube{0%{opacity:0;transform:translate(0,0)}10%,90%{opacity:.7}100%{opacity:0;transform:translate(var(--w),-112vh)}}
+@keyframes atm-brilla{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:.95;transform:scale(1) rotate(45deg)}}
+@keyframes atm-flota{0%,100%{opacity:.15;transform:translate(0,0)}50%{opacity:1;transform:translate(var(--w),-24px)}}
+@keyframes atm-nube{0%{opacity:0;transform:translateX(-30vw)}15%,85%{opacity:.8}100%{opacity:0;transform:translateX(120vw)}}
+@keyframes atm-sp{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2) rotate(120deg)}}
+/* revelado al hacer scroll (solo invitaciones) */
+.js-rv .rv{opacity:0;transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .9s}
+.js-rv body[data-d] .rv.in{opacity:1;transform:none;filter:none}
+.js-rv body[data-d=arco] .rv{transform:translateY(32px);filter:blur(6px)}
+.js-rv body[data-d=marco] .rv{transition-duration:1.5s}
+.js-rv body[data-d=cinta] .rv{transform:scale(.88) translateY(20px);transition-timing-function:cubic-bezier(.3,1.6,.5,1)}
+.js-rv body[data-d=tarjeta] .rv{transform:translateY(46px)}
+.js-rv body[data-d=sello] .rv{transform:translateX(-34px)}
+@media (prefers-reduced-motion:reduce){.atm-cap,.atm-sp{display:none}body[data-atm]{animation:none}}

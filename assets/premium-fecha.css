@@ -1,0 +1,40 @@
+/* AtroScript v23 · detalle de materiales para los productos de fecha (Ofrenda, Año Nuevo, Día de las Madres) */
+.carta{position:relative;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 18px 40px -16px rgba(0,0,0,.7)}
+.bt{background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.04)),var(--a,#c2185b);border:0;border-radius:999px;box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 10px 24px -10px var(--a,#000)}
+/* Ofrenda: cera con volumen, llama con resplandor, papel picado calado, altar de madera */
+.altar{background:linear-gradient(180deg,#5a2a6b55,#2a0f3500),repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 9px);box-shadow:0 28px 40px -30px #ffa62b}
+.altar::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:linear-gradient(90deg,#ff8a00,#ffd36b,#ff8a00);filter:blur(5px);opacity:.7}
+.cera{background:linear-gradient(90deg,#d9cdb4,#fffaf0 45%,#cfc2a6);box-shadow:0 0 0 1px rgba(0,0,0,.15) inset,0 8px 10px -4px rgba(0,0,0,.5);position:relative}
+.cera::before{content:"";position:absolute;left:0;right:0;top:0;height:.5rem;border-radius:3px 3px 50% 50%;background:rgba(255,255,255,.55)}
+.vela.on .cera{box-shadow:0 0 28px 6px rgba(255,166,43,.45),0 8px 10px -4px rgba(0,0,0,.5)}
+.vela.on::before{content:"";position:absolute;width:6rem;height:6rem;margin-top:-1.4rem;background:radial-gradient(circle,rgba(255,176,60,.35),transparent 65%);pointer-events:none;animation:resp 2.2s ease-in-out infinite alternate}
+@keyframes resp{to{opacity:.55;transform:scale(1.12)}}
+.picado i{background-image:linear-gradient(180deg,rgba(255,255,255,.35),transparent 60%);filter:drop-shadow(0 2px 2px rgba(0,0,0,.35))}
+.foto{box-shadow:0 0 0 3px rgba(255,166,43,.25),0 6px 14px -4px #000}
+/* Año Nuevo: relojes de cristal dorado */
+.rel div{background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.03));backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 26px -14px #000}
+.rel b{background:linear-gradient(180deg,#fff,var(--a,#ffd36b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lp button{box-shadow:0 1px 0 rgba(255,255,255,.12) inset;transition:transform .2s,background .3s}.lp button:active{transform:scale(.97)}
+/* Día de las Madres: sobre de papel con sello de cera en relieve */
+.sobre{background:linear-gradient(135deg,#fff8fa,#ffd3e2 70%,#f6b9cf),var(--ruido,none);box-shadow:0 1px 0 #fff inset,0 24px 44px -14px rgba(0,0,0,.6)}
+.sello{background:radial-gradient(circle at 34% 28%,#ff9ab8,#d12a62 40%,#7d0b2c);box-shadow:0 0 0 3px rgba(125,11,44,.55),0 -1px 1px rgba(255,255,255,.5) inset,0 5px 10px rgba(0,0,0,.5);text-shadow:0 1px 1px rgba(0,0,0,.4)}
+.vale{background:linear-gradient(180deg,#fff1f6,#ffe3ec);box-shadow:0 1px 0 #fff inset,0 10px 20px -12px rgba(120,10,50,.6)}
+@media (prefers-reduced-motion:reduce){.vela.on::before{animation:none}}
+
+/* San Valentín: corazón de cristal con brillo y latido, carta de papel */
+.cor svg{filter:drop-shadow(0 0 26px rgba(255,61,107,.6)) drop-shadow(0 14px 14px rgba(80,0,20,.45))}
+.cor::after{content:"";position:absolute;left:20%;top:14%;width:26%;height:16%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.7),transparent 70%);transform:rotate(-28deg);pointer-events:none}
+.rz{text-shadow:0 1px 6px rgba(80,0,20,.5)}
+/* Truco o Trato: luna con cráteres, puertas de madera */
+.luna{box-shadow:0 0 60px 12px rgba(255,190,90,.35),inset -14px -10px 24px rgba(120,60,0,.35),inset 8px 6px 18px rgba(255,255,255,.35)}
+.puertas>*{background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 2px,transparent 2px 11px),linear-gradient(180deg,rgba(255,255,255,.1),transparent 40%);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 14px 24px -12px #000;transition:transform .25s,filter .25s}
+.puertas>*:hover{transform:translateY(-3px) rotate(-1deg);filter:brightness(1.12)}
+.truco,.trato{text-shadow:0 2px 12px rgba(0,0,0,.6)}
+/* Árbol de Navidad: nieve brillante y luces con halo */
+.estrella{filter:drop-shadow(0 0 14px #ffd36b) drop-shadow(0 0 30px rgba(255,211,107,.6))}
+.luces>*{box-shadow:0 0 10px 3px currentColor}
+.nieve-suelo{background:linear-gradient(180deg,#fff,#dfe9f5);box-shadow:0 -8px 24px rgba(255,255,255,.35),inset 0 6px 10px rgba(255,255,255,.9)}
+.escena{filter:drop-shadow(0 20px 24px rgba(0,0,0,.45))}
+/* Fondo de pantalla: el lienzo se ve como un teléfono */
+#c{border-radius:26px;box-shadow:0 0 0 6px #111,0 0 0 7px rgba(255,255,255,.18),0 30px 60px -18px #000}
+.est{border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.03));box-shadow:0 1px 0 rgba(255,255,255,.2) inset}
