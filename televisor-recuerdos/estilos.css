@@ -1,0 +1,55 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:#F4E7D2;font-family:Georgia,serif;text-align:center;background:radial-gradient(circle at 50% 30%,#4A2E55,#1B0F26 70%);background-attachment:fixed}
+main{max-width:480px;margin:0 auto;padding:3vh 4vw 6vh}
+.para{margin:0 0 .6rem;letter-spacing:.3em;text-transform:uppercase;font-size:.8rem;color:#E9B872}
+.tele{position:relative;padding-top:50px}
+.antenas{position:absolute;top:0;left:50%;width:150px;height:60px;transform:translateX(-50%)}
+.antenas i{position:absolute;bottom:0;left:50%;width:4px;height:70px;background:linear-gradient(#ddd,#888);border-radius:3px;transform-origin:bottom center}
+.antenas i:first-child{transform:rotate(-34deg)}.antenas i:last-child{transform:rotate(34deg)}
+.antenas i::after{content:"";position:absolute;top:-5px;left:-3px;width:10px;height:10px;border-radius:50%;background:#E9B872}
+.carcasa{padding:16px 16px 12px;border-radius:30px;background:repeating-linear-gradient(92deg,#8A5A32 0 11px,#7A4D28 11px 13px),#7A4D28;box-shadow:0 24px 44px rgba(0,0,0,.6),inset 0 2px 0 rgba(255,255,255,.2),inset 0 -6px 12px rgba(0,0,0,.35);border:3px solid #4A2D15}
+.marco{padding:12px;border-radius:26px;background:linear-gradient(#2A2018,#161009);box-shadow:inset 0 0 0 2px #0A0705}
+.pantalla{position:relative;aspect-ratio:4/3.3;overflow:hidden;border-radius:20px/26px;background:#0A0F0C;box-shadow:inset 0 0 40px rgba(0,0,0,.9),0 0 24px rgba(120,255,200,.1)}
+.pantalla.apagada{background:radial-gradient(circle at 30% 25%,#1c2a26,#080c0a 65%)}
+.ruido{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;opacity:0;filter:contrast(1.1)}
+.apagado{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:rgba(200,255,230,.35);font-style:italic}
+.pantalla.encendiendo{animation:crt .7s ease-out}
+.canal{position:absolute;inset:0;display:flex;flex-direction:column;background:#101612;transform-origin:center;filter:saturate(1.1) contrast(1.05)}
+.canal.entra{animation:entra .5s ease-out}
+.foto{position:relative;flex:1;display:grid;place-items:center;overflow:hidden;font-size:4rem;color:rgba(255,255,255,.55);font-weight:700;letter-spacing:.1em}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:zoom 14s ease-in-out infinite alternate}
+.info{position:relative;padding:.5rem .8rem .7rem;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.85) 30%)}
+.info p{margin:0}.fecha{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#9DF0C8}.info h2{margin:.1rem 0 .15rem;font-size:1.05rem;line-height:1.15;color:#fff}.info #texto{font-size:.78rem;line-height:1.3;opacity:.92}
+.osd{position:absolute;top:.6rem;right:.8rem;margin:0;font:700 1rem/1 "Courier New",monospace;color:#8DFFB5;text-shadow:0 0 8px #3DFF8A;letter-spacing:.06em;z-index:3}
+.scan{position:absolute;inset:0;z-index:4;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.2) 2px 3px);mix-blend-mode:multiply}
+.brillo{position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse 70% 45% at 28% 12%,rgba(255,255,255,.2),transparent 70%),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
+.mandos{display:grid;grid-template-columns:auto 1fr auto;gap:.8rem;align-items:center;margin-top:12px;padding:6px 6px 2px}
+.perilla{width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#F5E3B8,#B8924A 55%,#6B4C1E);box-shadow:0 5px 8px rgba(0,0,0,.5),inset 0 -3px 5px rgba(0,0,0,.3);position:relative}
+.perilla span{position:absolute;left:50%;top:7px;width:4px;height:16px;margin-left:-2px;border-radius:2px;background:#3A2610;transition:transform .4s;transform-origin:50% 20px}
+.perilla.on span{transform:rotate(90deg)}.perilla.on{box-shadow:0 0 0 3px #4DFF9A,0 5px 8px rgba(0,0,0,.5)}
+.canales{display:flex;gap:.5rem;justify-content:center}
+.tecla{font:700 .85rem "Courier New",monospace;color:#F4E7D2;background:linear-gradient(#4A4038,#2A241E);border:1px solid #14100C;border-radius:8px;padding:.6rem .8rem;cursor:pointer;box-shadow:0 3px 0 #0A0805}
+.tecla:active{transform:translateY(2px);box-shadow:none}
+.rejilla{width:54px;height:54px;border-radius:10px;background:repeating-linear-gradient(0deg,#1A140E 0 3px,#4A3A2A 3px 6px)}
+.patas{display:flex;justify-content:space-between;padding:0 14%}.patas i{width:34px;height:20px;background:linear-gradient(#5A3A1E,#2A190A);border-radius:0 0 8px 8px}
+.extra{display:flex;gap:.6rem;justify-content:center;margin-top:1.4rem;flex-wrap:wrap}
+.boton{font:inherit;font-weight:700;color:#F4E7D2;background:rgba(255,255,255,.08);border:1.5px solid #E9B872;border-radius:99px;padding:.6rem 1.2rem;cursor:pointer}
+.boton:focus-visible,.perilla:focus-visible,.tecla:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes crt{0%{transform:scale(1,.004);filter:brightness(6)}40%{transform:scale(1,.012);filter:brightness(4)}100%{transform:scale(1,1);filter:brightness(1)}}
+@keyframes entra{from{opacity:0;transform:scale(1.04);filter:blur(3px) brightness(1.8)}}
+@keyframes zoom{to{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.pantalla.encendiendo,.canal.entra,.foto img{animation:none}}
+
+/* ===== Mejora visual ===== */
+body{background:radial-gradient(120% 70% at 50% 0,#4A2A6B 0,#1F1034 60%,#0C0618 100%) fixed;background-color:#1F1034}
+main{padding-top:calc(env(safe-area-inset-top,0px) + 4.4rem)}
+.para{color:#F5D27A;letter-spacing:.3em;font-size:.8rem;text-shadow:0 0 12px #F5D27A66;margin-bottom:0}
+.tele{filter:drop-shadow(0 26px 30px #000a)}
+.carcasa{background:linear-gradient(160deg,#A86A3C,#7A4520 60%,#5A3014);box-shadow:inset 0 2px 0 #fff3,inset 0 -6px 0 #0004}
+.canal{background:#0A0F0C}
+.osd{color:#7CFFC4;text-shadow:0 0 6px #7CFFC4}
+.boton{background:#ffffff14;border:1.5px solid #F5D27A;color:#F5D27A;border-radius:99px}
+.boton.sec:hover{background:#F5D27A22}
+.info h2{font-family:Georgia,serif}
+.brillo{background:linear-gradient(115deg,#fff2 0,transparent 35%)}

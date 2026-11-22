@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><title>Truco o Trato</title>
+<link rel="stylesheet" href="../assets/fecha.css"><link rel="stylesheet" href="../assets/emocion.css">
+<style>
+html{background:#0a0212}
+main{gap:.9rem}
+.luna{position:fixed;right:-60px;top:12vh;width:220px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 34%,#fff2c9,#ffd27a 55%,#e29a2c);opacity:.16;filter:blur(1px);pointer-events:none;z-index:0}
+.puertas{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;width:min(92vw,420px)}
+.op{position:relative;font:inherit;color:#fff;cursor:pointer;border:2px solid var(--a);border-radius:130px 130px 18px 18px;padding:1.6rem .6rem 1.2rem;display:grid;justify-items:center;gap:.5rem;overflow:hidden;
+ transition:transform .25s,box-shadow .3s;min-height:210px;align-content:center}
+.op::before{content:"";position:absolute;inset:8px;border-radius:120px 120px 12px 12px;border:1px dashed rgba(255,255,255,.28);pointer-events:none}
+.op i{font-style:normal;font-size:3.6rem;line-height:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));animation:flota 3s ease-in-out infinite}
+.op b{font-size:1.35rem;letter-spacing:.04em}
+.op small{font:500 .75rem system-ui,sans-serif;opacity:.8;letter-spacing:.08em;text-transform:uppercase}
+.truco{background:radial-gradient(circle at 50% 30%,#5a2896,#1b0a33 75%)}
+.trato{background:radial-gradient(circle at 50% 30%,#e07a10,#6b2800 80%)}
+.op:active{transform:scale(.96)}.op:hover{box-shadow:0 0 34px var(--a);transform:translateY(-4px) rotate(-1.5deg)}
+.trato i{animation-delay:-1.4s}
+@keyframes flota{50%{transform:translateY(-7px) rotate(5deg)}}
+.res{text-align:center;width:min(92vw,28rem);display:grid;gap:.5rem;justify-items:center}
+.em{font-size:4rem;animation:pop .6s cubic-bezier(.2,1.6,.4,1)}@keyframes pop{from{scale:.1;rotate:-40deg}}
+.tipo{margin:0;font:700 .75rem system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--a)}
+#tx{font-size:1.3rem;margin:.2rem 0 .6rem;line-height:1.45}
+.cont{margin:0;font:600 .78rem system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.cierre{margin:.2rem 0 0;max-width:24rem;font-style:italic;color:var(--a)}
+.sacude{animation:sac .5s}@keyframes sac{20%{transform:translateX(-8px) rotate(-1deg)}40%{transform:translateX(8px) rotate(1deg)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){.op i,.em,.sacude{animation:none}}
+</style><link rel="stylesheet" href="../assets/textura.css">
+<link rel="stylesheet" href="../assets/premium-fecha.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head><body data-tex="tela grano" data-grano="off"><div class="luna"></div><main>
+<p class="peq" id="para"></p><h1 id="t"></h1>
+<div id="elige" class="puertas">
+ <button class="op truco" id="bt"><i>🦇</i><b>Truco</b><small>un reto</small></button>
+ <button class="op trato" id="bo"><i>🍬</i><b>Trato</b><small>un premio</small></button>
+</div>
+<p class="ayuda" id="ay"></p>
+<div id="res" class="carta res" hidden aria-live="polite"><div id="em" class="em"></div><p class="tipo" id="tp"></p><p id="tx"></p><button class="bt" id="otra">Elegir otra vez</button><p class="cont" id="ct"></p></div>
+<p class="cierre" id="cierre" hidden></p>
+</main>
+<script src="datos.js"></script><script src="../assets/arte.js"></script><script src="../assets/fecha.js"></script>
+<script>
+const D=window.DATOS,$=i=>document.getElementById(i);
+Fecha.colores(D.colores);document.title=D.titulo;$("para").textContent=D.para;$("t").textContent=D.titulo;$("ay").textContent=D.ayuda;
+Fecha.llover(["🦇","🎃","👻","🕸️"],20);
+let n=0,usados={trucos:[],tratos:[]};
+const saca=k=>{let l=D[k];if(usados[k].length>=l.length)usados[k]=[];const libres=l.filter(x=>!usados[k].includes(x));const x=libres[Math.floor(Math.random()*libres.length)];usados[k].push(x);return x};
+const dar=(truco)=>{
+  const bt=$(truco?"bt":"bo");bt.classList.add("sacude");
+  Fecha.rafaga(truco?["👻","🦇","🕷️"]:["🍬","🎃","🍫"],innerWidth/2,innerHeight/2,30);Fecha.vibra(truco?[40,30,40]:25);
+  setTimeout(()=>{bt.classList.remove("sacude");
+    $("elige").hidden=true;$("ay").hidden=true;$("res").hidden=false;
+    $("res").classList.remove("ent");void $("res").offsetWidth;$("res").classList.add("ent");
+    $("em").textContent=truco?"👻":"🍬";$("tp").textContent=truco?"Te tocó un truco":"Te tocó un trato";
+    $("tx").textContent=saca(truco?"trucos":"tratos");n++;$("ct").textContent="Llevas "+n+(n==1?" suerte":" suertes");
+    if(n>=3){$("cierre").hidden=false;$("cierre").textContent=D.final}
+  },truco?420:150)};
+$("bt").onclick=()=>dar(1);$("bo").onclick=()=>dar(0);
+$("otra").onclick=()=>{$("res").hidden=true;$("elige").hidden=false;$("ay").hidden=false};
+</script><script src="../assets/emocion.js"></script><script src="../assets/pedir.js"></script></body></html>

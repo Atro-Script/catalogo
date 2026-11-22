@@ -1,0 +1,43 @@
+:root{--h:270}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;overflow:hidden;background:#05010c;color:#fff;font-family:Georgia,serif}
+#cielo{position:fixed;inset:0;width:100%;height:100%}
+.pant{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 6vw;animation:entra .9s both}
+.carga-txt{margin:0 0 2rem;max-width:14em;font-size:1.5rem;font-weight:700;line-height:1.3;color:hsl(var(--h) 75% 68%)}
+.barra{position:relative;width:min(70vw,300px);height:30px}
+.pista-b{position:absolute;left:0;right:0;top:14px;height:3px;border-radius:3px;background:linear-gradient(90deg,hsl(var(--h) 60% 40%),hsl(var(--h) 75% 70%))}
+.flor-barra{position:absolute;top:-18px;left:calc(var(--p,0)*1% - 34px);width:68px;height:68px;filter:drop-shadow(0 0 10px hsl(var(--h) 90% 60%))}
+.flor-barra svg{width:100%;height:100%}
+.pct{margin:2.2rem 0 0;font:700 1.2rem ui-monospace,monospace;color:hsl(var(--h) 60% 70%)}
+.luna{position:absolute;top:8%;right:10%;width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:0 0 22px 8px rgba(255,255,255,.55),0 0 90px 36px hsl(var(--h) 80% 70%/.35)}
+h1{margin:0 0 1rem;max-width:11em;font-size:clamp(1.7rem,8vw,2.4rem);line-height:1.2;color:hsl(var(--h) 80% 72%);text-shadow:0 0 18px hsl(var(--h) 90% 60%/.8)}
+.ramo{width:min(88vw,360px);aspect-ratio:320/380;cursor:pointer;filter:drop-shadow(0 0 14px hsl(var(--h) 90% 60%/.65))}
+.ramo svg,.ilustra svg,.lazo svg{display:block;width:100%;height:100%;overflow:visible}
+.pista{position:absolute;bottom:6vh;margin:0;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:hsl(var(--h) 60% 80%);opacity:0;animation:parpadea 2.4s 4.5s ease-in-out infinite}
+.fugaz{position:fixed;z-index:1;top:12%;left:-20%;width:150px;height:2px;rotate:18deg;opacity:0;background:linear-gradient(90deg,transparent,#fff);animation:fuga 7s linear infinite}
+.f2{top:32%;animation-delay:-3.5s;width:110px}
+.tallo{fill:none;stroke:#2c8f4d;stroke-width:4;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:dibuja 1.6s var(--d) forwards}
+.hoja{fill:none;stroke:#1f7a3a;stroke-width:5;stroke-linecap:round;transform-box:fill-box;transform-origin:50% 100%;animation:crece 1.4s var(--d) ease-out both}
+.fl{transform-box:fill-box;transform-origin:center;animation:brota 1.3s var(--d) cubic-bezier(.2,1.4,.4,1) both,mece 4s calc(var(--d) + 1.5s) ease-in-out infinite alternate}
+.pet{transform-origin:0 0;animation:abre 1.6s var(--d) cubic-bezier(.2,1.3,.4,1) both}
+.campana{width:min(90vw,400px);aspect-ratio:1;filter:drop-shadow(0 0 28px hsl(var(--h) 90% 60%/.8));animation:late 2.4s ease-in-out infinite}
+.campana svg{width:100%;height:100%;overflow:visible}
+.tarj{width:min(80vw,320px);overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 0 0 1px #fff,0 0 44px hsl(var(--h) 90% 60%/.6);animation:sube 1.1s cubic-bezier(.2,.8,.2,1) both}
+.arriba{position:relative;height:310px;background:radial-gradient(circle at 20% 10%,hsl(var(--h) 60% 94%),#fff 60%)}
+.arriba::before{content:"";position:absolute;inset:14px 18px 44px;border:1px solid hsl(var(--h) 35% 60%)}
+.ilustra{position:absolute;left:18%;right:18%;top:7%;height:76%}
+.lazo{position:absolute;left:-2%;right:-2%;bottom:-6px;height:110px}
+.abajo{padding:2.2rem 1.2rem 1.3rem;color:#fff;background:radial-gradient(circle at 15% 25%,rgba(255,255,255,.7) 0 1px,transparent 2px) 0 0/46px 46px,linear-gradient(hsl(var(--h) 62% 34%),hsl(var(--h) 66% 16%))}
+.script{margin:0;font:400 1.7rem "Segoe Script","Brush Script MT","Lucida Handwriting",cursive}
+.msg{margin:.6rem 0 1rem;font-size:.98rem;line-height:1.5;opacity:.92}
+.cierre{text-align:right;font-size:1.5rem}
+.otra{margin-top:1.4rem;font:inherit;font-weight:700;color:#fff;background:transparent;border:1px solid hsl(var(--h) 70% 70%);border-radius:99px;padding:.6rem 1.6rem;cursor:pointer}
+.otra:focus-visible,.ramo:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@keyframes entra{from{opacity:0}}@keyframes sube{from{opacity:0;transform:translateY(60px) scale(.94)}}
+@keyframes dibuja{to{stroke-dashoffset:0}}@keyframes crece{from{transform:scaleY(0)}}
+@keyframes brota{from{transform:scale(0) rotate(-120deg);opacity:0}}@keyframes mece{to{transform:rotate(5deg)}}
+@keyframes abre{from{transform:scale(0) rotate(-50deg);opacity:0}}@keyframes late{50%{filter:drop-shadow(0 0 46px hsl(var(--h) 95% 65%))}}
+@keyframes fuga{0%{translate:0 0;opacity:0}4%{opacity:1}20%{translate:125vw 42vh;opacity:0}100%{opacity:0}}
+@keyframes parpadea{50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.fugaz,.fl,.campana{animation:none}.pista{animation:none;opacity:1}}

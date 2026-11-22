@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reserva tu cita</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+<link rel="stylesheet" href="../assets/premium-negocio.css">
+</head>
+<body>
+<main>
+  <header><p id="negocio" class="negocio"></p><h1>Reserva tu cita</h1><p id="sub" class="sub"></p></header>
+  <section><h2><i>1</i> Elige el servicio</h2><div id="servicios" class="servs" role="radiogroup" aria-label="Servicio"></div></section>
+  <section><h2><i>2</i> Elige el día</h2><div id="dias" class="dias" role="radiogroup" aria-label="Día"></div></section>
+  <section><h2><i>3</i> Elige la hora</h2><div id="horas" class="horas" role="radiogroup" aria-label="Hora"></div><p id="vacio" class="vacio">Primero elige un día.</p></section>
+  <section><h2><i>4</i> Tus datos</h2><label>Tu nombre<input id="nom" type="text" autocomplete="name" placeholder="¿Cómo te llamas?" maxlength="60"></label><label>Comentarios (opcional)<input id="nota" type="text" placeholder="Alguna petición especial" maxlength="120"></label></section>
+</main>
+<div class="barra"><p id="resumen" class="resumen" aria-live="polite">Elige servicio, día y hora</p><a id="reservar" class="boton" aria-disabled="true" target="_blank" rel="noopener">Reservar por WhatsApp</a></div>
+<script src="datos.js"></script>
+<script src="reserva.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

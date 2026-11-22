@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una pregunta especial</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body>
+<canvas id="cielo" aria-hidden="true"></canvas>
+<div id="faroles" class="faroles" aria-hidden="true"></div>
+<main>
+  <section id="inicio" class="pant">
+    <p class="chico">Tengo algo importante</p>
+    <h1>que preguntarte</h1>
+    <button id="empezar" class="btn">Toca para empezar</button>
+  </section>
+  <section id="historia" class="pant" hidden><p id="linea" class="linea" aria-live="polite"></p></section>
+  <section id="pregunta" class="pant" hidden>
+    <i class="latido" aria-hidden="true"></i>
+    <h2 id="pregunta-txt"></h2>
+    <p id="sub" class="sub"></p>
+    <div class="botones"><button id="si" class="btn si"></button><button id="no" class="btn no"></button></div>
+  </section>
+  <section id="final" class="pant" hidden>
+    <h2 id="finalTitulo"></h2>
+    <p id="finalMsg" class="sub"></p>
+    <div class="reloj"><p id="etiqueta"></p><p id="contador" role="timer"></p><p id="desde" class="desde"></p></div>
+    <a id="avisar" class="btn si" target="_blank" rel="noopener">Avisar por WhatsApp</a>
+  </section>
+</main>
+<canvas id="fuegos" aria-hidden="true"></canvas>
+<script src="datos.js"></script>
+<script src="pregunta.js"></script>
+<script src="../assets/lienzo.js"></script>
+<script src="corazones.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/pedir.js"></script>
+<script src="../assets/arte.js"></script></body>
+</html>

@@ -1,0 +1,25 @@
+*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--fondo:#1D2B53;--acento:#FFC857}
+body{margin:0;min-height:100svh;color:#fff;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;text-align:center;background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--fondo) 60%,#fff),var(--fondo) 55%,#0A0F24)}
+main{display:grid;justify-items:center;gap:.5rem;padding:5rem 5vw 3rem}
+.para{margin:0;letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;color:var(--acento)}
+h1{margin:0;font-size:clamp(1.9rem,8.5vw,2.8rem);text-shadow:0 3px 0 rgba(0,0,0,.3)}
+.ayuda{margin:0 0 .4rem;max-width:22em;opacity:.85}
+.marca-fila{display:flex;gap:1.4rem;font-size:.9rem;opacity:.9}.marca-fila b{color:var(--acento);font-variant-numeric:tabular-nums}
+.tablero{--n:3;position:relative;width:min(90vw,380px);aspect-ratio:1;margin-top:.5rem;border-radius:14px;padding:6px;background:rgba(255,255,255,.1);box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 0 0 2px color-mix(in srgb,var(--acento) 60%,transparent);touch-action:manipulation}
+.ficha{position:absolute;width:calc((100% - 12px)/var(--n));height:calc((100% - 12px)/var(--n));left:6px;top:6px;border:0;padding:0;border-radius:8px;cursor:pointer;background-size:calc(var(--n)*100%) calc(var(--n)*100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 2px 6px rgba(0,0,0,.35);transition:transform .22s cubic-bezier(.3,1.3,.5,1);-webkit-tap-highlight-color:transparent}
+.ficha span{position:absolute;left:5px;top:3px;font:800 .8rem system-ui,sans-serif;text-shadow:0 1px 3px #000;opacity:.9}
+.ficha.bien{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--acento) 90%,transparent),0 2px 6px rgba(0,0,0,.35)}
+.tablero.resuelto .ficha{border-radius:0;box-shadow:none;transition:border-radius .6s,box-shadow .6s}
+.tablero.resuelto .ficha span{display:none}
+.tablero.pista .ficha{opacity:0}
+.tablero.pista::after{content:"";position:absolute;inset:6px;border-radius:8px;background:var(--foto) center/cover}
+.hueco{position:absolute;inset:0;border-radius:8px}
+.acc{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:.7rem}
+.boton{display:inline-block;font:800 .9rem "Trebuchet MS",sans-serif;color:#2B1606;padding:.8rem 1.3rem;border:0;border-radius:99px;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#FFE9B0,var(--acento) 60%,#D99A1F);box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.boton.sec{color:#fff;background:rgba(255,255,255,.12);box-shadow:none;border:1px solid rgba(255,255,255,.35)}
+.boton:focus-visible,.ficha:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.premio{width:min(92vw,400px);margin-top:1rem;padding:1.5rem 1.3rem;border-radius:22px;background:rgba(255,255,255,.1);border:1px solid color-mix(in srgb,var(--acento) 60%,transparent);backdrop-filter:blur(6px);animation:sube .8s cubic-bezier(.2,.9,.3,1.1) both}
+.premio h2{margin:0 0 .4rem;color:var(--acento);font-size:1.7rem}.premio p{margin:.4rem 0 1rem;line-height:1.55}.premio .datos{font-size:.82rem;opacity:.75;margin:0 0 1rem}
+@keyframes sube{from{opacity:0;transform:translateY(30px)}}
+@media (prefers-reduced-motion:reduce){.ficha{transition:none}.premio{animation:none}}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruleta de Planes</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/atmosfera.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-atm="confeti" data-vig="off" data-modos="index.html:Planes|premios.html:Premios">
+<main>
+  <p id="para" class="para"></p>
+  <h1 id="titulo"></h1>
+  <p id="sub" class="sub"></p>
+  <div class="rueda-caja">
+    <div class="flecha" aria-hidden="true"></div>
+    <canvas id="rueda" width="640" height="640" role="img" aria-label="Ruleta de planes"></canvas>
+    <button id="centro" class="centro" aria-label="Girar la ruleta">GIRAR</button>
+  </div>
+  <p id="hist" class="hist" aria-live="polite"></p>
+</main>
+<div id="velo" class="velo" hidden role="dialog" aria-live="assertive">
+  <div class="tarjeta">
+    <div id="emoji" class="emoji"></div>
+    <p class="eti">¡Tu plan es…</p>
+    <h2 id="plan"></h2>
+    <p id="detalle" class="detalle"></p>
+    <a id="acepto" class="boton" target="_blank" rel="noopener">¡Acepto el plan!</a>
+    <button id="otra" class="boton sec">Girar otra vez</button>
+  </div>
+</div>
+<script src="datos.js"></script>
+<script src="ruleta.js"></script>
+<script src="../assets/atmosfera.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

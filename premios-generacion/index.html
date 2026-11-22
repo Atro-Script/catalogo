@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><title>Premios de la Generación</title>
+<link rel="stylesheet" href="../assets/fecha.css"><link rel="stylesheet" href="../assets/emocion.css">
+<style>
+html{background:#0a0803}html,body{overflow-x:hidden}
+main{align-content:start;padding-top:6.2rem}
+.w{width:min(94vw,480px);display:grid;gap:1rem;justify-items:center}
+.luz{position:fixed;left:50%;top:-10vh;width:150vw;height:130vh;translate:-50% 0;pointer-events:none;z-index:0;background:conic-gradient(from 180deg at 50% 0,transparent 160deg,color-mix(in srgb,var(--a) 22%,transparent) 175deg,transparent 190deg);opacity:.7;animation:foco 7s ease-in-out infinite alternate}
+@keyframes foco{from{rotate:-9deg}to{rotate:9deg}}
+.trofeo{font-size:4.6rem;line-height:1;filter:drop-shadow(0 0 22px var(--a));animation:fl 3s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px) scale(1.05)}}
+.go{font:700 1.05rem Georgia,serif;letter-spacing:.04em;color:#1b1203;background:linear-gradient(180deg,#ffe48a,var(--a));border:0;border-radius:99px;padding:1rem 2.2rem;cursor:pointer;box-shadow:0 8px 28px color-mix(in srgb,var(--a) 40%,transparent)}
+.go.sec{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}
+.cont{font:600 .75rem system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--a)}
+.cat{margin:0;font-size:clamp(1.5rem,7vw,2.2rem);font-style:italic;font-weight:400;line-height:1.2}
+.nomin{display:grid;gap:.5rem;width:100%}
+.nm{padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid color-mix(in srgb,var(--a) 28%,transparent);font-size:1.15rem;transition:.5s}
+.nm.perd{opacity:.3;transform:scale(.97)}
+.nm.gan{background:linear-gradient(135deg,#ffe48a,var(--a));color:#1b1203;font-weight:800;font-size:1.5rem;transform:scale(1.03);box-shadow:0 0 40px color-mix(in srgb,var(--a) 70%,transparent);animation:pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{scale:.6}}
+.sobre{position:relative;width:min(70vw,260px);aspect-ratio:3/2;cursor:pointer;border:0;padding:0;background:none}
+.sobre i{position:absolute;inset:0;border-radius:10px;background:linear-gradient(160deg,#f6e7b4,#d4af37);box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.sobre i::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.5%,rgba(120,80,0,.25) 50%) 0 0/100% 62% no-repeat,linear-gradient(to bottom left,transparent 49.5%,rgba(120,80,0,.25) 50%) 0 0/100% 62% no-repeat}
+.sobre b{position:absolute;left:50%;top:50%;translate:-50% -50%;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#d33,#7a0e0e);color:#ffd9a0;font-size:1.5rem;box-shadow:0 4px 10px rgba(0,0,0,.5)}
+.sobre.late{animation:lat 1s ease-in-out infinite}@keyframes lat{50%{transform:scale(1.05) rotate(-1deg)}}
+.susp{min-height:2.2rem;font-size:1.5rem;letter-spacing:.3em;color:var(--a)}
+.lista{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;width:100%;text-align:left}
+.lista li{display:flex;gap:.8rem;align-items:center;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.07);border-left:4px solid var(--a);animation:ent .5s both;animation-delay:calc(var(--k)*.12s)}
+.lista em{display:block;font-size:.75rem;opacity:.7;font-style:normal;letter-spacing:.08em;text-transform:uppercase}.lista b{font-size:1.15rem}
+@keyframes ent{from{opacity:0;transform:translateY(14px)}}
+.msj{max-width:26em;line-height:1.6;font-style:italic}
+[hidden]{display:none!important}
+</style><link rel="stylesheet" href="../assets/textura.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head><body data-tex="bordado grano" data-grano="off"><div class="luz"></div><main>
+<section id="ini" class="w"><p class="peq" id="para"></p><div class="trofeo">🏆</div><h1 id="t"></h1><p class="ayuda" id="sub"></p><button class="go" id="empieza">Comenzar la ceremonia</button></section>
+<section id="esc" class="w" hidden>
+ <p class="cont" id="cont"></p><div class="trofeo" id="emo" style="font-size:3.4rem"></div><h2 class="cat" id="cat"></h2>
+ <div class="nomin" id="nom"></div>
+ <button class="sobre late" id="sobre" aria-label="Abrir el sobre"><i></i><b>✦</b></button>
+ <div class="susp" id="susp" aria-live="polite"></div>
+ <button class="go" id="sig" hidden>Siguiente premio</button>
+</section>
+<section id="fin" class="w" hidden><p class="peq">Los ganadores</p><div class="trofeo">🎓</div><h1>¡Felicidades!</h1><ul class="lista" id="lis"></ul><p class="msj" id="msj"></p><button class="go sec" id="otra">Ver la ceremonia otra vez</button></section>
+</main>
+<script src="datos.js"></script><script src="../assets/arte.js"></script><script src="../assets/fecha.js"></script>
+<script>
+const D=window.DATOS,$=i=>document.getElementById(i),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+Fecha.colores(D.colores);document.title=D.titulo+" | "+D.para;$("para").textContent=D.para;$("t").textContent=D.titulo;$("sub").textContent=D.subtitulo;
+Fecha.llover(["✨","⭐","🎖️"],12);
+let ac=null,i=0,abierto=false;
+const tono=(f,d=.25,v=.07,tipo="triangle")=>{try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();ac.resume();const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime;o.type=tipo;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d+.02)}catch(e){}};
+const fanfarria=()=>[523,659,784,1047].forEach((f,k)=>setTimeout(()=>tono(f,.5,.08),k*110));
+function premio(){const p=D.premios[i];abierto=false;$("cont").textContent="Premio "+(i+1)+" de "+D.premios.length;$("emo").textContent=p.emoji;$("cat").textContent=p.cat;
+ $("nom").replaceChildren();p.nominados.forEach(n=>{const d=document.createElement("div");d.className="nm";d.textContent=n;$("nom").append(d)});
+ $("sobre").hidden=false;$("sobre").className="sobre late";$("susp").textContent="Toca el sobre para conocer al ganador";$("sig").hidden=true}
+$("empieza").onclick=()=>{$("ini").hidden=true;$("esc").hidden=false;i=0;premio();tono(392,.3)};
+$("sobre").onclick=()=>{if(abierto)return;abierto=true;const p=D.premios[i];$("sobre").className="sobre";$("sobre").hidden=true;let k=0;
+ const t=setInterval(()=>{k++;$("susp").textContent="· ".repeat(k).trim();tono(180+k*30,.18,.09,"sine");Fecha.vibra(12);
+  if(k>=(rm?1:3)){clearInterval(t);revela(p)}},rm?10:650)};
+function revela(p){$("susp").textContent="¡El ganador es…!";fanfarria();Fecha.vibra([40,30,70]);
+ [...$("nom").children].forEach(d=>d.classList.add(d.textContent===p.gana?"gan":"perd"));
+ Fecha.rafaga(["🎉","⭐","✨","🏆"],innerWidth/2,innerHeight*.45,50);
+ $("sig").hidden=false;$("sig").textContent=i===D.premios.length-1?"Ver todos los ganadores":"Siguiente premio"}
+$("sig").onclick=()=>{if(i===D.premios.length-1)final();else{i++;premio()}};
+function final(){$("esc").hidden=true;$("fin").hidden=false;$("lis").replaceChildren();
+ D.premios.forEach((p,k)=>{const li=document.createElement("li");li.style.setProperty("--k",k);const s=document.createElement("span");s.textContent=p.emoji;s.style.fontSize="1.6rem";const d=document.createElement("div");const e=document.createElement("em");e.textContent=p.cat;const b=document.createElement("b");b.textContent=p.gana;d.append(e,b);li.append(s,d);$("lis").append(li)});
+ $("msj").textContent=D.final;Fecha.rafaga(["🎓","🏆","⭐","✨","🎉"],innerWidth/2,innerHeight/3,60);fanfarria()}
+$("otra").onclick=()=>{$("fin").hidden=true;$("ini").hidden=false};
+</script><script src="../assets/emocion.js"></script><script src="../assets/pedir.js"></script></body></html>

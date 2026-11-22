@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarjeta de lealtad</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+<link rel="stylesheet" href="../assets/premium-negocio.css">
+</head>
+<body>
+<main>
+  <header>
+    <p id="negocio" class="neg"></p>
+    <h1>Tarjeta de lealtad</h1>
+  </header>
+  <section class="tarjeta">
+    <p class="prem">Premio: <b id="premio"></b></p>
+    <div id="rejilla" class="rejilla"></div>
+    <p id="estado" class="estado" role="status"></p>
+    <p class="canj">Premios canjeados: <b id="premios">0</b></p>
+  </section>
+  <section class="negocio">
+    <h2>Solo para el negocio</h2>
+    <label>Código del negocio <input id="pin" type="password" inputmode="numeric" autocomplete="off"></label>
+    <div class="acciones">
+      <button id="sellar">Agregar sello</button>
+      <button id="canjear" class="sec">Canjear premio</button>
+    </div>
+    <p id="error" class="error" role="alert"></p>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="tarjeta.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>
