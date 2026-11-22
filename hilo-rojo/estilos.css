@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;overflow:hidden;color:#fff}
+body{background:radial-gradient(ellipse at 50% 48%,#3a0a14 0%,#1a0409 45%,#070103 100%);font-family:"Cormorant Garamond",Georgia,serif;touch-action:none}
+#lienzo{position:fixed;inset:0;z-index:1;touch-action:none;transition:opacity 1.2s}
+.frase{position:fixed;z-index:3;top:11vh;left:0;right:0;margin:0;padding:0 8vw;text-align:center;font-style:italic;font-size:clamp(1.5rem,6.4vw,2.2rem);line-height:1.3;white-space:pre-line;pointer-events:none;opacity:0;transition:opacity .8s;text-shadow:0 0 18px rgba(255,40,80,.5)}
+.frase.on{opacity:1}
+.aviso{position:fixed;z-index:3;bottom:7vh;left:0;right:0;margin:0;text-align:center;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:#ff9aac;pointer-events:none;animation:parpadea 2.4s ease-in-out infinite;transition:opacity .6s}
+.aviso.no{opacity:0}
+.rollo{position:fixed;z-index:4;left:50%;top:50%;width:min(82vw,330px);translate:-50% -50%;animation:entra 1.2s both;transition:opacity .9s,transform 1s}
+.papel{position:relative;height:60px;border-radius:30px;background:linear-gradient(#fff7e8,#eadcc0 55%,#cdb894);box-shadow:0 14px 26px rgba(0,0,0,.6),inset 0 -6px 10px rgba(120,80,30,.25)}
+.papel::before,.papel::after{content:"";position:absolute;top:4px;bottom:4px;width:34px;border-radius:50%;background:radial-gradient(circle,#b79c6a 0 6px,#e2d1ae 7px 11px,#c9b387 12px 15px,#eadcc0 16px);box-shadow:inset 0 0 6px rgba(90,60,20,.4)}
+.papel::before{left:2px}.papel::after{right:2px}
+.lazo{position:absolute;left:50%;top:30px;width:220px;height:240px;margin:-74px 0 0 -110px;overflow:visible}
+.rojo{fill:none;stroke:#ff2a55;stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(255,40,80,.9))}
+.vuelta{stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1s .2s}
+.nudo{transform-box:fill-box;transform-origin:center;transition:opacity .8s .5s}
+.cola{transform-box:fill-box;transition:transform 1s,opacity .8s;cursor:grab;touch-action:none}
+.rollo.suelto .vuelta{stroke-dashoffset:1}.rollo.suelto .nudo{opacity:0}.rollo.suelto .cola{transform:translateY(170px);opacity:0}.rollo.suelto .jala{opacity:0}
+.rollo.fin{opacity:0;transform:scale(.7)}
+.jala{position:absolute;left:0;right:0;top:-28vh;margin:0;text-align:center;font-style:italic;font-size:1.9rem;transition:opacity .6s;text-shadow:0 0 16px rgba(255,40,80,.6)}
+.carta{position:fixed;z-index:5;left:50%;top:50%;width:min(88vw,430px);max-height:84svh;overflow:auto;translate:-50% -50%;padding:1.8rem 1.6rem 1.4rem;color:#3b2a24;background:linear-gradient(#fbf3e3,#f3e7d0);border-radius:6px;box-shadow:0 24px 60px rgba(0,0,0,.7);transform-origin:50% 0;animation:desenrolla 1.4s cubic-bezier(.3,.8,.2,1) both;touch-action:pan-y}
+.carta h2{margin:0 0 1rem;font:400 2rem "Segoe Script","Brush Script MT",cursive;color:#d11f45}
+.carta p,#cTexto p{margin:0 0 .9rem;font-size:1.22rem;line-height:1.5;opacity:0;animation:aparece .9s forwards}
+.firma{text-align:right;font:italic 600 1.3rem Georgia,serif!important;color:#d11f45}
+.otra{display:block;margin:1rem auto 0;font:inherit;font-size:1rem;color:#9a7a6a;background:none;border:0;text-decoration:underline;cursor:pointer}
+.otra:focus-visible{outline:3px solid #d11f45;outline-offset:3px}
+@keyframes parpadea{50%{opacity:.45}}@keyframes entra{from{opacity:0;transform:translateY(40px)}}@keyframes aparece{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+@keyframes desenrolla{from{clip-path:inset(0 0 100% 0);scale:1 .4;opacity:.2}to{clip-path:inset(0);scale:1 1;opacity:1}}
+@media (prefers-reduced-motion:reduce){.aviso,.carta,.rollo{animation:none}}

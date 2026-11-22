@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/atmosfera.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-atm="polvo" style="--atm:#F0D88C">
+<header class="cab"><p class="curador" id="curador"></p><h1 id="titulo"></h1></header>
+<nav id="salas" class="salas" aria-label="Salas"></nav>
+<section class="sala"><p id="intro" class="intro"></p><button id="recorrido" class="boton">Recorrido guiado</button></section>
+<main id="pared" class="pared"></main>
+<div class="piso" aria-hidden="true"></div>
+<div id="visor" class="visor" hidden role="dialog" aria-modal="true" aria-label="Obra">
+  <button id="cerrar" class="x" aria-label="Cerrar">&times;</button>
+  <div class="marco-g"><img id="vImg" alt=""></div>
+  <div class="placa"><h2 id="vTit"></h2><p id="vMeta" class="meta"></p><p id="vHist"></p><audio id="vAudio" controls hidden></audio></div>
+  <div class="nav"><button id="ant" class="boton sec" aria-label="Obra anterior">‹</button><span id="vPos"></span><button id="sig" class="boton sec" aria-label="Obra siguiente">›</button></div>
+</div>
+<script src="datos.js"></script>
+<script src="galeria.js"></script>
+<script src="../assets/atmosfera.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

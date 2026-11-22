@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>El hilo rojo</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body>
+<canvas id="lienzo" aria-hidden="true"></canvas>
+<p id="frase" class="frase" role="status" aria-live="polite"></p>
+<p id="aviso" class="aviso">Toca y arrastra el hilo</p>
+<div id="rollo" class="rollo" hidden>
+  <div class="papel"></div>
+  <svg class="lazo" viewBox="0 0 220 240" aria-hidden="true">
+    <g class="nudo">
+      <path class="rojo vuelta" pathLength="1" d="M110 74C70 32 30 58 56 88C76 108 102 88 110 74"/>
+      <path class="rojo vuelta" pathLength="1" d="M110 74C150 32 190 58 164 88C144 108 118 88 110 74"/>
+      <path class="rojo" d="M110 38V112"/>
+    </g>
+    <path class="rojo cola c1" d="M110 76C98 124 70 156 80 214"/>
+    <g id="cola" class="cola c2"><path class="rojo" d="M110 76C126 118 152 156 142 220"/><path d="M110 76C126 118 152 156 142 220" stroke="transparent" stroke-width="46" fill="none"/></g>
+  </svg>
+  <p id="jala" class="jala"></p>
+</div>
+<article id="carta" class="carta" hidden>
+  <h2 id="cPara"></h2>
+  <div id="cTexto"></div>
+  <p id="cFirma" class="firma"></p>
+  <button id="otra" class="otra">Ver otra vez</button>
+</article>
+<script src="datos.js"></script>
+<script src="hilo.js"></script>
+<script src="../assets/lienzo.js"></script>
+<script src="chispas.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

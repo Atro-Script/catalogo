@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galleta de la Fortuna</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/atmosfera.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-atm="destellos" data-vig="off">
+<main>
+  <p id="para" class="para"></p>
+  <h1 id="titulo"></h1>
+  <div id="escena" class="escena">
+    <button id="galleta" class="galleta" aria-label="Romper la galleta">
+      <svg viewBox="0 0 200 140" aria-hidden="true">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7CF7A"/><stop offset="1" stop-color="#D99A3B"/></linearGradient></defs>
+        <g class="mitad izq"><path d="M100 20C55 8 12 34 12 72c0 30 26 52 60 50 14-1 22-4 28-9C92 90 94 52 100 20z" fill="url(#g1)"/><path d="M100 20C70 22 40 44 38 72" fill="none" stroke="#B87A22" stroke-width="3" stroke-linecap="round" opacity=".55"/></g>
+        <g class="mitad der"><path d="M100 20c6 32 8 70 0 93 6 5 14 8 28 9 34 2 60-20 60-50 0-38-43-64-88-52z" fill="url(#g1)"/><path d="M100 20c30 2 60 24 62 52" fill="none" stroke="#B87A22" stroke-width="3" stroke-linecap="round" opacity=".55"/></g>
+      </svg>
+    </button>
+    <div id="papel" class="papel" hidden aria-live="polite"><p id="texto" class="texto"></p><p id="suerte" class="suerte"></p></div>
+  </div>
+  <p id="ayuda" class="ayuda"></p>
+  <button id="otra" class="boton" hidden>Otra galleta</button>
+  <p id="final" class="final" hidden role="status"></p>
+</main>
+<script src="datos.js"></script>
+<script src="galleta.js"></script>
+<script src="monedas.js"></script>
+<script src="../assets/atmosfera.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

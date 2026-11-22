@@ -1,0 +1,38 @@
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;overflow:hidden;color:#FFF3DC;font-family:Georgia,"Times New Roman",serif;background:#070B1F;text-align:center;-webkit-user-select:none;user-select:none}
+.cielo{position:fixed;inset:0;background:linear-gradient(#050818 0%,#0E1840 45%,#2A2560 75%,#5B3A6B 100%);overflow:hidden}
+.estrellas i{position:absolute;width:var(--s);height:var(--s);border-radius:50%;background:#fff;left:var(--x);top:var(--y);opacity:.2;animation:titila var(--d) ease-in-out infinite;animation-delay:var(--t)}
+.luna{position:absolute;right:12%;top:9%;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFFBE6,#F2E4B4 60%,#D8C48A);box-shadow:0 0 46px 12px rgba(255,240,190,.35)}
+.colina{position:absolute;left:-10%;right:-10%;bottom:11%;height:22%;background:#05070F;border-radius:50% 50% 0 0/100% 100% 0 0;box-shadow:0 -2px 30px rgba(120,90,170,.25)}
+.agua{position:absolute;left:0;right:0;bottom:0;height:12%;background:linear-gradient(#0A0F26,#05070F);overflow:hidden}
+.agua::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,179,71,.1) 22px 24px);animation:ondas 6s linear infinite}
+.enc{position:fixed;top:max(5.6rem,calc(env(safe-area-inset-top) + 5rem));left:0;right:0;z-index:3;padding:0 8vw;pointer-events:none}
+.para{margin:0;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:#FFB347}
+h1{margin:.3rem 0;font-weight:400;font-style:italic;font-size:clamp(2rem,9vw,3rem);text-shadow:0 0 22px rgba(255,179,71,.55)}
+.ayuda{margin:.3rem auto 0;max-width:22em;font-size:.95rem;opacity:.85;transition:opacity .6s}
+.cuenta{position:fixed;left:0;right:0;bottom:calc(5.4rem + env(safe-area-inset-bottom));z-index:3;margin:0;font:600 .85rem system-ui,sans-serif;letter-spacing:.12em;color:#FFD9A0}
+.boton{position:fixed;left:50%;bottom:max(1.6rem,env(safe-area-inset-bottom));translate:-50% 0;z-index:4;font:700 1rem system-ui,sans-serif;color:#2B1606;padding:.95rem 1.9rem;border:0;border-radius:99px;cursor:pointer;background:linear-gradient(135deg,#FFE1A8,#FFB347 60%,#E0861F);box-shadow:0 8px 24px rgba(255,150,40,.4);animation:late 2.4s ease-in-out infinite}
+.boton:disabled{opacity:.4;animation:none}
+.boton.chico{position:static;translate:none;animation:none;display:inline-block;margin-top:1rem;padding:.75rem 1.5rem;font-size:.92rem;text-decoration:none}
+/* Farol */
+.farol{position:absolute;z-index:2;width:62px;height:84px;margin-left:-31px;cursor:pointer;left:var(--x);top:110%;padding:0;border:0;background:none;transition:top var(--sube,7s) cubic-bezier(.15,.7,.25,1),opacity 1s;-webkit-tap-highlight-color:transparent}
+.farol .cu{position:absolute;inset:0 0 10px;border-radius:14px 14px 8px 8px/20px 20px 8px 8px;background:radial-gradient(ellipse at 50% 75%,#FFF2C2 0,var(--luz,#FFB347) 45%,#B5561A 100%);box-shadow:0 0 36px 14px color-mix(in srgb,var(--luz,#FFB347) 45%,transparent);animation:parpadea 2.6s ease-in-out infinite}
+.farol .cu::before{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(90deg,transparent 0 15px,rgba(120,40,0,.28) 15px 17px)}
+.farol .cu::after{content:"";position:absolute;left:8px;right:8px;top:-5px;height:8px;border-radius:6px;background:#7A3510}
+.farol .ba{position:absolute;left:14px;right:14px;bottom:0;height:12px;border-radius:0 0 6px 6px;background:#7A3510}
+.farol.flota{animation:flota 5s ease-in-out infinite;animation-delay:var(--t,0s)}
+.farol.leido{opacity:.6}.farol.leido .cu{filter:saturate(.55)}
+.farol.sube-todos{transition:top 9s cubic-bezier(.4,0,.8,.6),opacity 8s;top:-30%!important;opacity:0}
+/* Nota */
+.nota{position:fixed;left:50%;top:44%;translate:-50% -50%;z-index:6;width:min(86vw,340px);padding:1.6rem 1.4rem;border-radius:6px;color:#4A2E14;background:linear-gradient(#FFF4D6,#F7DFAE);box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 0 1px rgba(122,53,16,.25);animation:papel .6s cubic-bezier(.2,.9,.3,1.2)}
+.nota p{margin:0;font-size:1.22rem;line-height:1.5;font-style:italic}
+.final{position:fixed;left:50%;top:45%;translate:-50% -50%;z-index:6;width:min(90vw,380px);padding:1.8rem 1.4rem;border-radius:18px;background:rgba(10,12,34,.82);backdrop-filter:blur(8px);border:1px solid rgba(255,179,71,.5);box-shadow:0 0 50px rgba(255,179,71,.25);animation:papel 1.2s ease both}
+.final h2{margin:0 0 .6rem;font-weight:400;font-style:italic;color:#FFB347;font-size:1.5rem}.final p{margin:.4rem 0;line-height:1.55}.firma{font-style:italic;color:#FFD9A0}
+.boton:focus-visible,.farol:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@keyframes titila{50%{opacity:.95}}@keyframes ondas{to{background-position:48px 0}}
+@keyframes parpadea{0%,100%{filter:brightness(1)}40%{filter:brightness(1.18)}70%{filter:brightness(.92)}}
+@keyframes flota{0%,100%{translate:0 0}50%{translate:6px -14px}}
+@keyframes late{50%{scale:1.05}}
+@keyframes papel{from{opacity:0;transform:translateY(24px) scale(.94)}}
+@media (prefers-reduced-motion:reduce){.estrellas i,.farol .cu,.farol.flota,.boton,.agua::before{animation:none}.farol{transition-duration:.01s}}
