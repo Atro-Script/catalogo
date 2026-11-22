@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo</title>
+<link rel="stylesheet" href="estilos-catalogo.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+<link rel="stylesheet" href="../assets/premium-negocio.css">
+</head>
+<body data-modos="index.html:Menú|catalogo.html:Catálogo">
+<header class="cab"><h1 id="negocio"></h1><p id="eslogan"></p><input id="buscar" type="search" placeholder="Buscar producto" aria-label="Buscar producto"></header>
+<nav id="cats" class="cats" aria-label="Categorías"></nav>
+<main id="lista" class="lista"></main>
+<button id="verCarrito" class="carrito" hidden>Ver pedido (<span id="n">0</span>) · <b id="total"></b></button>
+<aside id="panel" class="panel" hidden role="dialog" aria-modal="true" aria-label="Tu pedido">
+  <div class="caja">
+    <button id="cerrar" class="x" aria-label="Cerrar">&times;</button>
+    <h2>Tu pedido</h2>
+    <ul id="items" class="items"></ul>
+    <p class="suma">Total: <b id="suma"></b></p>
+    <label>Tu nombre<input id="cliente"></label>
+    <label>Notas (entrega, dedicatoria...)<textarea id="notas" rows="2"></textarea></label>
+    <button id="enviar" class="boton">Enviar pedido por WhatsApp</button>
+  </div>
+</aside>
+<script src="datos-catalogo.js"></script>
+<script src="catalogo.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/pedir.js"></script>
+<script src="../assets/arte.js"></script></body>
+</html>

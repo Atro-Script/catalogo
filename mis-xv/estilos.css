@@ -1,0 +1,37 @@
+:root{--fondo:#3A1470;--acento:#FFD27D;--crema:#FFF7EA;--rosa:#E0529C;--serif:"Palatino Linotype",Palatino,Georgia,serif;--guion:"Segoe Script","Brush Script MT","Lucida Handwriting",cursive}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;color:var(--crema);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.6;text-align:center;
+  background:linear-gradient(170deg,var(--fondo) 0%,color-mix(in srgb,var(--fondo) 55%,var(--rosa)) 60%,var(--rosa) 130%)}
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8vh 6vw}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.7;animation:brillo 4s ease-in-out infinite alternate;
+  background-image:radial-gradient(circle,#fff 0 1.5px,transparent 2.5px),radial-gradient(circle,var(--acento) 0 2px,transparent 3px),radial-gradient(circle,#fff 0 1px,transparent 2px);
+  background-size:90px 110px,140px 120px,60px 70px;background-position:0 0,40px 50px,20px 30px}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--acento) 32%,transparent),transparent 55%)}
+.hero>*{position:relative;z-index:1}
+.kicker{margin:0;font-family:var(--guion);font-size:1.5rem;color:var(--acento)}
+.xv{font-family:var(--serif);font-size:clamp(7rem,38vw,15rem);line-height:.9;margin:.05em 0 .1em;
+  background:linear-gradient(180deg,#FFF1C9,var(--acento) 50%,#D79A3C);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(0,0,0,.35))}
+h1{margin:0;font-family:var(--guion);font-weight:400;font-size:clamp(2.6rem,12vw,4.8rem);line-height:1.15;color:#fff;text-shadow:0 0 24px rgba(255,210,125,.7)}
+.msj{max-width:24em;margin:1.2rem 0 0}
+.fecha{margin:1.2rem 0 0;color:var(--acento);text-transform:capitalize;font-family:var(--serif);font-size:1.2rem}
+.cuenta{display:flex;gap:.7rem;margin-top:1.8rem;justify-content:center}
+.cuenta div{width:4.6rem;height:4.6rem;border:1px solid var(--acento);border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cuenta b{font-family:var(--serif);font-size:1.4rem;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
+.cuenta span{font-size:.65rem;color:var(--acento)}
+main{padding:2vh 5vw 10vh;max-width:620px;margin:0 auto}
+section{margin:0 0 1.4rem;padding:2rem 1.3rem;background:rgba(255,255,255,.1);border:1px solid color-mix(in srgb,var(--acento) 55%,transparent);border-radius:24px;backdrop-filter:blur(8px)}
+h2{margin:0 0 1.2rem;font-family:var(--guion);font-weight:400;font-size:2rem;color:var(--acento)}
+.programa{list-style:none;margin:0 0 0 .4rem;padding:0;border-left:1px solid var(--acento);text-align:left}
+.programa li{position:relative;padding:.7rem 0 .7rem 1.6rem}
+.programa li::before{content:"";position:absolute;left:-.4rem;top:1.25rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--acento);box-shadow:0 0 10px var(--acento)}
+.programa strong{display:block;font-family:var(--serif);font-weight:400;color:var(--acento)}
+.lugar{font-family:var(--serif);font-size:1.3rem;margin:0 0 1.2rem}
+.lugar span{font-family:"Segoe UI",system-ui,sans-serif;font-size:1rem;opacity:.85}
+.boton{display:inline-block;background:linear-gradient(135deg,#FFE6A8,var(--acento) 60%,#D79A3C);color:var(--fondo);padding:.9rem 1.7rem;border-radius:99px;font-weight:700;text-decoration:none;border:0;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.boton.sec{background:transparent;color:var(--acento);border:2px solid var(--acento);box-shadow:none}
+.boton:focus-visible{outline:3px solid var(--crema);outline-offset:3px}
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.galeria img{width:100%;aspect-ratio:3/4;object-fit:cover;border:3px solid var(--acento);border-radius:999px 999px 12px 12px}
+@keyframes brillo{from{opacity:.35}to{opacity:.85}}
+@media (prefers-reduced-motion:reduce){.hero::before{animation:none}}

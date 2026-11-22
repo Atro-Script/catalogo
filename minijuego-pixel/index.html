@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minijuego Pixel</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-grano="off">
+<canvas id="fondo" aria-hidden="true"></canvas>
+<div id="nubes" aria-hidden="true"></div>
+<button id="son" class="pbtn mini" aria-pressed="true">SON: ON</button>
+<div id="velo" aria-hidden="true"></div>
+<main id="juego">
+
+  <section id="s-titulo" class="esc on">
+    <h1 class="ptitulo" id="tit"></h1>
+    <p class="psub" id="preg"></p>
+    <div class="fila" id="filaTit">
+      <button id="empezar" class="pbtn grande">EMPEZAR</button>
+      <button id="denegar" class="pbtn alt">DENEGAR</button>
+    </div>
+  </section>
+
+  <section id="s-sobre" class="esc">
+    <button id="sobre" class="sprbtn" aria-label="Abrir la carta"></button>
+    <p class="psub parpadea">PULSA LA CARTA</p>
+  </section>
+
+  <section id="s-hub" class="esc">
+    <h2 class="ptitulo chico">ELIGE UN REGALO</h2>
+    <div class="regalos" id="regalos"></div>
+    <p class="psub" id="prog"></p>
+    <button id="alFinal" class="pbtn grande" hidden>SIGUIENTE ►</button>
+  </section>
+
+  <section id="s-carta" class="esc">
+    <div class="caja" id="cajaCarta"><p id="textoCarta"></p><p class="sigue" id="sigCarta">▼</p></div>
+    <button class="pbtn" data-volver>◄ VOLVER</button>
+  </section>
+
+  <section id="s-canciones" class="esc">
+    <h2 class="ptitulo chico" id="tCanc"></h2>
+    <ul class="canciones" id="listaCanc"></ul>
+    <button class="pbtn" data-volver>◄ VOLVER</button>
+  </section>
+
+  <section id="s-bola" class="esc">
+    <h2 class="ptitulo chico">ENCUENTRA LA BOLA SECRETA</h2>
+    <p class="psub" id="pistaBola">UNA DE ESTAS GUARDA TU PREMIO</p>
+    <div class="bolas" id="bolas"></div>
+    <div class="caja premio" id="premioBola" hidden><b id="tBola"></b><p id="pBola"></p></div>
+    <button class="pbtn" data-volver>◄ VOLVER</button>
+  </section>
+
+  <section id="s-boleto" class="esc">
+    <h2 class="ptitulo chico" id="tBol"></h2>
+    <button class="boleto" id="boleto" aria-label="Romper el boleto"><span class="mitad i"></span><span class="mitad d"></span></button>
+    <p class="psub" id="hBol">TOCA EL BOLETO PARA ROMPERLO</p>
+    <div class="caja premio" id="premioBol" hidden><p id="pBol"></p><a class="pbtn" id="canjear" target="_blank" rel="noopener"></a></div>
+    <button class="pbtn" data-volver>◄ VOLVER</button>
+  </section>
+
+  <section id="s-normas" class="esc">
+    <div class="dialogo"><span id="buho" class="sprite"></span><div class="caja" id="cajaNormas"><b>POR ÚLTIMO, PERO NO MENOS IMPORTANTE: TIENE NORMAS</b><ol id="listaNormas"></ol><p class="sigue" id="sigNorma">▼</p></div></div>
+    <div class="fila" id="filaNormas" hidden>
+      <button id="aceptar" class="pbtn grande">ACEPTAR</button>
+      <button id="denegar2" class="pbtn alt">DENEGAR</button>
+    </div>
+  </section>
+
+  <section id="s-final" class="esc">
+    <h1 class="ptitulo" id="tFinal"></h1>
+    <p class="psub" id="firma"></p>
+    <div class="fila">
+      <button id="repetir" class="pbtn grande">VOLVER A JUGAR</button>
+      <a id="responder" class="pbtn alt" target="_blank" rel="noopener">RESPONDER</a>
+    </div>
+  </section>
+
+</main>
+<script src="datos.js"></script>
+<script src="juego.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/pedir.js"></script>
+<script src="../assets/arte.js"></script></body>
+</html>

@@ -1,0 +1,25 @@
+:root{--fondo:#FFFDF8;--tinta:#3B2417;--verde:#2F6B4F;--linea:#e6dccb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+header{padding:6vh 6vw 3vh;text-align:center}
+h1{margin:0;font-family:Georgia,serif;font-size:clamp(2rem,9vw,3rem);color:var(--verde)}
+header p{margin:.3rem 0 0}
+nav{position:sticky;top:0;z-index:2;background:var(--fondo);display:flex;gap:.5rem;overflow-x:auto;padding:.7rem 6vw;border-bottom:1px solid var(--linea)}
+nav a{flex:none;color:var(--verde);text-decoration:none;font-weight:600;padding:.4rem .9rem;border:1px solid var(--verde);border-radius:99px}
+nav a:focus-visible{outline:3px solid var(--tinta)}
+main{max-width:600px;margin:0 auto;padding:0 6vw 7rem}
+h2{font-family:Georgia,serif;font-size:1.5rem;margin:2rem 0 .5rem}
+.item{display:flex;gap:1rem;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px dotted var(--linea)}
+.info{flex:1}
+.linea{display:flex;justify-content:space-between;gap:.8rem;font-weight:600}
+.precio{color:var(--verde)}
+.info p{margin:.1rem 0 0;font-size:.9rem;opacity:.75}
+.ctl{display:flex;align-items:center;gap:.5rem}
+.ctl button{width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--verde);background:#fff;color:var(--verde);font-size:1.2rem;cursor:pointer}
+.ctl output{min-width:1.2rem;text-align:center;font-weight:700}
+.barra{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 6vw calc(.8rem + env(safe-area-inset-bottom,0px));background:var(--verde);color:#fff;font-weight:600}
+.barra button{font:inherit;font-weight:700;background:#fff;color:var(--verde);border:0;border-radius:99px;padding:.6rem 1.2rem;cursor:pointer}
+button:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

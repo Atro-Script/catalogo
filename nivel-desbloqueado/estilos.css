@@ -1,0 +1,25 @@
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:#E8F1FF;font-family:"Courier New",ui-monospace,monospace;text-align:center;background:radial-gradient(circle at 50% 0,#2B1B6B,#0B0820 60%);position:relative}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(transparent 0 3px,rgba(0,0,0,.18) 3px 4px)}
+body.flash{animation:flash .6s}
+main{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:5vh 6vw 8vh}
+.centro{min-height:80svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{margin:0;color:#00F5D4;letter-spacing:.3em;text-transform:uppercase;font-size:.85rem}
+h1{margin:.3rem 0 1rem;font-size:clamp(3rem,16vw,5rem);color:#FFE14D;text-shadow:0 0 18px #FF3CAC,4px 4px 0 #7A4DFF;letter-spacing:.08em}
+.tit{opacity:.8;animation:parpadea 1.2s steps(2) infinite}
+.boton{display:inline-block;font:inherit;font-weight:700;letter-spacing:.14em;text-decoration:none;color:#0B0820;background:#00F5D4;border:0;padding:.9rem 2.2rem;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 0 22px rgba(0,245,212,.7)}
+.boton:focus-visible{outline:3px solid #FFE14D;outline-offset:4px}
+.nivel{font-size:clamp(5rem,32vw,9rem);font-weight:700;line-height:1;color:#fff;text-shadow:0 0 24px #00F5D4}
+.nivel.sube{animation:sube .8s}
+.xp{height:16px;margin:1rem 0;border:2px solid #00F5D4;background:#07051A}
+#barra{height:100%;width:0;transition:width 1.6s ease-out;background:repeating-linear-gradient(90deg,#00F5D4 0 12px,#00B89F 12px 16px)}
+.up{margin:.6rem 0 1.2rem;opacity:0;font-size:clamp(1.3rem,6vw,1.8rem);color:#FFE14D;text-shadow:0 0 14px #FF3CAC}
+.up.ver{opacity:1;animation:sube .8s}
+.logros{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.6rem}
+.logro{display:flex;gap:.8rem;align-items:center;text-align:left;padding:.7rem .9rem;border:2px solid #7A4DFF;background:rgba(122,77,255,.15);animation:entra .5s}
+.ic{font-size:1.9rem}.logro b{color:#00F5D4;font-size:.9rem}.logro p{margin:.1rem 0 0;font-size:.85rem;opacity:.85}
+.mision{padding:1.2rem;border:2px solid #FF3CAC;background:rgba(255,60,172,.12);animation:entra .6s}
+.mision h3{margin:0 0 .4rem;color:#FF8AD0;letter-spacing:.06em}.mision p{margin:.3rem 0}.dato{font-weight:700}
+@keyframes parpadea{50%{opacity:.2}}@keyframes sube{from{transform:scale(1.6);opacity:.3}}@keyframes entra{from{opacity:0;transform:translateX(-20px)}}@keyframes flash{30%{background-color:#2B1B6B;filter:brightness(1.8)}}
+@media (prefers-reduced-motion:reduce){.tit,.nivel.sube,.up.ver,.logro,.mision,body.flash{animation:none}#barra{transition:none}}

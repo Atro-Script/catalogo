@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><title>Nuestro Wrapped</title><link rel="stylesheet" href="../assets/emocion.css"><style>*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;height:100svh;background:#000;color:#fff;font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden;user-select:none}
+#app{position:relative;height:100%;max-width:520px;margin:0 auto;overflow:hidden;transition:background 1s}
+#barras{position:absolute;top:max(.7rem,env(safe-area-inset-top));left:.8rem;right:.8rem;display:flex;gap:.3rem;z-index:3}
+#barras i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden}
+#barras b{display:block;height:100%;width:0;background:#fff}
+#sc{position:absolute;inset:0;display:grid;place-content:center;gap:1rem;padding:5rem 2rem 4rem;text-align:center}
+#sc>*{opacity:0;transform:translateY(24px);animation:ent .7s forwards}#sc>:nth-child(2){animation-delay:.25s}#sc>:nth-child(3){animation-delay:.6s}#sc>:nth-child(4){animation-delay:1s}
+@keyframes ent{to{opacity:1;transform:none}}
+.peq{margin:0;font-size:1.15rem;opacity:.9}.gran{margin:0;font-weight:900;font-size:clamp(3rem,16vw,5.2rem);line-height:1;letter-spacing:-.03em}
+.num{font-size:clamp(5rem,30vw,9rem)}.frase{font-size:clamp(1.8rem,8vw,2.6rem);font-weight:800;line-height:1.2}
+ol{margin:0;padding:0;list-style:none;display:grid;gap:.9rem}li{font-size:1.5rem;font-weight:800;padding:.9rem 1.2rem;border-radius:18px;background:rgba(0,0,0,.25);text-align:left}li span{opacity:.6;margin-right:.7rem}
+#izq,#der{position:absolute;top:0;bottom:0;z-index:2;width:35%;border:0;background:none;cursor:pointer}#izq{left:0}#der{right:0;width:65%}
+.pista{position:absolute;bottom:1.2rem;left:0;right:0;text-align:center;font-size:.8rem;opacity:.6;z-index:3;pointer-events:none}
+.otra{margin-top:1rem;font:inherit;font-weight:800;color:#fff;background:rgba(0,0,0,.3);border:2px solid #fff;border-radius:99px;padding:.7rem 1.4rem;cursor:pointer;position:relative;z-index:4}
+@media(prefers-reduced-motion:reduce){#sc>*{animation:none;opacity:1;transform:none}}
+</style><link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head><body><div id="app"><div id="barras"></div><div id="sc" aria-live="polite"></div><button id="izq" aria-label="Anterior"></button><button id="der" aria-label="Siguiente"></button><p class="pista">Toca para avanzar</p></div>
+<script src="datos.js"></script><script>
+const D=window.DATOS,P=D.pantallas,app=document.getElementById("app"),sc=document.getElementById("sc"),bar=document.getElementById("barras");let i=-1,t,raf;
+P.forEach(()=>bar.insertAdjacentHTML("beforeend","<i><b></b></i>"));
+const e=(c,h)=>`<p class="${c}">${h}</p>`;
+function cuenta(el,n){const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1800);el.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString("es-MX");if(k<1)raf=requestAnimationFrame(f)})(t0)}
+function ir(n){clearTimeout(t);cancelAnimationFrame(raf);if(n<0)n=0;if(n>=P.length)n=P.length-1;i=n;const p=P[n];
+ app.style.background=`radial-gradient(circle at 30% 20%,${D.colores[(n+1)%D.colores.length]},${D.colores[n%D.colores.length]} 70%)`;
+ let h="";if(p.tipo=="portada")h=e("peq","Tu resumen")+e("gran",p.texto)+e("peq",p.sub);
+ else if(p.tipo=="numero")h=e("peq",p.antes)+e("gran num","0")+e("peq",p.despues+(p.nota?"<br><br>"+p.nota:""));
+ else if(p.tipo=="lista")h=e("peq",p.antes)+"<ol>"+p.items.map((x,k)=>`<li><span>${k+1}</span>${x}</li>`).join("")+"</ol>";
+ else if(p.tipo=="frase")h=e("frase",p.texto);
+ else h=e("gran",p.texto)+e("peq",p.sub)+"<button class=otra id=rep>Verlo otra vez</button>";
+ sc.innerHTML=h;if(p.tipo=="numero")cuenta(sc.querySelector(".num"),p.numero);
+ const r=document.getElementById("rep");if(r)r.onclick=ev=>{ev.stopPropagation();ir(0)};
+ [...bar.children].forEach((x,k)=>{const b=x.firstChild;b.style.transition="none";b.style.width=k<n?"100%":"0";if(k==n){b.offsetWidth;if(n<P.length-1){b.style.transition=`width ${D.segundos}s linear`;b.style.width="100%"}else b.style.width="100%"}});
+ if(n<P.length-1)t=setTimeout(()=>ir(n+1),D.segundos*1000)}
+document.getElementById("der").onclick=()=>ir(i+1);document.getElementById("izq").onclick=()=>ir(i-1);ir(0);</script><script src="../assets/lienzo.js"></script>
+<script src="ecualizador.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script><script src="../assets/pedir.js"></script></body></html>

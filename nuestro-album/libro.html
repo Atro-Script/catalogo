@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><title>Libro de recuerdos</title><link rel="stylesheet" href="../assets/emocion.css"><style>*{box-sizing:border-box}[hidden]{display:none!important}
+:root{--c:#7C2D12;--p:#FFF7E6}
+body{margin:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;font-family:Georgia,serif;color:#3a2410;background:radial-gradient(circle,color-mix(in srgb,var(--c) 55%,#fff),var(--c) 70%,#000)}
+#libro{position:relative;width:min(78vw,340px);aspect-ratio:3/4.2;perspective:1600px;transition:transform .7s}
+.h{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.5,.1,.2,1)}
+.h.v{transform:rotateY(-178deg)}
+.cara{position:absolute;inset:0;backface-visibility:hidden;padding:1.4rem 1.2rem;border-radius:4px 14px 14px 4px;background:var(--p);box-shadow:inset 8px 0 14px -8px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.35);display:grid;align-content:center;gap:.7rem;text-align:center;overflow:hidden}
+.cara.atras{transform:rotateY(180deg);border-radius:14px 4px 4px 14px;box-shadow:inset -8px 0 14px -8px rgba(0,0,0,.3)}
+.portada{background:var(--c);color:#FFE9B8;border:2px solid #FFE9B8;outline:6px solid var(--c);outline-offset:-12px}
+.portada h1{margin:0;font-size:clamp(1.8rem,9vw,2.4rem);font-style:italic}.portada p{margin:0;letter-spacing:.2em;font-size:.8rem;text-transform:uppercase}
+.foto{aspect-ratio:1;border-radius:6px;border:6px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.3);transform:rotate(-2deg);background:#e6d3ad center/cover;display:grid;place-items:center;font-size:3.2rem}
+h2{margin:0;font-size:calc(1.25rem*var(--z,1));font-style:italic}.cara p{margin:0;font-size:calc(.95rem*var(--z,1));line-height:1.45}.pg{position:absolute;bottom:.6rem;right:1rem;font-size:.7rem;opacity:.5}
+#nav{position:fixed;bottom:max(1rem,env(safe-area-inset-bottom));left:0;right:0;display:flex;justify-content:center;gap:1rem;align-items:center;color:#FFE9B8;font-size:.85rem}
+#nav button{font:inherit;font-size:1.3rem;width:3rem;height:3rem;border-radius:50%;border:1.5px solid #FFE9B8;color:#FFE9B8;background:rgba(0,0,0,.25);cursor:pointer}#nav button:disabled{opacity:.3}
+body{overflow-x:hidden}</style><link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head><body data-modos="index.html:Álbum|libro.html:Libro"><div id="libro" role="group" aria-label="Libro de recuerdos"></div><div id="nav"><button id="ant" aria-label="Página anterior">‹</button><span id="pos"></span><button id="sig" aria-label="Página siguiente">›</button></div>
+<script src="datos-libro.js"></script><script>
+const D=window.DATOS,L=document.getElementById("libro"),R=document.documentElement.style;R.setProperty("--c",D.color);R.setProperty("--p",D.colorPapel);document.title=D.titulo;
+const H=[];const A=[`<div class="cara portada"><p>Un libro para ti</p><h1>${D.titulo}</h1><p>${D.subtitulo}</p></div>`,...D.paginas.map((p,k)=>`<div class=cara><div class=foto style="${p.foto?`background-image:url(${p.foto})`:""}">${p.foto?"":"🌸"}</div><h2>${p.titulo}</h2><p>${p.texto}</p><span class=pg>${k+1}</span></div>`),`<div class=cara><h2>${D.final}</h2></div>`];
+// cada hoja: frente = A[n], reverso = A[n+1]
+for(let n=0;n<A.length;n+=2){const h=document.createElement("div");h.className="h";h.style.zIndex=A.length-n;h.innerHTML=A[n]+(A[n+1]||"<div class=cara></div>").replace("class=\"cara","class=\"cara atras").replace("class=cara","class=\"cara atras\"");L.append(h);H.push(h)}
+function ajusta(){const W=L.offsetWidth,s=Math.min(1,innerWidth*.94/(2*W)),fin=v==H.length;L.style.setProperty("--z",(1+(1/s-1)*.4).toFixed(2));L.style.transformOrigin="50% 50%";L.style.transform=v==0?"none":fin?"translateX("+W+"px)":"translateX("+(s*W/2)+"px) scale("+s+")"}addEventListener("resize",ajusta);
+let v=0;function mostrar(){H.forEach((h,k)=>{h.classList.toggle("v",k<v);h.style.zIndex=k<v?k:H.length-k});ajusta();document.getElementById("pos").textContent=v+" / "+H.length;document.getElementById("ant").disabled=v==0;document.getElementById("sig").disabled=v==H.length}
+document.getElementById("sig").onclick=()=>{if(v<H.length){v++;mostrar();navigator.vibrate&&navigator.vibrate(10)}};document.getElementById("ant").onclick=()=>{if(v>0){v--;mostrar()}};
+let x0;L.addEventListener("pointerdown",e=>x0=e.clientX);L.addEventListener("pointerup",e=>{const d=e.clientX-x0;if(d<-30)document.getElementById("sig").click();else if(d>30)document.getElementById("ant").click();else if(Math.abs(d)<10)(e.clientX>innerWidth/2?document.getElementById("sig"):document.getElementById("ant")).click()});mostrar();</script><script src="../assets/lienzo.js"></script>
+<script src="polvo.js"></script>
+<script src="../assets/emocion.js"></script><script src="../assets/pedir.js"></script><script src="../assets/arte.js"></script></body></html>

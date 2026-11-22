@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boda</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/atmosfera.css">
+<link rel="stylesheet" href="../assets/invitacion.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/invitacion-plus.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-d="boda" data-orn="petalos">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="rama">
+<path d="M4 112C52 104 104 72 192 18" fill="none" stroke="#7E9B76" stroke-width="2.6" stroke-linecap="round"/>
+<g fill="#A9BFA5"><ellipse cx="34" cy="100" rx="17" ry="6" transform="rotate(-28 34 100)"/><ellipse cx="52" cy="84" rx="16" ry="5.5" transform="rotate(38 52 84)"/><ellipse cx="78" cy="86" rx="17" ry="6" transform="rotate(-34 78 86)"/><ellipse cx="96" cy="64" rx="16" ry="5.5" transform="rotate(30 96 64)"/><ellipse cx="126" cy="60" rx="16" ry="5.5" transform="rotate(-38 126 60)"/><ellipse cx="146" cy="38" rx="15" ry="5" transform="rotate(26 146 38)"/><ellipse cx="172" cy="34" rx="14" ry="5" transform="rotate(-40 172 34)"/></g>
+<g transform="translate(112 80)"><g fill="#F4B8B0"><ellipse cy="-9" rx="6" ry="9"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(72)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(144)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(216)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(288)"/></g><circle r="4.5" fill="#B8924A"/></g>
+<g transform="translate(66 104) scale(.7)"><g fill="#EFA39B"><ellipse cy="-9" rx="6" ry="9"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(72)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(144)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(216)"/><ellipse cy="-9" rx="6" ry="9" transform="rotate(288)"/></g><circle r="4.5" fill="#B8924A"/></g>
+<g fill="#B8924A"><circle cx="160" cy="58" r="2.6"/><circle cx="182" cy="46" r="2"/><circle cx="24" cy="86" r="2"/></g></g></defs></svg>
+<header class="hero">
+  <div class="marco">
+    <p class="kicker">Nos casamos</p>
+    <h1 id="nombre"></h1>
+    <p id="mensaje" class="msj"></p>
+    <p id="fechaTexto" class="fecha"></p>
+    <div id="cuenta" class="cuenta"></div>
+  <svg class="rama r1" viewBox="0 0 200 120" aria-hidden="true"><use href="#rama"/></svg><svg class="rama r2" viewBox="0 0 200 120" aria-hidden="true"><use href="#rama"/></svg><svg class="rama r3" viewBox="0 0 200 120" aria-hidden="true"><use href="#rama"/></svg><svg class="rama r4" viewBox="0 0 200 120" aria-hidden="true"><use href="#rama"/></svg>
+  </div>
+</header>
+<main>
+  <section><h2>Programa</h2><ul id="programa" class="programa"></ul></section>
+  <section>
+    <h2>Lugar</h2>
+    <p class="lugar"><strong id="lugarNombre"></strong><br><span id="lugarDir"></span></p>
+    <a id="mapa" class="boton sec" target="_blank" rel="noopener">Abrir en el mapa</a>
+  </section>
+  <section id="seccionFotos"><h2>Nuestra historia</h2><div id="galeria" class="galeria"></div></section>
+  <section><h2>Confirma tu asistencia</h2>
+    <a id="confirmar" class="boton" target="_blank" rel="noopener">Confirmar por WhatsApp</a></section>
+</main>
+<script src="datos.js"></script>
+<script src="motor.js"></script>
+<script src="../assets/atmosfera.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/invitacion-plus.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

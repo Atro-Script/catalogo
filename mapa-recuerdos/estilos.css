@@ -1,0 +1,27 @@
+:root{--tinta:#4a331f;--atm:#fff0c0}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;min-height:100svh;color:var(--tinta);font-family:Georgia,serif;text-align:center;background:radial-gradient(ellipse at 50% 30%,#f6e7c8,#e3c795 70%,#c9a46b)}
+main{max-width:480px;margin:0 auto;padding:max(2.6rem,env(safe-area-inset-top)) 5vw 3rem}
+h1{margin:0;font:italic 700 clamp(1.9rem,9vw,2.6rem)/1.1 Georgia,serif;color:#6b3f1d}
+.sub{margin:.3rem 0 1.4rem;opacity:.75;font-size:.92rem;letter-spacing:.05em}
+.mapa{position:relative;aspect-ratio:.9;border-radius:6px;background:linear-gradient(rgba(120,80,30,.1) 1px,transparent 1px) 0 0/10% 10%,linear-gradient(90deg,rgba(120,80,30,.1) 1px,transparent 1px) 0 0/10% 10%,radial-gradient(circle at 20% 15%,rgba(255,255,255,.35),transparent 40%),#f3e2bd;box-shadow:inset 0 0 40px rgba(130,80,20,.45),0 0 0 4px #8a5a2b,0 0 0 8px #e9d3a3,0 20px 40px rgba(60,35,10,.35);overflow:hidden}
+.mapa::before{content:"✥";position:absolute;right:8px;bottom:2px;font-size:2.6rem;color:rgba(122,74,30,.35)}
+.mapa svg{position:absolute;inset:0;width:100%;height:100%}
+.ruta{fill:none;stroke:#b3402e;stroke-width:.9;stroke-linecap:round;stroke-dasharray:2 2.2;opacity:.9;vector-effect:non-scaling-stroke}
+.trazo{fill:none;stroke:#b3402e;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;transition:stroke-dashoffset 1.2s ease-in-out;filter:drop-shadow(0 0 3px rgba(179,64,46,.5))}
+.marca{position:absolute;width:2.3rem;height:2.3rem;margin:-1.15rem 0 0 -1.15rem;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:0;background:#d9c9a8;color:#7a5a30;font:700 .95rem Georgia,serif;cursor:pointer;box-shadow:0 5px 8px rgba(60,35,10,.35);animation:cae .7s cubic-bezier(.3,1.7,.5,1) both;animation-delay:var(--d,0s);transition:background .4s,color .4s}
+.marca>*{transform:rotate(45deg)}
+.marca{display:grid;place-items:center;line-height:1}
+.marca.visto{background:#c4503a;color:#fff}.marca.final{background:#2f7a52;color:#fff}
+.marca.on{z-index:3;animation:none;transform:rotate(-45deg) scale(1.25);box-shadow:0 0 0 6px rgba(255,255,255,.55),0 8px 14px rgba(60,35,10,.4)}
+.marca:focus-visible{outline:3px solid #4a331f;outline-offset:3px}
+@keyframes cae{from{opacity:0;transform:rotate(-45deg) translate(24px,-50px) scale(.4)}}
+.viajero{position:absolute;z-index:4;width:1.1rem;height:1.1rem;margin:-.55rem 0 0 -.55rem;border-radius:50%;background:#fff;border:3px solid #2f6fb5;box-shadow:0 0 0 0 rgba(47,111,181,.6);pointer-events:none;transition:left 1.2s ease-in-out,top 1.2s ease-in-out;animation:onda 1.6s infinite}
+@keyframes onda{to{box-shadow:0 0 0 16px rgba(47,111,181,0)}}
+.detalle{margin-top:1.4rem;padding:1.2rem 1.1rem;background:#fff9e8;border-radius:6px;box-shadow:0 10px 20px rgba(60,35,10,.22);transform:rotate(-.6deg)}
+.detalle.nuevo{animation:desde .6s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes desde{from{opacity:.2;transform:translateY(16px) rotate(1.5deg)}}
+.detalle h2{margin:0 0 .2rem;font-size:1.3rem;color:#a63d2b}.fecha{margin:0 0 .5rem;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65}.detalle p:last-child{margin:0;line-height:1.5}
+.boton{margin-top:1.3rem;font:inherit;font-weight:700;background:#7a4a2a;color:#fff3df;border:0;border-radius:99px;padding:.8rem 1.8rem;cursor:pointer;box-shadow:0 5px 0 #4d2c16,0 10px 16px rgba(60,35,10,.3)}
+.boton:focus-visible{outline:3px solid #4a331f;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.marca,.viajero,.detalle.nuevo{animation:none}.trazo,.viajero{transition:none}}
