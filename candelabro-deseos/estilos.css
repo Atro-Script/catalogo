@@ -1,0 +1,13 @@
+body{overflow:hidden;height:100svh;background:radial-gradient(90% 60% at 50% 38%,var(--f1),var(--f2)) fixed}
+#lienzo{position:fixed;inset:0;width:100%;height:100%;z-index:1;touch-action:manipulation;cursor:pointer}
+.ui{position:relative;z-index:2;min-height:0;height:100svh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:4.6rem 1rem 1.8rem;pointer-events:none}
+.ui h1{font-size:clamp(1.8rem,8vw,2.7rem)}
+.hud{margin:0;font-size:1rem;opacity:.9;padding:.55rem 1.1rem;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.deseo{position:fixed;z-index:4;left:0;top:0;max-width:min(78vw,17rem);padding:.8rem 1rem;border-radius:16px;font-family:var(--serif);font-style:italic;font-weight:700;font-size:1.05rem;line-height:1.35;text-align:center;color:#fff4dc;background:linear-gradient(165deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.22);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 40px rgba(255,200,100,.25);opacity:0;pointer-events:none;transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.3,1)}
+.deseo.on{opacity:1}
+.fin{position:fixed;inset:0;z-index:6;display:grid;place-items:center;padding:1rem;background:radial-gradient(circle,rgba(255,230,170,.25),rgba(0,0,0,.55));animation:vel .8s both}
+@keyframes vel{from{opacity:0}to{opacity:1}}
+.fin .carta{background:linear-gradient(165deg,rgba(20,18,10,.78),rgba(10,10,6,.7));text-align:center;display:grid;gap:.5rem;justify-items:center}
+.fin h2{margin:0;font-family:var(--serif);font-style:italic;font-weight:700;font-size:1.6rem;color:var(--a);text-shadow:0 0 24px rgba(255,210,122,.6)}
+.fin p{margin:.2rem 0}.fin .firma{text-align:center}
+.fin .carta>*{animation:subir .8s cubic-bezier(.2,.8,.2,1) both}.fin .carta>:nth-child(2){animation-delay:.25s}.fin .carta>:nth-child(3){animation-delay:.5s}.fin .carta>:nth-child(4){animation-delay:.75s}

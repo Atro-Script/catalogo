@@ -1,0 +1,87 @@
+/* AtroScript · Escenas ilustradas de las tarjetas (texturas + animación fluida). */
+:root{
+  --ruido:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --fibra:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .96 0 0 0 0 .88 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+.cab-t{height:218px;display:block;overflow:hidden;isolation:isolate;background:#0c0d10;-webkit-tap-highlight-color:transparent}
+.cab-t::before{content:none}
+.cab-t .pill{z-index:4}
+.cab-t .probar{z-index:4;display:inline-flex;align-items:center;gap:.35rem}
+.cab-t .probar svg{width:.8em;height:.8em}
+.es{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.es>*{position:absolute}
+.es-fondo,.es-tex,.es-grano,.es-marco{inset:0}
+
+/* color base + manchas de luz que derivan */
+.es-fondo{background:linear-gradient(165deg,color-mix(in srgb,var(--c) 24%,#0d0c12),#09090d 78%)}
+.es-fondo::before,.es-fondo::after{content:"";position:absolute;inset:-25%;will-change:transform}
+.es-fondo::before{background:radial-gradient(42% 46% at 28% 30%,color-mix(in srgb,var(--c) 50%,transparent),transparent 72%);animation:es-deriva1 14s ease-in-out infinite alternate;animation-delay:var(--d)}
+.es-fondo::after{background:radial-gradient(40% 44% at 78% 78%,color-mix(in srgb,var(--c2,#ff8fb6) 38%,transparent),transparent 72%);animation:es-deriva2 17s ease-in-out infinite alternate;animation-delay:var(--d)}
+.cat-A{--c2:#ffd27a}.cat-B{--c2:#ffb36b}.cat-C{--c2:#7b5cff}.cat-E{--c2:#ff7a59}.cat-F{--c2:#4fd1e8}.cat-G{--c2:#ffd23f}
+
+/* grano de película siempre encima de la textura */
+.es-grano{background:var(--ruido);background-size:160px;mix-blend-mode:overlay;opacity:.42}
+
+/* ---------- texturas por categoría ---------- */
+.es-tex{opacity:1}
+/* A · eventos: terciopelo con bordado dorado */
+.cat-A .es-tex{background:repeating-linear-gradient(45deg,rgba(255,255,255,.055) 0 1px,transparent 1px 4px),repeating-linear-gradient(-45deg,rgba(0,0,0,.28) 0 1px,transparent 1px 4px)}
+.cat-A .es-marco{inset:10px;border-radius:16px;border:1.6px dashed rgba(240,205,130,.55);box-shadow:0 0 0 1px rgba(240,205,130,.12),inset 0 0 22px rgba(240,205,130,.08)}
+/* B · regalos: papel de acuarela con cinta washi */
+.cat-B .es-tex{background:var(--fibra);background-size:300px;mix-blend-mode:soft-light;opacity:.5}
+.cat-B .es-marco{inset:0}
+.cat-B .es-marco::before{content:"";position:absolute;left:-14px;top:18px;width:84px;height:20px;rotate:-32deg;opacity:.0;background:repeating-linear-gradient(90deg,rgba(255,214,222,.8) 0 7px,rgba(255,255,255,.65) 7px 14px)}
+.cat-B .es-marco::after{content:"";position:absolute;right:-18px;bottom:16px;width:92px;height:20px;rotate:-32deg;opacity:.3;background:repeating-linear-gradient(90deg,rgba(255,214,222,.85) 0 7px,rgba(255,255,255,.7) 7px 14px);clip-path:polygon(0 0,4% 22%,0 44%,4% 66%,0 88%,3% 100%,100% 100%,96% 78%,100% 56%,96% 34%,100% 12%,96% 0)}
+/* C · visuales: cielo nocturno con estrellas que titilan */
+.cat-C .es-tex{background:radial-gradient(1.4px 1.4px at 12% 22%,#fff,transparent),radial-gradient(1px 1px at 30% 64%,#fff,transparent),radial-gradient(1.6px 1.6px at 52% 14%,#fff,transparent),radial-gradient(1px 1px at 70% 48%,#fff,transparent),radial-gradient(1.4px 1.4px at 88% 78%,#fff,transparent),radial-gradient(1px 1px at 40% 88%,#fff,transparent),radial-gradient(1.2px 1.2px at 92% 20%,#fff,transparent);animation:es-titilar 4.6s ease-in-out infinite;animation-delay:var(--d)}
+.cat-C .es-marco{background:radial-gradient(120% 100% at 50% 50%,transparent 55%,rgba(2,4,20,.55))}
+/* D · diseño: papel cuadriculado */
+/* E · fechas especiales: lino */
+.cat-E .es-tex{background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+.cat-E .es-marco{inset:9px;border-radius:14px;border:1px solid rgba(255,209,102,.4);box-shadow:inset 0 0 0 4px rgba(255,209,102,.07),inset 0 0 0 5px rgba(255,209,102,.3)}
+/* F · juegos: cuadrícula de píxeles con líneas de pantalla */
+.cat-F .es-tex{background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px);background-size:14px 14px,14px 14px,100% 4px;animation:es-cuadros 9s linear infinite}
+.cat-F .es-marco{inset:8px;border-radius:6px;box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--c) 45%,transparent),inset 0 0 0 5px rgba(0,0,0,.4),inset 0 0 0 6px color-mix(in srgb,var(--c) 22%,transparent)}
+/* G · negocios: papel kraft con sello */
+.cat-G .es-tex{background:var(--fibra),radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,.4),transparent),radial-gradient(1px 1px at 70% 70%,rgba(255,255,255,.35),transparent);background-size:300px,60px 60px,47px 47px;mix-blend-mode:soft-light;opacity:.75}
+.cat-G .es-marco{inset:10px;border-radius:10px;border:1.6px dashed rgba(255,190,120,.5)}
+
+/* ---------- ilustraciones ---------- */
+.es-halo{left:50%;top:54%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 55%,transparent),transparent 68%);animation:es-halo 4.8s ease-in-out infinite;animation-delay:var(--d)}
+.es-capa{transform:translate3d(calc(var(--mx,0)*var(--k,10)*-1px),calc(var(--my,0)*var(--k,10)*-1px),0);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.es-capa-p{left:50%;top:53%;width:108px;height:108px;margin:-54px 0 0 -54px}
+.es-capa-s{margin:-20px 0 0 -20px}
+.es-obj{width:100%;height:100%}
+.es-main{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5)) drop-shadow(0 0 18px color-mix(in srgb,var(--c) 55%,transparent));animation:es-flota var(--dur) ease-in-out infinite;animation-delay:var(--d);transform-origin:50% 80%;transition:scale .4s cubic-bezier(.2,.8,.2,1)}
+.es-sat{display:block;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.45));animation:es-deriva 7.5s ease-in-out infinite;opacity:.96}
+.es-chisp{width:11px;height:11px;margin:-5px 0 0 -5px;opacity:0;animation:es-chispa 3.4s ease-in-out infinite}
+.es-brillo{inset:-30% auto -30% 0;width:38%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-130%) skewX(-18deg);animation:es-barrido 7s ease-in-out infinite;animation-delay:var(--d);mix-blend-mode:soft-light}
+.tarjeta:hover .es-main,.cab-t:focus-visible .es-main{scale:1.12}
+.tarjeta:hover .es-brillo{animation-duration:2.2s}
+.cab-t.toque .es-obj{animation:es-rebote .7s cubic-bezier(.3,1.6,.5,1)}
+
+/* ---------- entrada fluida y ahorro: sin animar lo que no se ve ---------- */
+.tarjeta.pre{opacity:0}
+.tarjeta.entra{animation:es-entra .75s cubic-bezier(.2,.85,.25,1) backwards;animation-delay:var(--e,0ms)}
+.tarjeta:not(.en-pantalla) .es *,.tarjeta:not(.en-pantalla) .es::after,.tarjeta:not(.en-pantalla) .es-fondo::before,.tarjeta:not(.en-pantalla) .es-fondo::after{animation-play-state:paused!important}
+.tarjeta{background:linear-gradient(180deg,#101116,#0b0c0f)}
+.tarjeta::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c) 70%,transparent),inset 0 0 40px color-mix(in srgb,var(--c) 14%,transparent)}
+.tarjeta:hover::after{opacity:1}
+
+/* ---------- ilustraciones pequeñas (detalle y selección) ---------- */
+.d-icono{overflow:hidden;position:relative;background:radial-gradient(circle at 50% 110%,color-mix(in srgb,var(--c) 50%,transparent),transparent 65%),color-mix(in srgb,var(--c) 14%,#0c0d10)}
+.es-mini{width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 5px 8px rgba(0,0,0,.45)) drop-shadow(0 0 10px color-mix(in srgb,var(--c) 55%,transparent));animation:es-flota 5.5s ease-in-out infinite}
+.sel-lista .es-mini{width:34px;height:34px;flex:none;animation:none}
+
+@keyframes es-flota{0%,100%{transform:translate3d(0,0,0) rotate(var(--r0,-3deg))}50%{transform:translate3d(0,-9px,0) rotate(var(--r1,3deg)) scale(1.035)}}
+@keyframes es-deriva{0%,100%{transform:translate(0,0) rotate(-4deg)}33%{transform:translate(7px,-9px) rotate(8deg)}66%{transform:translate(-6px,-3px) rotate(-8deg)}}
+@keyframes es-deriva1{from{transform:translate3d(-6%,-4%,0) scale(1)}to{transform:translate3d(12%,10%,0) scale(1.18)}}
+@keyframes es-deriva2{from{transform:translate3d(8%,6%,0) scale(1.1)}to{transform:translate3d(-12%,-8%,0) scale(.92)}}
+@keyframes es-halo{0%,100%{transform:scale(.88);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+@keyframes es-barrido{0%,55%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(380%) skewX(-18deg)}}
+@keyframes es-chispa{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1.25) rotate(90deg)}}
+@keyframes es-titilar{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes es-cuadros{to{background-position:44px 44px,44px 44px,11px 11px,11px 11px}}
+@keyframes es-rebote{0%{transform:scale(1)}30%{transform:scale(.86) rotate(-6deg)}65%{transform:scale(1.14) rotate(5deg)}100%{transform:scale(1)}}
+@keyframes es-entra{from{opacity:0;transform:translateY(34px) scale(.96)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.es *,.es-fondo::before,.es-fondo::after,.es-mini{animation:none!important}.tarjeta.pre{opacity:1}.tarjeta.entra{animation:none}.es-capa{transition:none}}

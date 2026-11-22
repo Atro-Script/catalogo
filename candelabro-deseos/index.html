@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Candelabro de Deseos</title>
+<link rel="stylesheet" href="../assets/fecha.css">
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/textura.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-tex="lino grano viñeta" data-grano="off">
+<canvas id="lienzo" aria-label="Candelabro con velas por encender" role="img"></canvas>
+<main class="ui">
+  <header><p class="peq" id="para"></p><h1 id="titulo"></h1></header>
+  <p class="hud" id="hud" role="status"></p>
+</main>
+<div id="deseo" class="deseo" aria-live="polite"></div>
+<section id="fin" class="fin" hidden>
+  <div class="carta"><h2 id="fTit"></h2><p id="fMsg"></p><p class="firma" id="fFirma"></p>
+  <button id="otra" class="bt" type="button"></button></div>
+</section>
+<script src="datos.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="candelabro.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

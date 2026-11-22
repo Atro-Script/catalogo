@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cápsula del tiempo</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/atmosfera.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body data-atm="polvo" data-modos="index.html:Cápsula|capitulos.html:Capítulos">
+<main>
+  <section id="bloqueo" class="centro">
+    <p class="kicker">Cápsula del tiempo</p>
+    <h1>Para <span id="para"></span></h1>
+    <div class="escena" aria-hidden="true">
+      <i class="anillo a1"></i><i class="anillo a2"></i>
+      <div id="capsula" class="capsula"><span class="mitad a"></span><span class="mitad b"><i class="ventana"></i></span><i class="luz"></i></div>
+    </div>
+    <p class="sellada">Sellada por <b id="de"></b> el <span id="fechaSello"></span></p>
+    <div id="cuenta" class="cuenta" role="timer"></div>
+    <div class="progreso" aria-hidden="true"><div class="pista"><span id="barra"></span></div><div class="etq"><span>Sellada</span><span id="pct"></span><span>Se abre</span></div></div>
+    <p class="abre">Se puede abrir desde el <b id="fechaApertura"></b></p>
+    <button id="abrir" hidden>Abrir cápsula</button>
+  </section>
+  <article id="contenido" hidden>
+    <p class="kicker">Un mensaje desde el pasado</p>
+    <div class="carta"><span class="cera" id="cera" aria-hidden="true"></span>
+      <h2>Para <span id="para2"></span></h2>
+      <div id="texto"></div>
+      <p id="firma" class="firma"></p>
+    </div>
+    <h3>Lo que guardamos</h3>
+    <ul id="recuerdos"></ul>
+  </article>
+</main>
+<script src="datos.js"></script>
+<script src="capsula.js"></script>
+<script src="vortice.js"></script>
+<script src="../assets/atmosfera.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/pedir.js"></script>
+<script src="../assets/arte.js"></script></body>
+</html>

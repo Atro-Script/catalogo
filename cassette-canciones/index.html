@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Casete de canciones</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body>
+<section id="sobreEsc" class="sobreEsc">
+  <p class="para" id="paraSobre"></p>
+  <button id="sobre" class="sobre" aria-label="Abrir el sobre">
+    <svg viewBox="0 0 220 150" aria-hidden="true">
+      <rect x="6" y="14" width="208" height="130" rx="6" fill="#e6d3b0" stroke="#b79b6c"/>
+      <path class="solapa" d="M6 20 L110 92 L214 20 L214 14 Q214 8 208 8 H12 Q6 8 6 14Z" fill="#d9c398" stroke="#b79b6c"/>
+      <path d="M6 144 L92 84 M214 144 L128 84" stroke="#c9b283" fill="none"/>
+      <g class="rama" transform="translate(70 96)" fill="none" stroke="#6f8a5a" stroke-width="1.6" stroke-linecap="round"><path d="M0 34 C10 14 20 4 40 -4"/><path d="M12 22 q-8 -6 -6 -14 q8 2 6 14z M24 12 q-2 -9 6 -12 q4 8 -6 12z M34 4 q8 -2 10 -10 q-9 -1 -10 10z" fill="#9db98a"/></g>
+      <circle class="sello" cx="110" cy="86" r="14" fill="#9b7bb5"/><circle cx="110" cy="86" r="5" fill="#f0e2f7"/>
+    </svg>
+  </button>
+  <p class="toca" id="tocaSobre"></p>
+</section>
+<canvas id="flores" aria-hidden="true"></canvas>
+
+<main id="pagina" class="pagina" hidden>
+  <div class="flor-izq" aria-hidden="true"></div><div class="flor-der" aria-hidden="true"></div>
+  <article class="hoja">
+    <p class="meta" id="meta"></p>
+    <h1 id="titulo"></h1>
+    <svg id="casete" class="casete" viewBox="0 0 320 214" role="img" aria-label="Casete">
+      <rect x="4" y="4" width="312" height="206" rx="16" fill="var(--casete)" stroke="#7f8a6a" stroke-width="2"/>
+      <rect x="22" y="18" width="276" height="104" rx="9" fill="#f3ecd9" stroke="#8a9473"/>
+      <g id="flor1" class="mini"></g><g id="flor2" class="mini"></g>
+      <text id="etq" x="160" y="42" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="15" fill="#5b5a43"></text>
+      <rect x="62" y="54" width="196" height="56" rx="28" fill="#2e2a26" stroke="#5b5a43" stroke-width="2"/>
+      <path d="M104 74 H216 M104 90 H216" stroke="#6d5a3f" stroke-width="3" opacity=".55"/>
+      <g class="reel" style="transform-origin:102px 82px"><circle cx="102" cy="82" r="21" fill="#f3ecd9"/><circle cx="102" cy="82" r="8" fill="#3b3631"/><path d="M102 82 L102 66 M102 82 L115.8 90 M102 82 L88.2 90" stroke="#3b3631" stroke-width="4" stroke-linecap="round"/></g>
+      <g class="reel" style="transform-origin:218px 82px"><circle cx="218" cy="82" r="21" fill="#f3ecd9"/><circle cx="218" cy="82" r="8" fill="#3b3631"/><path d="M218 82 L218 66 M218 82 L231.8 90 M218 82 L204.2 90" stroke="#3b3631" stroke-width="4" stroke-linecap="round"/></g>
+      <path d="M60 142 L84 128 H236 L260 142 L274 196 H46Z" fill="#a4ad8e" stroke="#7f8a6a" stroke-width="2"/>
+      <circle cx="104" cy="168" r="9" fill="#3b3631"/><circle cx="216" cy="168" r="9" fill="#3b3631"/><rect x="128" y="160" width="64" height="16" rx="3" fill="#3b3631"/>
+      <circle cx="22" cy="22" r="4" fill="#7f8a6a"/><circle cx="298" cy="22" r="4" fill="#7f8a6a"/><circle cx="22" cy="196" r="4" fill="#7f8a6a"/><circle cx="298" cy="196" r="4" fill="#7f8a6a"/>
+    </svg>
+    <div class="cuerpo">
+      <ol class="pistas" id="pistas"></ol>
+      <aside class="nota" id="nota"><p class="rot">NOTA DEL AUTOR</p><div id="notaTxt"></div><p class="firma" id="firma"></p></aside>
+    </div>
+    <p class="suena" id="suena"></p>
+  </article>
+</main>
+
+<div class="reproductor" id="repro" hidden>
+  <div class="video" id="video" hidden></div>
+  <div class="fila">
+    <div class="info"><b id="rT"></b><small id="rA"></small></div>
+    <div class="ctl"><button id="ant" aria-label="Anterior">⏮</button><button id="pp" class="pp" aria-label="Reproducir o pausar">▶</button><button id="sig" aria-label="Siguiente">⏭</button></div>
+  </div>
+  <div class="barra" id="barra"><i id="prog"></i></div>
+</div>
+<script src="datos.js"></script>
+<script src="cassette.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>

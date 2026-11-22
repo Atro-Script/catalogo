@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; media-src 'self' data: blob:; frame-src 'self' https://www.youtube-nocookie.com https://www.google.com; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabina de Fotos</title>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="../assets/emocion.css">
+<link rel="stylesheet" href="../assets/premium-producto.css">
+<link rel="stylesheet" href="../assets/pulido.css">
+</head>
+<body>
+<main>
+  <p id="evento" class="evento"></p>
+  <h1 id="titulo"></h1>
+  <div class="cabina">
+    <div class="rotulo" aria-hidden="true"><span>PHOTO</span><b>BOOTH</b></div>
+    <div id="ventana" class="ventana">
+      <video id="video" playsinline muted hidden></video>
+      <img id="vista" alt="" hidden>
+      <div id="num" class="num" aria-live="assertive"></div>
+      <div id="flash" class="flash" aria-hidden="true"></div>
+      <p id="msj" class="msj"></p>
+    </div>
+    <div class="cortina i" aria-hidden="true"></div><div class="cortina d" aria-hidden="true"></div>
+    <div id="tira" class="tira" aria-label="Tira de fotos"><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="acc">
+    <button id="foto" class="boton">¡Tomar mis fotos!</button>
+    <button id="cam" class="boton sec">Usar mi cámara</button>
+  </div>
+  <p id="nota" class="nota"></p>
+  <section id="listo" class="listo" hidden>
+    <canvas id="lienzo" aria-label="Tu tira de fotos terminada"></canvas>
+    <button id="guardar" class="boton">Guardar mi tira</button>
+    <button id="otra" class="boton sec">Hacer otra</button>
+    <p id="aviso" class="nota" role="status"></p>
+  </section>
+</main>
+<script src="datos.js"></script>
+<script src="cabina.js"></script>
+<script src="../assets/emocion.js"></script>
+<script src="../assets/arte.js"></script>
+<script src="../assets/pedir.js"></script>
+</body>
+</html>
