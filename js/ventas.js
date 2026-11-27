@@ -50,7 +50,7 @@
 
   // 2) Preguntas frecuentes (solo datos que ya promete el catálogo)
   const FAQ = [
-    ["¿Cuánto cuesta?", "Cada producto tiene su precio inicial, entre $50 y $100 MXN según su complejidad; lo ves en su tarjeta. Sin suscripciones. El precio final depende de cuánto personalices; te enviamos la propuesta con precio antes de empezar."],
+    ["¿Cuánto cuesta?", "Todos los productos tienen un precio inicial de $50 MXN; lo ves en su tarjeta. Sin suscripciones. El precio final depende de cuánto personalices; te enviamos la propuesta con precio antes de empezar."],
     ["¿Puedo verlo antes de pedirlo?", "Sí. Cada producto tiene una demo en vivo que puedes tocar y probar desde el catálogo."],
     ["¿Qué pasa con mis fotos y datos?", "Solo se usan para tu pedido y se eliminan después de entregarlo. Puedes leer la política completa en la página de privacidad."],
     ["¿Cómo lo recibo?", "Con un enlace que compartes por WhatsApp o con código QR. Funciona en cualquier celular, sin instalar nada."],
