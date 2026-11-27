@@ -44,5 +44,5 @@
     let visto = false; const mostrar = () => { if (visto) return; visto = true; setTimeout(() => { barra.hidden = false; }, 9000); };
     addEventListener("pointerdown", mostrar, { once: true, passive: true });
   }
-  cargar("../js/productos.js", () => { if (typeof ATRO_WHATSAPP === "undefined") cargar("../assets/config.js", construir); else construir(); });
+  cargar("../js/productos.js?v=30", () => { if (typeof ATRO_WHATSAPP === "undefined") cargar("../assets/config.js", construir); else construir(); });
 })();
